@@ -318,12 +318,31 @@ function AL_AddInBetween (){
 		}
 		
 		
+		result = parseFloat(result)
 		
-		return result 
+		MessageLog.trace(" from "+tbv+"  to   "+result)
+		return result
 		
 	}
 	
-	
+	function float_to_tb_coords(tbv){
+		
+		var result = 0
+		
+		reslut = tbv.split(" ")[0];
+		var letter = tbv.split(" ")[1];
+		
+		if(letter == "W" || "B" || "S"){
+			
+			result = "-"+result;
+		}
+		
+		MessageLog.trace(" from "+tbv+"  to   "+result)
+		
+		return parseFloat(result)
+		
+	}
+		
 	function add_inBetween_key(_ratio,_column){
 
 			var new_key = null;
@@ -373,7 +392,7 @@ function AL_AddInBetween (){
 			return new_key;
 			
 	}
-	
+	 
 	function interpolate_bezier (_valueA,_valueB,_ratio){
 		
 			var  A = parseFloat(_valueA);
@@ -387,16 +406,26 @@ function AL_AddInBetween (){
 	function interpolate_3d (array1,array2,_ratio){
 		
 		var factor = 1/_ratio;
+		
+		var p1x = toonboom_coords_to_float(array1[0])
+		var p1y = toonboom_coords_to_float(array1[1])
+		var p1z = toonboom_coords_to_float(array1[2])
+		
+		var p2x = toonboom_coords_to_float(array1[0])
+		var p2y = toonboom_coords_to_float(array1[1])
+		var p2z = toonboom_coords_to_float(array1[2])
 	
 		var result = Array();
-		var p1 = new Point3d(toonboom_coords_to_float(array1[0]),toonboom_coords_to_float(array1[1]),toonboom_coords_to_float(array1[2]))
-		var p2 = new Point3d(toonboom_coords_to_float(array2[0])toonboom_coords_to_float(array2[1]),toonboom_coords_to_float(array2[2]))
+		var p1 = new Point3d(p1x,p1y,p1z)
+		var p2 = new Point3d(p2x,p2y,p2z)
 		var p3 = new Point3d()
 		p3.interpolate(factor,p1,p2)
 		
 		result.push(p3.x);
 		result.push(p3.y);
 		result.push(p3.z);
+			
+		MessageLog.trace("new 3dpoint  "+result);
 			
 		return result;
 		
