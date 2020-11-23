@@ -60,8 +60,30 @@ function AL_AddInBetween (){
 
 	function InputDialog (){
 		
+		MessageLog.trace("inputDialog")
+
+	    var d = new Dialog
+	    d.title = "AL_AddInBetween";
+	    d.width = 100;
+
+		var OrderInput = new ComboBox();
+		 OrderInput.label = "Interpo : "
+		 OrderInput.editable = true;
+		 OrderInput.itemList = [5,10,20,30,40,50,60,70,80,90,95];
+		d.add( OrderInput );
+
+
+		if ( d.exec() ){
+
+
+		  Factor_input = OrderInput.currentItem
+		  
+		  INTERPOLATION_FACTOR = 100/parseFloat(Factor_input)
+
+			treat_columns(columns_to_treat,INTERPOLATION_FACTOR);
+
+		}
 		
-		treat_columns(columns_to_treat,INTERPOLATION_FACTOR);
 	}
 	
 	function selected_layers_to_nodes(){
@@ -191,7 +213,7 @@ function AL_AddInBetween (){
 		for(var c = 0 ;c < column_list.length; c++){ 
 			
 			var current_column = column_list[c]
-			add_inBetween_key(factor,column_list[c]);
+			add_inBetween_key(column_list[c],factor);
 			
 		}
 		
@@ -202,14 +224,13 @@ function AL_AddInBetween (){
 	
 	function get_next_bezierkey(_column,_frame){
 
-		var key = "";
+		var key = false;
 		var s = 0;
-
-		MessageLog.trace(frame.numberOf());
 		
 		for (var f = _frame ; f<=frame.numberOf();f++){
 				if(column.isKeyFrame(_column,s,f)){
 					
+					MessageLog.trace(f);
 					key = column.getEntry(_column,s,f)
 					return key;
 					
@@ -218,7 +239,7 @@ function AL_AddInBetween (){
 					
 		}
 		
-		return false;
+		return key;
 		
 		
 
@@ -226,13 +247,14 @@ function AL_AddInBetween (){
 	
 	function get_previous_bezierkey(_column,_frame){
 
-		var key = "";
+		var key = false;
 		var s = 0;
 		
 		for (var f = _frame ; f>=0;f--){
 			
 				if(column.isKeyFrame(_column,s,f)){
 					
+					MessageLog.trace(f);
 					key = column.getEntry(_column,s,f)
 					return key;
 					
@@ -241,7 +263,7 @@ function AL_AddInBetween (){
 	
 		}
 		
-		return false;
+		return key;
 		
 		
 
@@ -305,25 +327,7 @@ function AL_AddInBetween (){
 	}
 	
 	
-	function toonboom_coords_to_float(tbv){
-		
-		var result = 0
-		
-		reslut = tbv.split(" ")[0];
-		var letter = tbv.split(" ")[1];
-		
-		if(letter == "W" || "B" || "S"){
-			
-			result = "-"+result;
-		}
-		
-		
-		result = parseFloat(result)
-		
-		MessageLog.trace(" from "+tbv+"  to   "+result)
-		return result
-		
-	}
+
 	
 	function float_to_tb_coords(tbv){
 		
@@ -343,7 +347,7 @@ function AL_AddInBetween (){
 		
 	}
 		
-	function add_inBetween_key(_ratio,_column){
+	function add_inBetween_key(_column,_ratio){
 
 			var new_key = null;
 			var column_type = ""
@@ -352,10 +356,12 @@ function AL_AddInBetween (){
 			
 			if(column.type(_column) =="3DPATH"){
 				
+				MessageLog.trace("3DPATH")
+				
 				next_key = get_next_3Dkey(_column,CURRENT_FRAME)
 				previous_key = get_previous_3Dkey(_column,CURRENT_FRAME)
 				
-				if(next_key != false&&previous_key!=false){
+				if(next_key !== false && previous_key !==false){
 					
 					new_key = interpolate_3d(previous_key,next_key,_ratio);
 				
@@ -369,25 +375,31 @@ function AL_AddInBetween (){
 				
 			}else{
 				
+				MessageLog.trace("BEZIER")
+				
 				next_key = get_next_bezierkey(_column,CURRENT_FRAME)
 				previous_key = get_previous_bezierkey(_column,CURRENT_FRAME)
 				
-				if(next_key != false&&previous_key!=false){
+				if(next_key !== false && previous_key !==false){
 				
-					
-					new_key = interpolate_bezier (previous_key,next_key,_ratio)
+					MessageLog.trace("ENTRY")
+					new_key = interpolate_bezier(previous_key,next_key,_ratio)
+					column.setEntry(_column,0,CURRENT_FRAME,new_key);
+					//column.setEntry(_column,1,CURRENT_FRAME,new_key);
 					
 				}
 				
-				column.setEntry(_column,1,CURRENT_FRAME,new_key);
+				
 				
 			}
 			
-			column.setKeyFrame(_column, CURRENT_FRAME);
+			column.setKeyFrame(_column,CURRENT_FRAME);
 			
-			MessageLog.trace(next_key)
-			MessageLog.trace(previous_key)
-			MessageLog.trace(new_key)
+			
+			MessageLog.trace(column.getDisplayName(_column))
+			MessageLog.trace("previous "+previous_key)
+			MessageLog.trace("next "+next_key)
+			MessageLog.trace("interpo "+new_key)
 			
 			return new_key;
 			
@@ -411,11 +423,12 @@ function AL_AddInBetween (){
 		var p1y = toonboom_coords_to_float(array1[1])
 		var p1z = toonboom_coords_to_float(array1[2])
 		
-		var p2x = toonboom_coords_to_float(array1[0])
-		var p2y = toonboom_coords_to_float(array1[1])
-		var p2z = toonboom_coords_to_float(array1[2])
+		var p2x = toonboom_coords_to_float(array2[0])
+		var p2y = toonboom_coords_to_float(array2[1])
+		var p2z = toonboom_coords_to_float(array2[2])
 	
 		var result = Array();
+		
 		var p1 = new Point3d(p1x,p1y,p1z)
 		var p2 = new Point3d(p2x,p2y,p2z)
 		var p3 = new Point3d()
@@ -430,7 +443,30 @@ function AL_AddInBetween (){
 		return result;
 		
 	}
+
+	function toonboom_coords_to_float(tbv){
 		
+		var result = 0
+		
+		result= tbv.split(" ")[0];
+		var letter = tbv.split(" ")[1];
+		
+		
+		
+		if(letter == "W" || letter =="B" || letter =="S"){
+			
+			result = "-"+result;
+		}
+		
+		
+		result = parseFloat(result)
+		
+		MessageLog.trace(" from "+tbv+"  to   "+result)
+		//return result
+		//return tbv
+		return result
+		
+	}	
 	
 	function get_linked_columns(_node){
 		
