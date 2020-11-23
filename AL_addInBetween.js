@@ -1,62 +1,59 @@
+
+
+/******************************** A D D   I N B E T W E E N  ***************************/
+/*
+
+	Author : Alexandre Cormier 
+	Compatible : ToonBoom 20 and bellow
+	version : 1.0
+	Creation Date : 22_11_2020
+
+
+	Adds a key between two keyframes with  interpolation factor. 
+
+
+*/
+
 function AL_AddInBetween (){
 
-	// Adds a key between two keyframes at a given point between the two values. 
-
-
-	/*
-
-	distance = pointB - pointA
-	pointC  = distance/ease
-
-	2 = 50%
-
-
-	*/
-
-	// VARIABLES 
-
-
-
+	
+	// ************** VARIABLES 
+	
+	
+	
 	var selected_nodes = selection.selectedNodes(0);
 	
-	
 	var CURRENT_FRAME = frame.current();
+	
 	var numSelLayers = Timeline.numLayerSel;
 	
 	var INTERPOLATION_FACTOR = 2
 	
+	
+	
+	
+	// ************** EXECUTION 
+	
 
-
-	// EXECUTION 
-
-	MessageLog.trace("AL_AddInBetween");
 	nodes_to_treat = selected_layers_to_nodes();
-	MessageLog.trace(nodes_to_treat);
-	
-	
 	nodes_to_treat = filter_nodes_by_type(nodes_to_treat,["PEG","CurveModule","OffsetModule","BendyBoneModule"])
-	MessageLog.trace("nodes to treat : ");
-	MessageLog.trace(nodes_to_treat);
-	
-	
-	
 	columns_to_treat = fetch_colummns(nodes_to_treat)
-	MessageLog.trace("columns_to_treat");
-	MessageLog.trace(columns_to_treat);
 	columns_to_treat = filter_columns_by_type(columns_to_treat,["3DPATH","BEZIER","EASE","QUATERNIONPATH"]) // not supported : "QUATERNIONPATH"
-	MessageLog.trace("columns_to_treat");
-	MessageLog.trace(columns_to_treat);
-	
-	
+
 	scene.beginUndoRedoAccum("AL_PurgePalettesFiles");
 	
 	InputDialog();
 	
-	
 	scene.endUndoRedoAccum();
 	
-
-	// FONCTIONS 
+	
+	
+	
+	
+	// ************** FONCTIONS 
+	
+	
+	
 
 	function InputDialog (){
 		
@@ -67,7 +64,7 @@ function AL_AddInBetween (){
 	    d.width = 100;
 
 		var OrderInput = new ComboBox();
-		 OrderInput.label = "Interpo : "
+		 OrderInput.label = "Interpolation factor  : ";
 		 OrderInput.editable = true;
 		 OrderInput.itemList = [5,10,20,30,40,50,60,70,80,90,95];
 		d.add( OrderInput );
@@ -85,6 +82,8 @@ function AL_AddInBetween (){
 		}
 		
 	}
+	
+	// filters functions
 	
 	function selected_layers_to_nodes(){
 		
@@ -135,53 +134,23 @@ function AL_AddInBetween (){
 		return relevant_nodes; 
 	}
 	
-	function fetch_child_nodes(_nodes_list){
+	
+	function filter_columns_by_type (column_list,relevant_types){
 		
-		nodes_list = _nodes_list;
+		var filtered_list = Array();
 		
-		child = nodes_list;
-		
-		for(var n = 0 ; n < nodes_list.length; n++){ 
-			var currentNode = nodes_list[n];
+		for(var i = 0 ; i<column_list.length;i++){
 			
-			for(var op = 0 ; op < node.numberOfOutputPorts(currentNode);op++){
-				
-				for(var l = 0 ; l < node.numberOfOutputLinks(currentNode,op);l++){
-
-					var olink = node.dstNodeInfo(currentNode,op,l)
+				if(relevant_types.indexOf(column.type(column_list[i]))!=-1){
 					
-					var child_node = olink.node;
+					filtered_list.push(column_list[i])
 					
-					nodes_list.push(child_node)
-					
-					child.push(child_node)
-					
-					if(node.type(child_node)=="GROUP"){
-						
-						MessageLog.trace("GROUP")
-						
-						var currentGroup = child_node
-						
-						var subNodesInGroup= node.numberOfSubNodes(currentGroup);
-								
-						for (var sn = 0; sn<subNodesInGroup;sn++){
-
-							var sub_node= node.subNode(currentGroup,sn);
-							
-							nodes_list.push(sub_node);
-							
-							child.push(sub_node);
-
-						}						
-					}
+					MessageLog.trace(column.type(column_list[i]));
 					
 				}
-				
-			}
 		}
 		
-		return unique_array(child)
-		
+		return filtered_list;
 	}
 	
 
@@ -206,6 +175,8 @@ function AL_AddInBetween (){
 		return unique_array(columns_list); 
 		
 	}
+	
+	
 	
 	
 	function treat_columns(column_list,factor){
@@ -395,7 +366,6 @@ function AL_AddInBetween (){
 			
 			column.setKeyFrame(_column,CURRENT_FRAME);
 			
-			
 			MessageLog.trace(column.getDisplayName(_column))
 			MessageLog.trace("previous "+previous_key)
 			MessageLog.trace("next "+next_key)
@@ -404,6 +374,7 @@ function AL_AddInBetween (){
 			return new_key;
 			
 	}
+	
 	 
 	function interpolate_bezier (_valueA,_valueB,_ratio){
 		
@@ -462,8 +433,7 @@ function AL_AddInBetween (){
 		result = parseFloat(result)
 		
 		MessageLog.trace(" from "+tbv+"  to   "+result)
-		//return result
-		//return tbv
+
 		return result
 		
 	}	
@@ -494,39 +464,7 @@ function AL_AddInBetween (){
 		
 	}
 	
-	function unique_array(arr){
-		
-		var unique_array = Array();
-		for(var i = 0 ; i<arr.length;i++){
-			if(unique_array.indexOf(arr[i])==-1){
-				unique_array.push(arr[i]);
-			}
-		}
-		return unique_array;
-		
-	}
-	
-	
-	
-	function filter_columns_by_type (column_list,relevant_types){
-		var filtered_list = Array();
-		
-		for(var i = 0 ; i<column_list.length;i++){
-			
-				if(relevant_types.indexOf(column.type(column_list[i]))!=-1){
-					
-					filtered_list.push(column_list[i])
-					
-					MessageLog.trace(column.type(column_list[i]));
-					
-				}
-		}
-		
-		return filtered_list;
-	}
-	
-	
-	
+
 	function getAttributesNameList (snode){
 		
 		var attrList = node.getAttrList(snode, frame.current(),"");
@@ -554,10 +492,19 @@ function AL_AddInBetween (){
 	}
 	
 	
-	function get_node_attributes(node){
 	
+	
+	function unique_array(arr){
 		
+		var unique_array = Array();
+		for(var i = 0 ; i<arr.length;i++){
+			if(unique_array.indexOf(arr[i])==-1){
+				unique_array.push(arr[i]);
+			}
+		}
+		return unique_array;
 		
 	}
-
+	
+		
 }
