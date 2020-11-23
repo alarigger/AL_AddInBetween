@@ -19,34 +19,41 @@ function AL_AddInBetween (){
 
 	var selected_nodes = selection.selectedNodes(0);
 	
+	
 	var CURRENT_FRAME = frame.current();
 	var numSelLayers = Timeline.numLayerSel;
 	
-	var INTERPOLATION_FACTOR = 1
+	var INTERPOLATION_FACTOR = 2
 	
 
 
 	// EXECUTION 
 
 	MessageLog.trace("AL_AddInBetween");
+	nodes_to_treat = selected_layers_to_nodes();
+	MessageLog.trace(nodes_to_treat);
 	
-	nodes_to_treat = filter_nodes_by_type(selected_nodes,["READ","PEG","CurveModule","OffsetModule","BendyBoneModule"])
+	
+	nodes_to_treat = filter_nodes_by_type(nodes_to_treat,["PEG","CurveModule","OffsetModule","BendyBoneModule"])
 	MessageLog.trace("nodes to treat : ");
 	MessageLog.trace(nodes_to_treat);
 	
 	
 	
 	columns_to_treat = fetch_colummns(nodes_to_treat)
-		MessageLog.trace("columns_to_treat");
+	MessageLog.trace("columns_to_treat");
 	MessageLog.trace(columns_to_treat);
-	columns_to_treat = filter_columns_by_type(columns_to_treat,["3DPATH","BEZIER","EASE","QUATERNIONPATH"])
+	columns_to_treat = filter_columns_by_type(columns_to_treat,["3DPATH","BEZIER","EASE","QUATERNIONPATH"]) // not supported : "QUATERNIONPATH"
 	MessageLog.trace("columns_to_treat");
 	MessageLog.trace(columns_to_treat);
 	
 	
-	treat_columns(columns_to_treat,INTERPOLATION_FACTOR);
+	scene.beginUndoRedoAccum("AL_PurgePalettesFiles");
 	
 	InputDialog();
+	
+	
+	scene.endUndoRedoAccum();
 	
 
 	// FONCTIONS 
@@ -54,6 +61,22 @@ function AL_AddInBetween (){
 	function InputDialog (){
 		
 		
+		treat_columns(columns_to_treat,INTERPOLATION_FACTOR);
+	}
+	
+	function selected_layers_to_nodes(){
+		
+		node_list = Array();
+		var numSelLayers = Timeline.numLayerSel;
+		
+		for ( var i = 0; i < numSelLayers; i++ )
+		{
+			if ( Timeline.selIsNode( i ) ){
+				node_list.push(Timeline.selToNode(i));
+			}
+		}
+		
+		return unique_array(node_list);
 		
 	}
 
@@ -89,6 +112,56 @@ function AL_AddInBetween (){
 		} 	
 		return relevant_nodes; 
 	}
+	
+	function fetch_child_nodes(_nodes_list){
+		
+		nodes_list = _nodes_list;
+		
+		child = nodes_list;
+		
+		for(var n = 0 ; n < nodes_list.length; n++){ 
+			var currentNode = nodes_list[n];
+			
+			for(var op = 0 ; op < node.numberOfOutputPorts(currentNode);op++){
+				
+				for(var l = 0 ; l < node.numberOfOutputLinks(currentNode,op);l++){
+
+					var olink = node.dstNodeInfo(currentNode,op,l)
+					
+					var child_node = olink.node;
+					
+					nodes_list.push(child_node)
+					
+					child.push(child_node)
+					
+					if(node.type(child_node)=="GROUP"){
+						
+						MessageLog.trace("GROUP")
+						
+						var currentGroup = child_node
+						
+						var subNodesInGroup= node.numberOfSubNodes(currentGroup);
+								
+						for (var sn = 0; sn<subNodesInGroup;sn++){
+
+							var sub_node= node.subNode(currentGroup,sn);
+							
+							nodes_list.push(sub_node);
+							
+							child.push(sub_node);
+
+						}						
+					}
+					
+				}
+				
+			}
+		}
+		
+		return unique_array(child)
+		
+	}
+	
 
 	function fetch_colummns(nodes_list){
 		
@@ -125,6 +198,7 @@ function AL_AddInBetween (){
 		return true
 		
 	}
+
 	
 	function get_next_bezierkey(_column,_frame){
 
@@ -143,6 +217,9 @@ function AL_AddInBetween (){
 			
 					
 		}
+		
+		return false;
+		
 		
 
 	}
@@ -164,6 +241,9 @@ function AL_AddInBetween (){
 	
 		}
 		
+		return false;
+		
+		
 
 	}
 	
@@ -184,16 +264,15 @@ function AL_AddInBetween (){
 						key.push(column.getEntry(_column,s,f))
 
 					}
-
-					var p = new Point3d (key[1],key[2],key[3])
-					key = p;
-					
 					
 					return key;
 	
 				}
 					
 		}
+		
+		return false;
+		
 		
 
 	}
@@ -206,7 +285,6 @@ function AL_AddInBetween (){
 		
 		for (var f = _frame ; f>=0;f--){
 				
-
 				if(column.isKeyFrame(_column,s,f)){
 		
 					for (s = s ; s<sub_column;s++){
@@ -214,10 +292,6 @@ function AL_AddInBetween (){
 						key.push(column.getEntry(_column,s,f))
 
 					}
-
-					var p = new Point3d (key[1],key[2],key[3])
-					key = p;
-					
 					
 					return key;
 	
@@ -225,11 +299,33 @@ function AL_AddInBetween (){
 					
 		}
 		
+		return false;
+		
 
 	}
-	function add_inBetween_key(_ratio,_column){
+	
+	
+	function toonboom_coords_to_float(tbv){
+		
+		var result = 0
+		
+		reslut = tbv.split(" ")[0];
+		var letter = tbv.split(" ")[1];
+		
+		if(letter == "W" || "B" || "S"){
 			
-			var ratio= 2;
+			result = "-"+result;
+		}
+		
+		
+		
+		return result 
+		
+	}
+	
+	
+	function add_inBetween_key(_ratio,_column){
+
 			var new_key = null;
 			var column_type = ""
 			var next_key = ""
@@ -240,48 +336,63 @@ function AL_AddInBetween (){
 				next_key = get_next_3Dkey(_column,CURRENT_FRAME)
 				previous_key = get_previous_3Dkey(_column,CURRENT_FRAME)
 				
-				new_key = interpolate_3d(previous_key,next_key,ratio);
+				if(next_key != false&&previous_key!=false){
+					
+					new_key = interpolate_3d(previous_key,next_key,_ratio);
 				
-				column.setEntry(_column,1,CURRENT_FRAME,new_key[1]);
-				column.setEntry(_column,2,CURRENT_FRAME,new_key[2]);
-				column.setEntry(_column,3,CURRENT_FRAME,new_key[3]);
+					column.setEntry(_column,1,CURRENT_FRAME,new_key[0]);
+					column.setEntry(_column,2,CURRENT_FRAME,new_key[1]);
+					column.setEntry(_column,3,CURRENT_FRAME,new_key[2]);				
+					
+				}
 				
-				setKeyFrame (_column, CURRENT_FRAME)
+
 				
 			}else{
 				
 				next_key = get_next_bezierkey(_column,CURRENT_FRAME)
 				previous_key = get_previous_bezierkey(_column,CURRENT_FRAME)
-				new_key = interpolate_bezier (previous_key,next_key,ratio)
 				
-				column.setEntry(_column,1,CURRENT_FRAME,new_key,0);
+				if(next_key != false&&previous_key!=false){
+				
+					
+					new_key = interpolate_bezier (previous_key,next_key,_ratio)
+					
+				}
+				
+				column.setEntry(_column,1,CURRENT_FRAME,new_key);
+				
 			}
+			
+			column.setKeyFrame(_column, CURRENT_FRAME);
 			
 			MessageLog.trace(next_key)
 			MessageLog.trace(previous_key)
 			MessageLog.trace(new_key)
 			
-			
-			
 			return new_key;
 			
-
-		
 	}
 	
 	function interpolate_bezier (_valueA,_valueB,_ratio){
 		
 			var  A = parseFloat(_valueA);
 			var  B = parseFloat(_valueB);
+			var result = A + ((B-A)/_ratio);
 			
-			return A + ((B-A)/_ratio);
+			return result;
 		
 	}
 	
-	function interpolate_3d (p1,p2,_ratio){
+	function interpolate_3d (array1,array2,_ratio){
+		
+		var factor = 1/_ratio;
 	
 		var result = Array();
-		var p3 = new Point3d().interpolate(_ratio,p1,p2)
+		var p1 = new Point3d(toonboom_coords_to_float(array1[0]),toonboom_coords_to_float(array1[1]),toonboom_coords_to_float(array1[2]))
+		var p2 = new Point3d(toonboom_coords_to_float(array2[0])toonboom_coords_to_float(array2[1]),toonboom_coords_to_float(array2[2]))
+		var p3 = new Point3d()
+		p3.interpolate(factor,p1,p2)
 		
 		result.push(p3.x);
 		result.push(p3.y);
