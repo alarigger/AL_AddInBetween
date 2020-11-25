@@ -4,9 +4,9 @@
 /*
 
 	Author : Alexandre Cormier 
-	Compatible : ToonBoom 20 and bellow
-	version : 1.0
-	Creation Date : 22_11_2020
+	Compatible : ToonBoom 20 
+	version : 1.1
+	Creation Date : 25_11_2020
 
 
 	Adds a key between two keyframes with  interpolation factor. 
@@ -14,31 +14,10 @@
 
 */
 
-function AL_AddInBetween (){
 
-	
-	// ************** VARIABLES 
-	
-	
-	
-	var selected_nodes = selection.selectedNodes(0);
-	
-	var CURRENT_FRAME = frame.current();
-	
-	var numSelLayers = Timeline.numLayerSel;
-	
-	var INTERPOLATION_FACTOR = 2
-	
-	
-	
-	
-	// ************** EXECUTION 
-	
+function AL_AddInBetween(){
 
-	nodes_to_treat = selected_layers_to_nodes();
-	nodes_to_treat = filter_nodes_by_type(nodes_to_treat,["PEG","CurveModule","OffsetModule","BendyBoneModule"])
-	columns_to_treat = fetch_colummns(nodes_to_treat)
-	columns_to_treat = filter_columns_by_type(columns_to_treat,["3DPATH","BEZIER","EASE","QUATERNIONPATH"]) // not supported : "QUATERNIONPATH"
+	MessageLog.trace(arguments.callee.name)
 
 	scene.beginUndoRedoAccum("AL_PurgePalettesFiles");
 	
@@ -46,48 +25,113 @@ function AL_AddInBetween (){
 	
 	scene.endUndoRedoAccum();
 	
-	
-	
-	
-	
-	// ************** FONCTIONS 
-	
-	
-	
-
 	function InputDialog (){
 		
-		MessageLog.trace("inputDialog")
-
+		MessageLog.trace(arguments.callee.name)
 	    var d = new Dialog
 	    d.title = "AL_AddInBetween";
 	    d.width = 100;
 
 		var OrderInput = new ComboBox();
-		 OrderInput.label = "Interpolation factor  : ";
+		 OrderInput.label = "Pourcentage  : ";
 		 OrderInput.editable = true;
 		 OrderInput.itemList = [5,10,20,30,40,50,60,70,80,90,95];
 		d.add( OrderInput );
 
 
-		if ( d.exec() ){
-
-
-		  Factor_input = OrderInput.currentItem
-		  
-		  INTERPOLATION_FACTOR = 100/parseFloat(Factor_input)
-
-			treat_columns(columns_to_treat,INTERPOLATION_FACTOR);
+		if ( d.exec() ){	
+		
+			var pourcentage = OrderInput.currentItem
+	
+			AddInBetween_process(pourcentage)
 
 		}
 		
 	}
 	
+	
+}	
+
+
+
+/* FOR SEPARATED BUTTONS : */
+
+function tween_20(){
+	AddInBetween_process(20);
+}
+
+
+function tween_30(){
+	AddInBetween_process(30);
+}
+
+function tween_50(){
+	AddInBetween_process(50);
+}
+
+function tween_70(){
+	AddInBetween_process(70);
+}
+
+function tween_80(){
+	AddInBetween_process(80);
+}
+
+function tween_90(){
+	AddInBetween_process(90);
+}
+
+
+function tween_120(){
+	AddInBetween_process(120);
+}
+
+
+function tween_minus30(){
+	AddInBetween_process(-30);
+}
+
+
+
+
+function AddInBetween_process(POURCENTAGE){
+	
+	MessageLog.trace(arguments.callee.name)
+	
+	var selected_nodes = selection.selectedNodes(0);
+	var CURRENT_FRAME = frame.current();
+	var numSelLayers = Timeline.numLayerSel;
+	
+	
+	var nodes_to_treat = Array();
+	var columns_to_treat = Array();
+	
+	var float_factor = 100/parseFloat(POURCENTAGE)
+
+	
+	nodes_to_treat = selected_layers_to_nodes();
+	nodes_to_treat = filter_nodes_by_type(nodes_to_treat,["PEG","CurveModule","OffsetModule","BendyBoneModule"])
+	columns_to_treat = fetch_colummns(nodes_to_treat)
+	columns_to_treat = filter_columns_by_type(columns_to_treat,["3DPATH","BEZIER","EASE","QUATERNIONPATH"]) // not supported : "QUATERNIONPATH"
+
+	scene.beginUndoRedoAccum("AL_PurgePalettesFiles");
+
+	treat_columns(frame.current(),columns_to_treat,float_factor);
+	
+	scene.endUndoRedoAccum();	
+	
+
+	// ************** FONCTIONS 
+	
+
 	// filters functions
 	
 	function selected_layers_to_nodes(){
 		
+		MessageLog.trace(arguments.callee.name)
+		
 		node_list = Array();
+		
 		var numSelLayers = Timeline.numLayerSel;
 		
 		for ( var i = 0; i < numSelLayers; i++ )
@@ -97,11 +141,14 @@ function AL_AddInBetween (){
 			}
 		}
 		
+		MessageLog.trace(unique_array(node_list))
 		return unique_array(node_list);
 		
 	}
 
 	function filter_nodes_by_type(nodes_list,relevant_types){
+		
+		MessageLog.trace(arguments.callee.name)
 		
 		MessageLog.trace(nodes_list);
 		MessageLog.trace(relevant_types);
@@ -137,6 +184,8 @@ function AL_AddInBetween (){
 	
 	function filter_columns_by_type (column_list,relevant_types){
 		
+		MessageLog.trace(arguments.callee.name)
+		
 		var filtered_list = Array();
 		
 		for(var i = 0 ; i<column_list.length;i++){
@@ -156,11 +205,14 @@ function AL_AddInBetween (){
 
 	function fetch_colummns(nodes_list){
 		
+		MessageLog.trace(arguments.callee.name)
+		
 		var columns_list = Array();
 		
 		
 		
 		for(var n = 0 ; n < nodes_list.length; n++){ 
+		
 		
 			var currentNode = nodes_list[n];
 			
@@ -179,12 +231,15 @@ function AL_AddInBetween (){
 	
 	
 	
-	function treat_columns(column_list,factor){
+	function treat_columns(_frame,column_list,factor){
+		
+		MessageLog.trace(arguments.callee.name)
+		MessageLog.trace(column_list)
 		
 		for(var c = 0 ;c < column_list.length; c++){ 
 			
 			var current_column = column_list[c]
-			add_inBetween_key(column_list[c],factor);
+			add_inBetween_key(_frame,column_list[c],factor);
 			
 		}
 		
@@ -194,6 +249,8 @@ function AL_AddInBetween (){
 
 	
 	function get_next_bezierkey(_column,_frame){
+		
+		MessageLog.trace(arguments.callee.name)
 
 		var key = false;
 		var s = 0;
@@ -217,6 +274,8 @@ function AL_AddInBetween (){
 	}
 	
 	function get_previous_bezierkey(_column,_frame){
+		
+		MessageLog.trace(arguments.callee.name)
 
 		var key = false;
 		var s = 0;
@@ -242,6 +301,8 @@ function AL_AddInBetween (){
 	
 	
 	function get_next_3Dkey(_column,_frame){
+		
+		MessageLog.trace(arguments.callee.name)
 
 		sub_column = 4;
 		key = Array();
@@ -271,6 +332,8 @@ function AL_AddInBetween (){
 	}
 	
 	function get_previous_3Dkey(_column,_frame){
+		
+		MessageLog.trace(arguments.callee.name)
 
 		sub_column = 4;
 		key = Array();
@@ -318,8 +381,9 @@ function AL_AddInBetween (){
 		
 	}
 		
-	function add_inBetween_key(_column,_ratio){
+	function add_inBetween_key(_frame,_column,_ratio){
 
+			var CURRENT_FRAME = _frame;
 			var new_key = null;
 			var column_type = ""
 			var next_key = ""
@@ -505,6 +569,13 @@ function AL_AddInBetween (){
 		return unique_array;
 		
 	}
+		
+	
+}
+
+
+
+
 	
 		
-}
+
