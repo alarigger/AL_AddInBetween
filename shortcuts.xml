@@ -1,0 +1,1495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shortcuts>
+ <flavour name="Toon Boom Harmony" />
+ <flavour name="Adobe Flash" />
+ <flavour name="Toon Boom Studio" />
+
+ // General
+ <category id="General" text="General" >
+  <shortcut  condition="hasIntegratedHelpView and not macos" id="WHATS_THIS" slot="onActionWhatsThis()" order="256" longDesc="The shortcut key to Help." text="Show Whats This..." value="F1" />
+  <shortcut  condition="hasIntegratedHelpView and macos" id="WHATS_THIS" slot="onActionWhatsThis()" order="256" longDesc="The shortcut key to Help." text="Show Whats This..." value="Ctrl+/" />
+
+  <shortcut condition="full and not essentials and not harmonySketch" id="TS_INBETWEEN" longDesc="Inserts an inbetween marker" order="256" responder="scriptResponder" slot="onActionExecuteScript(QString)" itemParameter="OC_00_Test_Timesheet_Inbetween in OC_00_Test_Timesheet_02.js" text="inbetween" value="Ctrl+J" />
+  
+  <shortcut condition="not paint" id="MAIN_DUPLICATE_ELEMENTS" longDesc="The shortcut key to main Edit->Duplicate." slot="onActionDuplicateElement()" text="Duplicate" value="" />
+  <shortcut condition="not paint" id="MAIN_CLONE_ELEMENTS" longDesc="The shortcut key to main Edit->Clone" slot="onActionCloneElement()" text="Clone" value="" />
+  <shortcut condition="not paint" id="MAIN_MERGE_ELEMENTS" longDesc="The shortcut key to main Edit->Merge" slot="onActionMergeElements()" text="Merge" value="" />
+  <shortcut condition="not paint" id="XSHEET_ADD_FRAME_AT_TOP" longDesc="The shortcut key to display the Add Frame At Top dialog box in the Xsheet View." slot="onActionAddFramesAtTop()" text="Add Frame At Start" value="" />
+  <shortcut condition="not paint" id="XSHEET_ADD_FRAME_AT_BOTTOM" longDesc="The shortcut key to display the Add Frame At Bottom dialog box in the Xsheet View." slot="onActionAddFramesAtBottom()" text="Add Frame At End" value="" />
+  <shortcut condition="not paint" id="XSHEET_ADD_FRAME_BEF_KEY" longDesc="The shortcut key to display the Add Frame Before Selection dialog box in the Xsheet View." slot="onActionAddFramesBeforeSel()" text="Add Frame Before Selection" value="Ctrl+G" />
+  <shortcut checkable="false" condition="not paint" id="XSHEET_ADD_FRAME_AFT_KEY" longDesc="The shortcut key to display the Add Frame After Selection dialog box in the Xsheet View." slot="onActionAddFramesAfterSel()" text="Add Frame After Selection" value="Ctrl+H" value_mac="Meta+H" />
+  <shortcut checkable="false" condition="not database" id="NEW_KEY" longDesc="This is the shortcut to create a new scene." order="256" slot="onActionNewScene()" text="New" value="Ctrl+N" />
+  <shortcut condition="not scan and not harmonySketch" id="OPEN_KEY" longDesc="This is the shortcut to open a scene or open drawings in paint mode." order="256" slot="onActionOpen()" text="Open" value="Ctrl+O" />
+  <shortcut condition="paint" id="OPEN_ELEMENTS_KEY" longDesc="This is the shortcut to open elements in paint mode." order="256" slot="onActionOpenElements()" text="Open Elements" value="Ctrl+E" />
+  <shortcut checkable="false" id="SAVE_ALL_KEY" longDesc="This is the shortcut to save everything in a scene (scene data, palette lists, palettes and drawings)." order="256" slot="onActionSaveEverything()" text="Save" value="Ctrl+S" />
+  <shortcut condition="database" id="ADANCED_SAVE_KEY" longDesc="This is the shortcut to open the Advanced Save dialog box. This dialog box is used to save specific parts of a scene (scene data, palette lists, palettes and drawings)." slot="onActionSaveDialog()" text="Advanced Save" value="Ctrl+Shift+S" />
+
+  <shortcut condition="hasIntegratedHelpView and essentials" id="HELP_KEY" itemParameter="http://www.toonboom.com/prodr/har/20-essentials/ohesse" itemParameter1="1" longDesc="This is the shortcut to the Online Help" slot="onActionOpenURL(QString,int)" text="Help" value="" />
+  <shortcut condition="hasIntegratedHelpView and advanced and not paint" id="HELP_KEY" itemParameter="http://www.toonboom.com/prodr/har/20-advanced/ohae" itemParameter1="1" longDesc="This is the shortcut to the Online Help" slot="onActionOpenURL(QString,int)" text="Help" value="" />
+  <shortcut condition="hasIntegratedHelpView and premium and not paint" id="HELP_KEY" itemParameter="http://www.toonboom.com/prodr/har/20-premium/ohpe" itemParameter1="1" longDesc="This is the shortcut to the Online Help" slot="onActionOpenURL(QString,int)" text="Help" value="" />
+  <shortcut condition="hasIntegratedHelpView and paint" id="HELP_KEY" itemParameter="http://www.toonboom.com/prodr/har/20/ohpm" longDesc="This is the shortcut to the Online Help" itemParameter1="1" slot="onActionOpenURL(QString,int)" text="Help" value="" />
+
+  <shortcut condition="(not hasIntegratedHelpView ) and essentials" id="HELP_KEY" itemParameter="http://www.toonboom.com/prodr/har/20-essentials/ohesse" itemParameter1="1" longDesc="This is the shortcut to the Online Help" slot="onActionOpenURL(QString,int)" text="Help" value="F1" />
+  <shortcut condition="(not hasIntegratedHelpView ) and advanced and not paint" id="HELP_KEY" itemParameter="http://www.toonboom.com/prodr/har/20-advanced/ohae" itemParameter1="1" longDesc="This is the shortcut to the Online Help" slot="onActionOpenURL(QString,int)" text="Help" value="F1" />
+  <shortcut condition="(not hasIntegratedHelpView ) and premium and not paint" id="HELP_KEY" itemParameter="http://www.toonboom.com/prodr/har/20-premium/ohpe" itemParameter1="1" longDesc="This is the shortcut to the Online Help" slot="onActionOpenURL(QString,int)" text="Help" value="F1" />
+  <shortcut condition="(not hasIntegratedHelpView ) and paint" id="HELP_KEY" itemParameter="http://www.toonboom.com/prodr/har/20/ohpm" longDesc="This is the shortcut to the Online Help" itemParameter1="1" slot="onActionOpenURL(QString,int)" text="Help" value="F1" />
+
+  <shortcut condition="full" id="IMPORT_MOVIE_KEY" longDesc="Import QuickTime movie to the scene" slot="onActionMmxImport()" text="Import Movie" value="" />
+  <shortcut condition="full and not essentials and not harmonySketch" id="COMPOSITE_KEY" longDesc="Opens the Render Write Nodes dialog box, which you can use to initiate a local composite or batch composite operation." order="256" responder="sceneUI" slot="onActionComposite()" text="Render" value="Ctrl+Shift+Y" />
+  <shortcut condition="full and not essentials and not harmonySketch" id="PRECOMP_KEY" longDesc="Opens the Manage Pre-render Cache dialog box, which you can manage cache rendering of pre-render cache nodes." order="256" responder="sceneUI" slot="onActionPreComp()" text="Pre-render Cache" value="" />
+  <shortcut condition="advanced or harmonyFamily" id="Save_OpenGL_Frames" longDesc="Opens the Save OpenGL Frames dialog box"  slot="onActionSaveOpenGLFrames()" text="OpenGL Frames..." value="" />
+  <shortcut condition="essentials" id="COMPOSITE_KEY" longDesc="Opens the Export Images dialog box which you can use to save rendered frames to file." order="256" responder="sceneUI" slot="onActionComposite()" text="Export Images" value="Ctrl+Shift+Y" />
+  <shortcut condition="not (essentials or advanced or harmonySketch)" id="READ_CHANGED_DRAWINGS_KEY" longDesc="This is the shortcut key to reload drawings that have changed on disk." order="256" responder="sceneUI" slot="onActionReadChangedDrawings()" text="Read Changed Drawings" value="Ctrl+;" />
+  <shortcut id="UNDO_KEY" longDesc="This is the shortcut key to undo the previous operation." order="256" slot="onActionUndo()" text="Undo" value="Ctrl+Z" />
+  <shortcut id="REDO_KEY" longDesc="This is the shortcut key to redo the an operation that was undone." order="256" slot="onActionRedo()" text="Redo" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Y" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+Z" />
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Shift+Z" />
+  </shortcut>
+  <shortcut checkable="false" id="CUT_KEY" longDesc="This is the shortcut key to cut the selection." responder="selection" slot="cut()" text="Cut" value="Ctrl+X" />
+  <shortcut checkable="false" id="COPY_KEY" longDesc="This is the shortcut key to copy the selection." responder="selection" slot="copy()" text="Copy" value="Ctrl+C" />
+  <shortcut checkable="false" id="PASTE_KEY" longDesc="This is the shortcut key to paste the clipboard contents to the scene." slot="paste()" text="Paste" value="Ctrl+V" />
+  <shortcut checkable="false" condition="not paint" id="PASTE_SPECIAL_KEY" longDesc="This is the shortcut key to paste the clipboard contents to the scene." slot="onActionPasteSpecial()" text="Paste Special" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+B" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+B" />
+   <valueList flavour="Toon Boom Studio" value="Ctrl+B" />
+  </shortcut>
+  <shortcut checkable="false" condition="not paint" id="PASTE_SPECIAL_AGAIN_KEY" longDesc="This is the shortcut key to paste the clipboard contents to the scene." slot="onActionPasteSpecialAgain()" text="Paste Special Again" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+B" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+B" />
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Shift+B" />
+  </shortcut>
+  <shortcut checkable="false" id="DELETE_KEY" longDesc="This is the shortcut key to delete the selection." order="256" responder="selection" slot="deleteSelection()" text="Delete" value="Delete" value_mac="Backspace" />
+  <shortcut condition="full and not essentials" id="DRAWING_DELETE_NON_SELECTION_KEY" longDesc="This is the shortcut key to delete the selection." order="256" slot="deleteNonSelection()" text="Remove Art Outside Selection" value="Shift+Delete" />
+  <shortcut condition="full and not essentials" id="DRAWING_DELETE_NON_SELECTION_BACKSPACE_KEY" longDesc="This is the shortcut key to delete the selection." order="256" slot="deleteNonSelection()" text="Remove Art Outside Selection (Backspace)" value="Shift+Backspace" />
+  <shortcut checkable="false" id="DESELECT_ALL_KEY" longDesc="This is the shortcut key to deselect all selected objects." slot="deselect()" text="Deselect All" >
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Shift+A" />
+   <valueList flavour="Toon Boom Harmony" value="Esc" />
+   <valueList flavour="Adobe Flash" value="Esc" />
+  </shortcut>
+  <shortcut checkable="false"  id="SELECT_ALL_KEY" longDesc="This is the shortcut key to select everything in the current view." slot="selectAll()" text="Select All" value="Ctrl+A" />
+  <shortcut checkable="false"  id="INVERT_SELECTION_KEY" longDesc="This is the shortcut key to invert the selection in the current view." slot="invertSelection()" text="Invert Selection" value="Shift+Ctrl+I" />
+  <shortcut checkable="false" id="SELECT_LINKED_LAYERS" longDesc="This is the shortcut key to select all linked read layers." slot="onActionSelectLinkedLayers()" text="Select Synced Layers" value="" />
+  <shortcut condition="full" id="TOGGLE_FULLSCREEN_KEY" longDesc="This is the shortcut key to toggle the full screen display mode." responder="sceneUI" slot="onActionFullscreen()" text="Toggle Full Screen" value="Ctrl+F" />
+  <shortcut condition="not paint and not scan and not essentials and not harmonySketch" id="TOGGLE_AUTO_APPLY_KEY" longDesc="This is the shortcut key to toggle the Auto-Apply feature in node editors" order="256" slot="onActionToggleAutoApply()" text="Toggle Auto-Apply" value="" />
+  <shortcut condition="database and full" id="TOGGLE_AUTO_LOCK_KEY" longDesc="This is the shortcut key to toggle the automatic locking of drawings." order="256" slot="onActionToggleAutoLock()" text="Toggle Auto-Lock" value="" />
+  <shortcut condition="database" id="TOGGLE_AUTO_LOCK_PALETTES_KEY" longDesc="This is the shortcut key to toggle the automatic locking of palettes." order="256" slot="onActionToggleAutoLockPalettes()" text="Toggle Auto-Get-Rights-to-Modify-Palettes" value="" />
+  <shortcut condition="database" id="TOGGLE_AUTO_LOCK_PALETTES_LIST_KEY" longDesc="This is the shortcut key to toggle the automatic locking of palette lists." order="256" slot="onActionToggleAutoLockPaletteLists()" text="Toggle Auto-Get-Rights-to-Modify-Palette-Lists" value="" />
+  <shortcut condition="full and not essentials and not harmonySketch" id="TOGGLE_BBOX_HIGHLIGHTING_KEY" longDesc="This is the shortcut key to toggle between BBox highlighting and colour highlighting of selected drawings." order="256" responder="sceneUI" slot="onActionToggleBBoxHighlighting()" text="Bounding Box Selection Style" >
+   <valueList flavour="Toon Boom Harmony Pro" value="Ctrl+Alt+Shift+B" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+Shift+B" />
+  </shortcut>
+  <shortcut condition="full and premium" id="TOGGLE_SHOW_LOCKED_DRAWINGS_IN_OUTLINE_KEY" longDesc="This controls whether the drawings will be drawn in full or only in outline when they are locked." order="256" slot="onActionToggleShowLockedDrawingsInOutline()" text="Toggle Show Locked Drawings in Outline" value="" />
+  <shortcut checkable="false" condition="full and not essentials and not scan and not harmonySketch" id="TOGGLE_EDITOR_KEY" longDesc="This is the shortcut key that opens the editor for the selected node." slot="onActionEditProperties()" text="Toggle Editor" value="Shift+E" />
+  <shortcut checkable="false" condition="not harmonySketch and not essentials and not advanced" id="LOOK_AT_KEY" longDesc="This is the shortcut key that makes the Perspective view perpendicular to a selected drawing, allowing you to draw on it." responder="persView" slot="onActionFaceSelected()" text="Face Selected to Draw" value="" />
+  <shortcut checkable="false" condition="not harmonySketch and not essentials and not advanced" id="PERSPECTIVE_LOOK_AT_SELECTED" longDesc="This is the shortcut key that repositions a 3D object in the centre of the view." responder="persView" slot="onActionLookAtSelected()" text="Look At Selected" value="" />
+  <shortcut condition="not scan" id="ZOOM_OUT_KEY" longDesc="This is the shortcut key to zoom-out the current view." slot="onActionZoomOut()" text="Zoom Out" >
+   <valueList flavour="Adobe Flash" value="Ctrl+-" />
+   <valueList flavour="Toon Boom Harmony" value="1" />
+   <valueList flavour="Toon Boom Studio" value="Z" />
+  </shortcut>
+  <shortcut condition="not scan" id="ZOOM_IN_KEY" longDesc="This is the shortcut key to zoom-in the current view." slot="onActionZoomIn()" text="Zoom In" >
+   <valueList flavour="Adobe Flash" value="Ctrl+=" />
+   <valueList flavour="Toon Boom Harmony" value="2" />
+   <valueList flavour="Toon Boom Studio" value="X" />
+  </shortcut>
+  <shortcut id="ROTATE_CW_KEY" longDesc="This is the shortcut key to rotate the view clock-wise." slot="onActionRotateCW()" text="Rotate View CW" value="" />
+  <shortcut id="ROTATE_CCW_KEY" longDesc="This is the shortcut key to rotate the view counter clock-wise." slot="onActionRotateCCW()" text="Rotate View CCW" value="" />
+  <shortcut condition="not scan and not harmonySketch and not paint and not essentials" id="MOVE_BACKWARD_KEY" longDesc="This is the shortcut key to move the camera backward in the current view." slot="onActionMoveBackward()" text="Move Backward" value="" />
+  <shortcut condition="not scan and not harmonySketch and not paint and not essentials" id="MOVE_FORWARD_KEY" longDesc="This is the shortcut key to move the camera forward in the current view." slot="onActionMoveForward()" text="Move Forward" value="" />
+  <shortcut condition="scan" id="SCAN_ZOOM_OUT_KEY" longDesc="This is the shortcut key to zoom-out the current view." slot="onActionZoomOut()" text="Zoom Out" value="Ctrl+-" />
+  <shortcut condition="scan" id="SCAN_ZOOM_IN_KEY" longDesc="This is the shortcut key to zoom-in the current view." slot="onActionZoomIn()" text="Zoom In" value="Ctrl+=" />
+  <shortcut id="FREE_PAN_AND_ZOOM_KEY" longDesc="This is the shortcut key to pan and zoom the current view." modifierKey="true" text="Free Pan And Zoom" value="Space" />
+  <shortcut id="OVERRIDE_ROTATE" longDesc="This is the shortcut key to rotate the current view." modifierKey="true" text="Override Rotation" value="Ctrl+Alt" />
+  <shortcut id="OVERRIDE_ZOOM_IN" longDesc="This is the shortcut key to zoom in the current view." text="Override Zoom In" value="Ctrl+Space" />
+  <shortcut id="OVERRIDE_ZOOM_OUT" longDesc="This is the shortcut key to zoom out the current view." text="Override Zoom Out" value="Alt+Space" />
+  <shortcut id="RECENTER_KEY" longDesc="This is the shortcut key to recentre the view on the mouse pointer in the current view." slot="onActionRecenter()" text="Recentre" >
+   <valueList flavour="Adobe Flash" value="F12" value_mac="Ctrl+F12" />
+   <valueList flavour="Toon Boom Harmony" value="N" />
+   <valueList flavour="Toon Boom Studio" value="N" />
+  </shortcut>
+  <shortcut id="DRAWING_RESET_ROTATION_KEY" longDesc="This is the shortcut to reset the rotation of the current view." slot="onActionResetRotation()" text="Reset Rotation" >
+   <valueList flavour="Toon Boom Studio" value="Shift+C" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+X" />
+   <valueList flavour="Adobe Flash" value="Shift+X" />
+  </shortcut>
+  <shortcut id="RESET_PAN_KEY" longDesc="This is the shortcut key to recentre the current view." slot="onActionResetPan()" text="Reset Pan" >
+   <valueList flavour="Toon Boom Studio" value="Shift+Space" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+N" />
+   <valueList flavour="Adobe Flash" value="Shift+N" />
+  </shortcut>
+  <shortcut id="VIEW_HORIZONTAL_FLIP" longDesc="This is the shortcut key to mirror the view horizontally." slot="onActionFlipView()" text="Mirror View" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut id="QUICK_CLOSE_UP_KEY" longDesc="This toggles between a global view and a close-up view." slot="onActionToggleQuickCloseUp()" text="Quick Close-up" value="Shift+Z" />
+  <shortcut id="RESET_ZOOM_KEY" longDesc="This is the shortcut key to reset the zoom level of the current view." slot="onActionResetZoom()" text="Reset Zoom" value="" />
+  <shortcut id="RESET_PAN_AND_ZOOM_KEY" longDesc="This is the shortcut key to reset the pan, the zoom and the rotation in the current view." slot="onActionResetView()" text="Reset View" >
+   <valueList flavour="Toon Boom Studio" value="Shift+V" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+M" />
+   <valueList flavour="Adobe Flash" value="Shift+M" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and not essentials and hasAnimatedCameraView" id="SHOW_HIDE_MANAGER_KEY" longDesc="This is the shortcut key to open the Show/Hide Manager." slot="onActionShowHideManager()" text="Preview Manager" value="" />
+  <shortcut condition="not full and not scan" id="TOGGLE_PLAYBACK_KEY" keyRelease="true" longDesc="This is the shortcut key to playback frames in the Player. It is invoked on keyRelease." order="256" slot="onActionPlayToggleForward()" text="Toggle Playback" value="Space" />
+  <shortcut condition="full and not scan" id="TOGGLE_PLAYBACK_KEY" keyRelease="true" longDesc="This is the shortcut key to playback frames in Sceneplanning views. It is invoked on keyRelease." order="256" slot="onActionMainPlay()" text="Toggle Playback" >
+   <valueList flavour="Adobe Flash" value="Return" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+Return" />
+   <valueList flavour="Toon Boom Studio" value="Return" />
+  </shortcut>
+  <shortcut condition="full and not scan and hasAnimatedCameraView" id="PLAY_PLAY_PREVIEW_FORWARD" longDesc="This is the shortcut key to render and preview your scene in the Player module." order="256" slot="onActionMainPlayPreviewFw()" text="Render and Play" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut condition="hasAnimatedCameraView" checkable="false" id="CANCEL_PREVIEW_KEY" longDesc="This is the shortcut key to cancel the automatic preview." slot="onActionCancelSoftRender()" text="Cancel Preview" value="Shift+Esc" />
+  <shortcut condition="premium and full" id="PLAY_PLAY_RECORD" longDesc="This is the shortcut key to record the camera view and play the result." order="256" slot="onActionExecuteScript(QString)" itemParameter="TB_Record_and_Play in TB_Record_and_Play.js" text="Record and Play" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut condition="full and not harmonySketch" id="PLAY_PLAY_PREVIEW_SWF" longDesc="This is the shortcut key to render and preview your scene in a Flash movie." order="256" slot="onActionMainPlayPreviewSwf()" text="Test SWF Movie" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut condition="full or scan" id="PREVIOUS_FRAME_KEY" longDesc="This is the shortcut key to go to the previous frame." order="256" slot="onActionMainGotoPreviousFrame()" text="Previous Frame" >
+   <valueList flavour="Toon Boom Studio" value="A" />
+   <valueList flavour="Toon Boom Harmony" value="," />
+   <valueList flavour="Adobe Flash" value="," />
+  </shortcut>
+  <shortcut condition="full or scan" id="NEXT_FRAME_KEY" longDesc="This is the shortcut key to go to the next frame." order="256" slot="onActionMainGotoNextFrame()" text="Next Frame" >
+   <valueList flavour="Toon Boom Studio" value="S" />
+   <valueList flavour="Toon Boom Harmony" value="." />
+   <valueList flavour="Adobe Flash" value="." />
+  </shortcut>
+  <shortcut condition="full or scan" id="FIRST_FRAME_KEY" longDesc="This is the shortcut key to go to the first frame." order="256" slot="onActionMainGotoFirstFrame()" text="First Frame" >
+   <valueList flavour="Adobe Flash" value="Home" />
+   <valueList flavour="Toon Boom Harmony" value="&lt;" />
+   <valueList flavour="Toon Boom Studio" value="Home" />
+  </shortcut>
+  <shortcut condition="full or scan" id="LAST_FRAME_KEY" longDesc="This is the shortcut key to go to the last frame." order="256" slot="onActionMainGotoLastFrame()" text="Last Frame" >
+   <valueList flavour="Adobe Flash" value="End" />
+   <valueList flavour="Toon Boom Harmony" value="&gt;" />
+   <valueList flavour="Toon Boom Studio" value="End" />
+  </shortcut>
+  <shortcut condition="full" id="AUTO_RENDER_KEY" longDesc="This is the shortcut key to render frames automatically." order="256" slot="onActionToggleRenderer()" text="Auto Render" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Alt+R" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+R" />
+  </shortcut>
+  <shortcut checkable="false" id="EDIT_PREVIOUS_DRAWING" longDesc="Go to Previous Drawing" order="256" slot="onActionPreviousDrawing()" text="Go to Previous Drawing" >
+   <valueList flavour="Adobe Flash" value="F" />
+   <valueList flavour="Toon Boom Harmony" value="F" />
+   <valueList flavour="Toon Boom Studio" value="Shift+A" />
+  </shortcut>
+  <shortcut checkable="false" id="EDIT_NEXT_DRAWING" longDesc="Go to Next Drawing" order="256" slot="onActionNextDrawing()" text="Go to Next Drawing" >
+   <valueList flavour="Adobe Flash" value="G" />
+   <valueList flavour="Toon Boom Harmony" value="G" />
+   <valueList flavour="Toon Boom Studio" value="Shift+S" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and not essentials and not harmonySketch" id="EDIT_FIRST_DRAWING" longDesc="Go to the first Drawing in drawing view" order="256" slot="onActionGotoDrawing1()" text="Go to the First Drawing in Drawing View" value="" />
+  <shortcut checkable="false" condition="full and not essentials and not harmonySketch" id="EDIT_SECOND_DRAWING" longDesc="Go to the second Drawing in drawing view" order="256" slot="onActionGotoDrawing2()" text="Go to the Second Drawing in Drawing View" value="" />
+  <shortcut checkable="false" condition="full and not essentials and not harmonySketch" id="EDIT_THIRD_DRAWING" longDesc="Go to the third Drawing in drawing view" order="256" slot="onActionGotoDrawing3()" text="Go to the Third Drawing in Drawing View" value="" />
+  <shortcut checkable="false" condition="full and not essentials and not harmonySketch" id="EDIT_FOURTH_DRAWING" longDesc="Go to the Fourth Drawing in drawing view" order="256" slot="onActionGotoDrawing4()" text="Go to the Fourth Drawing in Drawing View" value="" />
+  <shortcut checkable="false" condition="full and not essentials and not harmonySketch" id="EDIT_FIFTH_DRAWING" longDesc="Go to the Fifth Drawing in drawing view" order="256" slot="onActionGotoDrawing5()" text="Go to the Fifth Drawing in Drawing View" value="" />
+  <shortcut checkable="false" condition="full and not essentials and not harmonySketch" id="EDIT_SIXTH_DRAWING" longDesc="Go to the Sixth Drawing in drawing view" order="256" slot="onActionGotoDrawing6()" text="Go to the Sixth Drawing in Drawing View" value="" />
+  <shortcut checkable="false" condition="full and not essentials and not harmonySketch" id="EDIT_SEVENTH_DRAWING" longDesc="Go to the Seventh Drawing in drawing view" order="256" slot="onActionGotoDrawing7()" text="Go to the Seventh Drawing in Drawing View" value="" />
+  <shortcut checkable="false" condition="full and not essentials and not harmonySketch" id="EDIT_EIGHTH_DRAWING" longDesc="Go to the Eighth Drawing in drawing view" order="256" slot="onActionGotoDrawing8()" text="Go to the Eighth Drawing in Drawing View" value="" />
+  <shortcut checkable="false" condition="full and not essentials and not harmonySketch" id="EDIT_NINTH_DRAWING" longDesc="Go to the Ninth Drawing in drawing view" order="256" slot="onActionGotoDrawing9()" text="Go to the Ninth Drawing in Drawing View" value="" />
+  <shortcut checkable="false" condition="full and not essentials and not harmonySketch" id="EDIT_TENTH_DRAWING" longDesc="Go to the Tenth Drawing in drawing view" order="256" slot="onActionGotoDrawing10()" text="Go to the Tenth Drawing in Drawing View" value="" />
+  <shortcut id="EDIT_PREVIOUS_COLUMN" longDesc="Go to Previous Column" order="50" slot="onActionPreviousColumn()" text="Go to Previous Column" >
+   <valueList flavour="Toon Boom Studio" value="H" />
+   <valueList flavour="Toon Boom Harmony" value="H" />
+   <valueList flavour="Adobe Flash" value="H" />
+  </shortcut>
+  <shortcut id="EDIT_NEXT_COLUMN" longDesc="Go to Next Column" slot="onActionNextColumn()" text="Go to Next Column" >
+   <valueList flavour="Toon Boom Studio" value="F" />
+   <valueList flavour="Toon Boom Harmony" value="J" />
+   <valueList flavour="Adobe Flash" value="J" />
+  </shortcut>
+  <shortcut condition="full and not essentials and hasAnimatedCameraView" id="ENABLE_WRITE_KEY" longDesc="This is the shortcut key to enable the Write nodes to write final frames to the file system." order="256" slot="onActionToggleEnableWrite()" text="Auto Render Write" value="Ctrl+W" />
+  <shortcut condition="full" id="CREATE_EMPTY_DRAWING_KEY" longDesc="This is the shortcut key used to replace selected drawings by new drawings." slot="onActionReplaceDrawing()" text="Create Empty Drawing" value="Alt+Shift+R" />
+  <shortcut condition="not essentials" id="RENAME_DRAWING_BY_FRAME" responder="xsheetView" longDesc="This is the shortcut key used to rename drawings with the frame number" slot="onActionRenameByFrame()" text="Rename by Frame" />
+  <shortcut checkable="false" condition="full" id="DUPLICATE_DRAWING_KEY" longDesc="This is the shortcut key used to replace selected drawings by a copy of the drawing." slot="onActionDuplicateDrawing()" text="Duplicate Drawings" value="Alt+Shift+D" />
+  <shortcut condition="not (essentials or advanced)" id="XSHEET_LOCK_DRAWING_KEY" longDesc="The shortcut key to get the edit rights on the selected drawings." slot="onActionGetRightToModifyDrawings()" text="Get Rights to Modify Drawings" value="Alt+L" />
+  <shortcut condition="not (essentials or advanced)" id="XSHEET_UNLOCK_DRAWING_KEY" longDesc="The shortcut key to release the edit rights on selected drawings." slot="onActionReleaseRightToModifyDrawings()" text="Release Rights to Modify Drawings" value="Alt+Shift+L" />
+  <shortcut condition="full and not harmonySketch and not essentials" id="SP_TOGGLE_VELOCITY_EDITOR_KEY" longDesc="This is the shortcut to open the &quot;Velocity Editor&quot;" order="256" slot="onActionToggleVelocityEditor()" text="Toggle Velocity Editor" value="Shift+V" />
+  <shortcut condition="not (scan or essentials or advanced or harmonySketch)" id="DRAWING_COLOR_MODEL_KEY" longDesc="The shortcut key that opens/closes the Colour Model." slot="onActionShowColorModel()" text="Show Colour Model" value="Shift+K" />
+  <shortcut condition="not scan and hasModelView" id="DRAWING_UNLOAD_MODEL_KEY" longDesc="The shortcut key that unload the current frame in the Model View." slot="onActionUnloadModel()" text="Unload Model" value="Delete" />
+  <shortcut checkable="false" condition="full and hasNetworkView" id="SELECT_DEFAULT_CHILD_KEY" longDesc="Select Child Skip Effects." slot="onActionNaviSelectChild()" text="Select Child Skipping Effects" value="SHIFT+B" />
+  <shortcut checkable="false" condition="full and hasNetworkView" id="SELECT_INNER_CHILDREN_KEY" longDesc="Select Group Content." responder="Node View" slot="onActionNaviSelectInnerChildren()" text="Select Group Content" value="" />
+  <shortcut checkable="false" condition="full and hasNetworkView" id="SELECT_DEFAULT_PARENT_KEY" longDesc="Select Parent Skip Effects." slot="onActionNaviSelectParent()" text="Select Parent Skipping Effects" value="B" />
+  <shortcut checkable="false" condition="full and hasNetworkView" id="SELECT_DEFAULT_CHILD_KEY_WITH_EFFECTS" longDesc="Select Child." slot="onActionNaviSelectChildWithEffects()" text="Select Child" value="" />
+  <shortcut checkable="false" condition="not hasNetworkView and not harmonySketch"  id="SELECT_DEFAULT_CHILD_KEY_WITH_EFFECTS" longDesc="Select Child." slot="onActionNaviSelectChildWithEffects()" text="Select Child" value="SHIFT+B" />
+  <shortcut checkable="false" condition="full and hasNetworkView" id="SELECT_DEFAULT_PARENT_KEY_WITH_EFFECTS" longDesc="Select Parent." slot="onActionNaviSelectParentWithEffects()" text="Select Parent" value="" />
+  <shortcut checkable="false" condition="not hasNetworkView and not harmonySketch" id="SELECT_DEFAULT_PARENT_KEY_WITH_EFFECTS" longDesc="Select Parent." slot="onActionNaviSelectParentWithEffects()" text="Select Parent" value="B" />
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView and not essentials" id="SELECT_PREVIOUS_BROTHER_KEY" longDesc="Select previous brother." slot="onActionNaviSelectPreviousBrother()" text="Select Previous Sibling" value="/" />
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView and not essentials" id="SELECT_NEXT_BROTHER_KEY" longDesc="Select next brother." slot="onActionNaviSelectNextBrother()" text="Select Next Sibling" value="?" />
+  <shortcut checkable="false" condition="full or scan" id="RENAME_DRAWING_KEY" longDesc="This is the shortcut key used to rename selected drawing." slot="onActionRenameDrawing()" text="Rename Drawings" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+D" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+D" />
+   <valueList flavour="Toon Boom Studio" value="Ctrl+D" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and not harmonySketch and not essentials" id="RENAME_DRAWING_WITH_PREFIX_KEY" longDesc="This is the shortcut key used to rename selected drawing by prepending a prefix to its exposure." slot="onActionRenameDrawingWithPrefix()" text="Rename Drawings with Prefix" />
+  <shortcut checkable="false" condition="not paint and not harmonySketch and not essentials" id="RETURN_TO_NORMAL_MODE_KEY" longDesc="Removes all drawings from the thumbnails side panel." slot="onActionReturnToNormalMode()" text="Remove All Drawings" value="Escape" />
+  <shortcut id="EDIT_PREFERENCES" longDesc="Launches the preferences dialog." slot="onActionShowPreferenceDialog()" text="Preferences" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+U" />
+   <valueList flavour="Adobe Flash" value="Ctrl+U" />
+  </shortcut>
+  <shortcut id="EDIT_SHORTCUTS" longDesc="Launches the shortcuts dialog." slot="onActionShowShortcutsDialog()" text="Shortcuts" />
+  <shortcut checkable="false" condition="essentials" id="ACQUIRE_FROM_TWAIN" longDesc="This is the shortcut key to scan a drawing with a TWAIN device." slot="onActionScanDrawings()" text="Acquire from TWAIN" value="CTRL+SHIFT+S" />
+  <shortcut checkable="false" condition="not paint and not essentials" id="PLAY_JOG_FORWARD" longDesc="This is the shortcut key to jog the frames forward." slot="onActionJogForward()" text="Jog Forward" value="" />
+  <shortcut checkable="false" condition="not paint and not essentials" id="PLAY_JOG_BACKWARD" longDesc="This is the shortcut key to jog the frames backward." slot="onActionJogBackward()" text="Jog Backward" value="" />
+  <shortcut checkable="false" condition="not paint and not essentials" id="PLAY_SHUTTLE_FORWARD" longDesc="This is the shortcut key to shuttle the frames forward." slot="onActionShuttleForward()" text="Shuttle Forward" value="" />
+  <shortcut checkable="false" condition="not paint and not essentials" id="PLAY_SHUTTLE_BACKWARD" longDesc="This is the shortcut key to shuttle the frames backward." slot="onActionShuttleBackward()" text="Shuttle Backward" value="" />
+  <shortcut checkable="false" condition="not paint and not essentials" id="PLAY_SHUTTLE_RESET" longDesc="This is the shortcut key to reset the shuttle control's position." slot="onActionShuttleReset()" text="Shuttle Reset" value="" />
+
+  <shortcut checkable="false"  id="DRAWING_ADD_DRAWING_KEY" longDesc="Add a drawing key exposure." slot="onActionAddKeyExposure()" text="Add Key Exposure" value="" />
+  <shortcut checkable="false"  id="DRAWING_REMOVE_DRAWING_KEY" longDesc="Remove a drawing key exposure." slot="onActionRemoveKeyExposure()" text="Remove Key Exposure" value="" />
+  <shortcut condition="hasRemoveDuplicateKeyExposure" checkable="false"  id="DRAWING_REMOVE_IDENTICAL_DRAWING_KEY" longDesc="Remove duplicate drawing key exposure." slot="onActionRemoveIdenticalKeyExposure()" text="Remove Duplicate Key Exposure" value="" />
+  <shortcut checkable="false" condition="not paint" id="TL_REMOVE_EXPOSURE" longDesc="Removes one frame from the exposure of a timed value." slot="onActionRemoveExposure()" text="Decrease Exposure" >
+   <valueList flavour="Toon Boom Studio" value="E" />
+   <valueList flavour="Toon Boom Harmony" value="-" />
+   <valueList flavour="Adobe Flash" value="-" />
+  </shortcut>
+  <shortcut checkable="false" condition="not paint" id="TL_ADD_EXPOSURE" longDesc="Adds one frame to the exposure of a timed value." slot="onActionAddExposure()" text="Increase Exposure" >
+   <valueList flavour="Toon Boom Studio" value="R" />
+   <valueList flavour="Toon Boom Harmony" value="+" />
+   <valueList flavour="Adobe Flash" value="+" />
+  </shortcut>
+  <shortcut checkable="false" condition="not paint" id="PASTE_ONE_REVERSE_KEY" longDesc="This is the shortcut key to paste the clipboard contents to the scene in reverse." responder="timelineView, xsheetView" slot="onActionPasteOneReverse()" text="Paste Reverse" value="Ctrl+." />
+  <shortcut checkable="false" condition="not paint" id="PASTE_CYCLE_KEY" longDesc="This is the shortcut key to paste the clipboard contents to the scene in cycles." responder="timelineView, xsheetView" slot="onActionPasteCycle()" text="Paste Cycle" value="Ctrl+/" />
+  <shortcut checkable="false" condition="not paint" id="SINGLE_FLIP" keyRelease="true" longDesc="This is the shortcut key to execute a single flip in the Drawing view."  order="256"  slot="onActionSingleFlip()" text="Easy Flip" value="" />
+  <shortcut checkable="false" condition="hasSharedFunctions" id="SHARE_FUNCTIONS" longDesc="This is the shortcut key to share functions so that they are available to other layers."  order="256"  slot="onActionShareFunctions()" text="Share Functions" value="" />
+  <shortcut checkable="false" id="DISABLE_PIVOT_CONTROL" longDesc="When activated, the pivot point cannot be changed position visually" slot="onDisablePivotControl()" text="Disable Pivot Manipulator" />
+  <shortcut condition="not (essentials or advanced)" checkable="false" id="TOGGLE_CONTROL_SELECTION_MODE" longDesc="Enable the group selection of controls with the lasso or marquee" slot="onToggleControlSelectionMode()" text="Control Selection Mode" />
+  <shortcut checkable="false" id="TOGGLE_PEG_SELECT_MODE" longDesc="This is the shortcut key to toggle the peg selection mode for the transform tool." slot="onActionTogglePegSelectionMode()" text="Peg Selection Mode" value="" />
+ </category>
+
+ // Camera
+ <category condition="not scan and not paint" id="Camera" text="Camera" >
+  <shortcut checkable="false" condition="not paint and not essentials" id="HIDE_SELECTION_KEY" longDesc="This is the shortcut key to hide selected elements." order="256" slot="onActionHideSelection()" text="Hide Selected" value="Alt+H" />
+  <shortcut condition="full and not essentials and hasAnimatedCameraView" id="SP_SHOW_HIDDEN_KEY" longDesc="This is the shortcut to show hidden elements in the Sceneplanning views." order="256" slot="onActionShowHidden()" text="Show Hidden" value="Shift+Alt+H" />
+  <shortcut condition="full and hasAnimatedCameraView" id="SP_SWITCH_PREV_DRAWING_KEY" longDesc="This is the shortcut key to change the exposed drawing to the previous one." slot="onActionSelectedElementSwapToPrevDrawing()" text="Substitute Drawing Previous" value="[" responder="cameraView" />
+  <shortcut condition="full and hasAnimatedCameraView" id="SP_SWITCH_NEXT_DRAWING_KEY" longDesc="This is the shortcut key to change the exposed drawing to the next one." slot="onActionSelectedElementSwapToNextDrawing()" text="Substitute Drawing Next" value="]" responder="cameraView" />
+  <shortcut condition="full and hasAnimatedCameraView" id="SP_FLIP_SCALE_X_KEY" longDesc="This is the shortcut key to flip the X axis scaling of the selection." slot="onActionFlipScaleX()" text="Flip Scale X" value="" />
+  <shortcut condition="full and hasAnimatedCameraView" id="SP_FLIP_SCALE_Y_KEY" longDesc="This is the shortcut key to flip the Y axis scaling of the selection." slot="onActionFlipScaleY()" text="Flip Scale Y" value="" />
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView" id="SP_FLIP_HORIZONTAL_KEY" longDesc="This is the shortcut key to flip the selection horizontally." slot="onActionFlipHorizontal()" text="Flip Horizontal" value="4" />
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView" id="SP_FLIP_VERTICAL_KEY" longDesc="This is the shortcut key to flip the the selection vertically." slot="onActionFlipVertical()" text="Flip Vertical" value="5" />
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView" id="SP_RESET_TRANSFORMATION_KEY" longDesc="This is the shortcut key to reset transformation on the selected element." order="256" slot="onActionResetTransformation()" text="Reset Transformation" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+Z" />
+   <valueList flavour="Toon Boom Harmony" value="R" />
+   <valueList flavour="Toon Boom Studio" value="Ctrl+T" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView" id="SP_RESET_ALL_TRANSFORMATIONS_KEY" longDesc="This is the shortcut key to reset all transformations on the selected element" order="256" slot="onActionResetAll()" text="Reset All Transformations" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+Z" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+R" />
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Shift+T" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and not essentials and hasAnimatedCameraView" id="SP_RESET_ALL_TRANSFORMATIONS_EXCEPT_Z_KEY" longDesc="This is the shortcut key to reset all transformations on the selected element except their Z" order="256" slot="onActionResetAllExceptZ()" text="Reset All Transformations Except Z" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+   <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="SP_SET_ANIMATION_MODE_ANIMATED" longDesc="Automatically creates keyframes at the current frame when using the Transform or an Advanced Animation tool." order="100" responder="sceneUI" slot="onActionAnimatedKeyframeMode()" text="Animate Current Frame" >
+     <valueList flavour="Toon Boom Harmony" value="" />
+     <valueList flavour="Adobe Flash" value="" />
+     <valueList flavour="Toon Boom Studio" value="" />
+   </shortcut>
+   <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="SP_SET_ANIMATION_MODE_ANIMATED_RANGE" longDesc="Modify existing keyframes in the frame range defined by the onion skin. Keyframes will be added at the first and last frames of this range if none are present." order="100" responder="sceneUI" slot="onActionAnimatedOnRangeKeyframeMode()" text="Animate Onion Skin Range" >
+     <valueList flavour="Toon Boom Harmony" value="" />
+     <valueList flavour="Adobe Flash" value="" />
+     <valueList flavour="Toon Boom Studio" value="" />
+   </shortcut>
+   <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="SP_SET_ANIMATION_MODE_STATIC" longDesc="All modifications done with an animation tool are applied across the entire scene duration." order="100" responder="sceneUI" slot="onActionStaticKeyframeMode()" text="Animate Off" >
+     <valueList flavour="Toon Boom Harmony" value="" />
+     <valueList flavour="Adobe Flash" value="" />
+     <valueList flavour="Toon Boom Studio" value="" />
+   </shortcut>
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="CAMERA_LEAVE_SYMBOL" longDesc="Return to Parent Symbol" order="256" responder="cameraView" slot="onActionLeaveSymbol()" text="Return To Parent Symbol" value="Shift+Ctrl+E" />
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="CAMERA_ENTER_SYMBOL" longDesc="Enter Selected Symbol" order="256" responder="cameraView" slot="onActionEnterSymbol()" text="Enter Selected Symbol" value="Ctrl+E" />
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="CREATE_SYMBOL_KEY" longDesc="Create Symbol" order="256" responder="timelineView" slot="onActionCreateSymbolFromSelection()" text="Create Symbol" >
+   <valueList flavour="Adobe Flash" value="F8" />
+   <valueList flavour="Toon Boom Harmony" value="F8" />
+   <valueList flavour="Toon Boom Studio" value="F8" />
+  </shortcut>
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="EXPLODE_SYMBOL_KEY" longDesc="Expand Symbol" order="256" responder="timelineView" slot="onActionExplodeSelectedSymbol()" text="Expand Symbol" >
+   <valueList flavour="Adobe Flash" value="Ctrl+B" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+F8" />
+   <valueList flavour="Toon Boom Studio" value="Shift+F8" />
+  </shortcut>
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="DUPLICATE_SYMBOL_KEY" longDesc="Duplicate Selected Symbol" order="256" responder="timelineView" slot="onActionDuplicateSelectedSymbol()" text="Duplicate Symbol" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="true" condition="full and not harmonySketch and not essentials" id="CREATE_DRAWING_FROM_DRAWING_KEY" longDesc="Create Drawing from Drawing Selection" order="256" responder="cameraView" slot="onActionCreateDrawingFromDrawingSelection()" text="Create Drawing from Drawing Selection" value="F9" value_mac="Ctrl+F9" />
+  <shortcut checkable="true" condition="full and not harmonySketch and not essentials" id="DISTRIBUTE_TO_LAYERS_KEY" longDesc="Distribute all contours and groups of current drawings in separate layers" order="256" responder="cameraView" slot="onActionDistributeToLayers()" text="Distribute to Layers" value="" />
+  <shortcut checkable="true" condition="hasAnimatedCameraView and not essentials" id="SP_HIDE_CONTROLS" longDesc="Show/Hide Transform Tool Controls." order="256" overridable="true" slot="onActionShowHideTransformControls()" text="Show/Hide Transform Tool Controls" />
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="SP_TRANSLATE_TOOL_KEY" longDesc="This is the shortcut for the Translate tool in Sceneplanning views." order="256" slot="onActionChooseSpTranslateTool()" text="Translate Tool" >
+   <valueList flavour="Toon Boom Studio" value="@" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+2" />
+   <valueList flavour="Adobe Flash" value="Alt+2" />
+  </shortcut>
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="SP_ROTATE_TOOL_KEY" longDesc="This is the shortcut for the Rotate tool in Sceneplanning views." order="256" slot="onActionChooseSpRotateTool()" text="Rotate Tool" >
+   <valueList flavour="Toon Boom Studio" value="#" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+3" />
+   <valueList flavour="Adobe Flash" value="Alt+3" />
+  </shortcut>
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="SP_SCALE_TOOL_KEY" longDesc="This is the shortcut for the Scale tool in Sceneplanning views." order="256" slot="onActionChooseSpScaleTool()" text="Scale Tool" >
+   <valueList flavour="Toon Boom Studio" value="$" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+4" />
+   <valueList flavour="Adobe Flash" value="Alt+4" />
+  </shortcut>
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="SP_SKEW_TOOL_KEY" longDesc="This is the shortcut for the Skew tool in Sceneplanning views." order="256" slot="onActionChooseSpSkewTool()" text="Skew Tool" >
+   <valueList flavour="Toon Boom Studio" value="%" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+5" />
+   <valueList flavour="Adobe Flash" value="Alt+5" />
+  </shortcut>
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="SP_MAINTAIN_SIZE_TOOL_KEY" longDesc="This is the shortcut for the &quot;Maintain Size&quot; tool in Sceneplanning views.  This tool is only useful in the Side View or Top View." order="256" slot="onActionChooseSpMaintainSizeTool()" text="Maintain Size Tool" >
+   <valueList flavour="Toon Boom Studio" value="^" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+6" />
+   <valueList flavour="Adobe Flash" value="Alt+6" />
+  </shortcut>
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="SP_TRANSFORM_TOOL_KEY" longDesc="This is the shortcut for the &quot;Transform Tool&quot; tool in the cameraview." order="256" slot="onActionChooseSpTransformTool()" text="Transform Tool" >
+   <valueList flavour="Adobe Flash" value="Alt+Q" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+T" />
+   <valueList flavour="Toon Boom Studio" value="7" />
+  </shortcut>
+  <shortcut checkable="true" condition="hasAnimatedCameraView and hasIK" id="SP_INVERSE_KINEMATICS_TOOL_KEY" longDesc="This is the shortcut for the &quot;Inverse Kinematics&quot; tool in Sceneplanning views.  This tool is only useful on pegs." order="256" slot="onActionChooseSpInverseKinematicsTool()" text="Inverse Kinematics Tool" >
+   <valueList flavour="Toon Boom Studio" value="Alt+I" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+I" />
+   <valueList flavour="Adobe Flash" value="Alt+8" />
+  </shortcut>
+  <shortcut checkable="true" condition="full and hasAnimatedCameraView" id="SP_OFFSET_SPLINE_TOOL_KEY" longDesc="This is the shortcut for the &quot;Spline Offset&quot; tool in Sceneplanning views." order="256" slot="onActionChooseSpSplineOffsetTool()" text="Spline Offset Tool" >
+   <valueList flavour="Toon Boom Studio" value="&amp;" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+8" />
+   <valueList flavour="Adobe Flash" value="Alt+9" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView and not essentials" id="SP_SELECT_PREVIOUS_OBJECT_KEY" longDesc="This is the shortcut to select the previous control point on the currently selected function path." order="256" slot="onActionSelectPrevObject()" text="Select Previous Control Point" >
+   <valueList flavour="Toon Boom Studio" value="," />
+   <valueList flavour="Toon Boom Harmony" value=";" />
+   <valueList flavour="Adobe Flash" value=";" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView and not essentials" id="SP_SELECT_NEXT_OBJECT_KEY" longDesc="This is the shortcut to select the next control point on the currently selected function path." order="256" slot="onActionSelectNextObject()" text="Select Next Control Point" >
+   <valueList flavour="Toon Boom Studio" value="." />
+   <valueList flavour="Toon Boom Harmony" value="'" />
+   <valueList flavour="Adobe Flash" value="'" />
+  </shortcut>
+  <shortcut condition="full and hasAnimatedCameraView" id="SP_INSERT_CONTROL_POINT_KEY" longDesc="This is the shortcut to insert a new control point in the currently selected 3D path." slot="onActionInsertControlPoint()" text="Insert Control Point" value="P" />
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView" id="SP_SET_KEYFRAME_KEY" longDesc="This is the shortcut to insert a key frame in the currently selected layers." order="256" responder="sceneResponder, timelineView, xsheetView" slot="onActionSetKeyFrames()" text="Insert Keyframe" >
+   <valueList flavour="Adobe Flash" value="Ctrl+F6" />
+   <valueList flavour="Toon Boom Harmony" value="F6" />
+   <valueList flavour="Toon Boom Studio" value="F6" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView and not essentials" id="SP_INSERT_POSITION_KEYFRAME_KEY" longDesc="This is the shortcut to insert a position key frame in the currently selected layers." order="256" responder="sceneResponder, timelineView, xsheetView" slot="onActionInsertPositionKeyframe()" text="Insert Position Keyframe" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView and not essentials" id="SP_SET_KEYFRAME_DUPLICATE_KEY" longDesc="This is the shortcut to insert a key frame and duplicate drawing in the currently selected layers." order="256" responder="timelineView, xsheetView" slot="onActionSetKeyFramesDuplicate()" text="Insert Keyframe and Duplicate Drawings" >
+   <valueList flavour="Adobe Flash" value="F6" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView and not essentials" id="SP_TOGGLE_CONTINUITY_KEY" longDesc="This is the shortcut to toggle the continuity of the selected control point." order="256" slot="onActionToggleContinuity()" text="Toggle Between Line and Curve" value="" />
+  <shortcut checkable="false" condition="full and hasAnimatedCameraView and not essentials" id="SP_TOGGLE_LOCK_IN_TIME_KEY" longDesc="This is the shortcut to change the selected point from a control point, which is not locked in time, to a keyframe, which is locked in time." order="256" slot="onActionToggleLockInTime()" text="Toggle Lock In Time" value="Alt+L" />
+  <shortcut condition="full and hasAnimatedCameraView and not essentials" id="SP_SELECT_CONTROL_POINT_KEY" longDesc="This is the shortcut to select the control point closest to the mouse pointer." slot="onActionSelectControlPoint()" text="Select Control Point" value="T" />
+  <shortcut checkable="false" condition="full and not essentials and hasAnimatedCameraView" id="SP_TOGGLE_CONTROL_KEY" longDesc="This is the shortcut to display the controls (either the spline of a peg or the handles on a quadmap) of the selected node in Sceneplanning views." order="256" slot="onActionToggleControl()" text="Show/Hide Control Parameters" value="Shift+F11" value_mac="Ctrl+F11" />
+  <shortcut checkable="false" condition="essentials" id="SP_TOGGLE_CONTROL_KEY" longDesc="This is the shortcut to display the controls (either the spline of a peg or the handles on a quadmap) of the selected node in Sceneplanning views." order="256" slot="onActionToggleControl()" text="Show/Hide Control Parameters" value="Shift+F11" value_mac="Ctrl+F11" />
+  <shortcut condition="full and not essentials and hasAnimatedCameraView" id="SP_TOGGLE_SNAP_KEYFRAME" longDesc="This is the shortcut to snap the next keyframe to the current keyframe's value. To snap, both keyframes must have the same initial value and the current segment must be marked as constant." text="Toggle Snap Keyframe" >
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Alt+X" />
+   <valueList flavour="Toon Boom Harmony" value="X" />
+   <valueList flavour="Adobe Flash" value="X" />
+  </shortcut>
+  <shortcut condition="full and hasAnimatedCameraView" id="SP_HIDE_ALL_CONTROLS_KEY" longDesc="This is the shortcut to hide all controls in Sceneplanning views." order="256" slot="onActionHideAllControls()" text="Hide All Control Parameters" >
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Shift+X" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+C" />
+   <valueList flavour="Adobe Flash" value="Shift+C" />
+  </shortcut>
+  <shortcut checkable="true" condition="full and not harmonySketch" id="SP_TOGGLE_ENABLE_PLAYBACK_KEY" longDesc="This is the shortcut to turn on/off the ability to playback frames in the Top, Side or Free View." slot="onActionTogglePlayback()" text="Enable/Disable Playback" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="SP_SET_SMALL_FILES_RESOLUTION_KEY" longDesc="This is the shortcut to set the small pixmap files image quality" slot="onActionSetSmallFilesResolution()" text="Bitmap Image Quality" value="Ctrl+Q" value_mac="Meta+Q" />
+  <shortcut checkable="false" condition="full" id="SP_LOCK_SELECTION" longDesc="Lock the selection so it cannot be selected from the Sceneplanning views." slot="onActionLock()" text="Lock Selection" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Alt+L" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+L" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="SP_UNLOCK_SELECTION" longDesc="Unlock selection." slot="onActionUnlock()" text="Unlock Selection" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+K" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+K" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="SP_LOCK_ALL" longDesc="Lock all." slot="onActionLockAll()" text="Lock All" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+L" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+L" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="SP_UNLOCK_ALL" longDesc="Unlock all." slot="onActionUnlockAll()" text="Unlock All" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Alt+Shift+L" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+Shift+L" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="SP_LOCK_ALL_OTHERS" longDesc="Lock all others." slot="onActionLockAllOthers()" text="Lock All Others" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Alt+Shift+O" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+Shift+O" />
+  </shortcut>
+  <shortcut condition="full" id="SP_ONION_ON_SELECTION" longDesc="Show the selected nodes and their children in the onion skins." responder="cameraView" slot="onActionOnionOnSelection()" text="Add to Onion Skin" >
+   <valueList flavour="Toon Boom Studio" value="Alt+S" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+S" />
+   <valueList flavour="Adobe Flash" value="Shift+S" />
+  </shortcut>
+  <shortcut condition="full and not essentials" id="SP_ONION_OFF_SELECTION" longDesc="Hide from the onion skins elements that are selected" responder="cameraView" slot="onActionOnionOffSelection()" text="Remove Selection from Onion Skin" value="" />
+  <shortcut condition="full" id="SP_ONION_OFF_UNSELECTED" longDesc="Hide from the onion skins elements that are not selected" responder="cameraView" slot="onActionOnionOffAllOther()" text="Remove Unselected from Onion Skin" value="" />
+  <shortcut condition="full" id="SP_ONION_ON_ALL" longDesc="Show all nodes in the onion skins." slot="onActionOnionOnAll()" text="Add all to Onion Skin" >
+   <valueList flavour="Toon Boom Studio" value="Alt+Shift+O" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+Shift+O" />
+   <valueList flavour="Adobe Flash" value="Alt+Shift+O" />
+  </shortcut>
+  <shortcut condition="full" id="SP_ONION_OFF_ALL" longDesc="Hide all elements from the onion skins" slot="onActionOnionOffAll()" text="Remove all Onion Skin" value="Ctrl+Shift+O" />
+  <shortcut condition="full and not essentials" id="SP_ONION_FRAMES_TO_DRAWINGS" responder="onionSkinResponder" longDesc="The onion skin is calculated using the next n drawings ( versus the next n frames ) in the camera view." slot="onActionOnionSkinToggleFramesToDrawingsMode()" text="Toggle Onion Skin Drawing Mode" value="" />
+  <shortcut condition="full" id="CV_CENTER_ON_SELECTION_KEY" longDesc="This shortcut centres the timeline's layer list on the current selection." slot="onActionFocusOnSelectionCV()" text="Centre On Selection" value="Shift+O" />
+  <shortcut condition="full and not essentials" id="TAKE_SNAPSHOT_CAMERA_VIEW" longDesc="This shortcut takes a snapshot of the camera view content." responder="cameraView" slot="onActionTakeSnapshot()" text="Take Snapshot" value="" />
+  <shortcut condition="full and not essentials" id="SHOW_SNAPSHOT_CAMERA_VIEW" modifierKey="true" longDesc="This shortcut temporarily displays the last snapshot taken in the Camera View." text="Show Snapshot" value="" />
+ </category>
+ 
+ // Timeline
+ <category condition="not scan and not paint" id="Timeline" text="Timeline" >
+  <shortcut condition="hasTagging" id="TL_VIEW_MODE_NEXT" longDesc="Will cycle through the Timeline view modes." slot="onActionTimelineViewModeNext()" text="View Mode Next" value="" />
+  <shortcut condition="hasTagging" id="TL_VIEW_MODE_NORMAL" longDesc="This will set the Timeline view mode to the default one." slot="onActionTimelineViewModeNormal()" text="View Mode Normal" value="" />
+  <shortcut condition="hasTagging" id="TL_VIEW_MODE_SELECTION" longDesc="This will set the Timeline to display only the selected nodes." slot="onActionTimelineViewModeSelectionOnly()" text="View Mode Selected" value="" />
+  <shortcut condition="hasTagging" id="TL_VIEW_MODE_TAGGED" longDesc="This will set the Timeline to display only the tagged nodes." slot="onActionTimelineViewModeTagged()" text="View Mode Tagged" value="" />
+  <shortcut condition="full" id="TL_CENTER_ON_SELECTION_KEY" longDesc="This shortcut centres the timeline's layer list on the current selection." slot="onActionCenterOnSelection()" text="Centre On Selection" value="O" />
+  <shortcut condition="full" id="TL_SWITCH_PREV_DRAWING_KEY" longDesc="This is the shortcut key to change the exposed drawing to the previous one." responder="timelineView" slot="onActionSelectedElementSwapToPrevDrawing()" text="Substitute Drawing Previous" value="[" />
+  <shortcut condition="full" id="TL_SWITCH_NEXT_DRAWING_KEY" longDesc="This is the shortcut key to change the exposed drawing to the next one." responder="timelineView" slot="onActionSelectedElementSwapToNextDrawing()" text="Substitute Drawing Next" value="]" />
+  <shortcut checkable="false" condition="full" id="TL_INSERT_EMPTY_KEY" longDesc="The shortcut key to insert a blank frame in the timeline." responder="timelineView" slot="onActionInsertBlankFrame()" text="Insert Blank Frame" >
+   <valueList flavour="Toon Boom Studio" value="Shift+R" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+J" />
+   <valueList flavour="Adobe Flash" value="X" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="TL_INSERT_CLEAR_KEY" longDesc="The shortcut key to clear the current frames in the timeline." responder="timelineView" slot="onActionRemoveBlankFrame()" text="Clear Exposure and Pull" value="" />
+  <shortcut checkable="false" condition="full" id="TL_LOCK_SELECTION" longDesc="Lock the selection so it cannot be selected from the Sceneplanning views." responder="timelineView" slot="onActionLock()" text="Lock Selection" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Alt+L" />
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="TL_UNLOCK_SELECTION" longDesc="Unlock selection." responder="timelineView" slot="onActionUnlock()" text="Unlock Selection" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+K" />
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="TL_LOCK_ALL" longDesc="Lock all." responder="timelineView" slot="onActionLockAll()" text="Lock All" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+L" />
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="TL_UNLOCK_ALL" longDesc="Unlock all." responder="timelineView" slot="onActionUnlockAll()" text="Unlock All" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Alt+Shift+L" />
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="TL_LOCK_ALL_OTHERS" longDesc="Lock all others." responder="timelineView" slot="onActionLockAllOthers()" text="Lock All Others" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Alt+Shift+O" />
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="TL_ADD_VECTOR_ELEMENT" longDesc="This shortcut adds a Drawing." responder="timelineView" slot="onActionAddVectorElement()" text="Insert Drawing" value="Ctrl+R" />
+  <shortcut checkable="false" condition="full" id="TL_ADD_SOUND_ELEMENT" longDesc="This shortcut adds a Sound." order="256" responder="timelineView" slot="onActionAddSoundElement()" text="Insert Sound" value="" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_ADD_CAMERA_ELEMENT" longDesc="This shortcut adds a Camera." responder="timelineView" slot="onActionAddCameraElement()" text="Insert Camera" value="" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_ADD_PEG_ELEMENT" longDesc="This shortcut adds a Peg." order="256" responder="timelineView" slot="onActionAddPegElement()" text="Insert Peg" value="Ctrl+P" />
+  <shortcut checkable="false" condition="full and not essentials and hasAnimatedTimelineView" id="TL_ADD_PARENT_PEG_ELEMENT" longDesc="This shortcut adds a parent Peg." responder="timelineView" slot="onActionAddPegReparent()" text="Insert Parent Peg" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+P" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+P" />
+   <valueList flavour="Toon Boom Studio" value="Shift+P" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView and not essentials" id="TL_ADD_QUADMAP_ELEMENT" longDesc="This shortcut adds a Quadmap." responder="timelineView" slot="onActionAddQuadmapElement()" text="Insert Quadmap" value="" />
+  <shortcut checkable="false" condition="not essentials and and not advanced hasAnimatedTimelineView" id="TL_ADD_GROUP_ELEMENT" longDesc="This shortcut adds a Group." responder="timelineView" slot="onActionAddGroupElement()" text="Insert Group" value="Alt+G" />
+  <shortcut checkable="false" condition="paint" id="TL_ADD_ELEMENT" longDesc="This shortcut displays the 'Add Nodes' dialog." responder="timelineView" slot="onActionAddElement()" text="Insert Elements" value="" />
+  <shortcut checkable="false" condition="full and not essentials and hasAnimatedTimelineView and not advanced" id="TL_CREATE_GROUP" longDesc="This shortcut creates a group from the selected layers." responder="timelineView,Node View" slot="onActionSelCreateGroup()" text="Group Selection" value="Ctrl+G" />
+  <shortcut checkable="false" condition="full and not essentials and hasAnimatedTimelineView and not advanced" id="TL_CREATE_GROUP_WITH_COMPOSITE" longDesc="This shortcut creates a group with an internal composite from the selected nodes." responder="" slot="onActionSelCreateGroupWithComposite()" text="Group Selection With Composite" value="Ctrl+Shift+G" />
+  <shortcut checkable="false" condition="advanced" id="TL_CREATE_GROUP_WITH_COMPOSITE" longDesc="This shortcut creates a group with an internal composite from the selected nodes." responder="" slot="onActionSelCreateGroupWithComposite()" text="Group Selection" value="Ctrl+Shift+G" />
+  <shortcut checkable="false" condition="full and not essentials and hasAnimatedTimelineView" id="TL_COLLAPSE_EXPAND" longDesc="This shortcut collapses or expands an element." responder="timelineView" slot="onActionCollapseExpand()" text="Collapse or Expand an Element" value="CTRL+I" />
+  <shortcut checkable="false" condition="essentials" id="TL_COLLAPSE_EXPAND" longDesc="This shortcut collapses or expands a layer." responder="timelineView" slot="onActionCollapseExpand()" text="Collapse or Expand a Layer" value="CTRL+I" />
+  <shortcut checkable="false" condition="full and not essentials" id="TL_COLLAPSE_ALL" longDesc="This shortcut collapses all elements." responder="timelineView" slot="onActionCollapseAll()" text="Collapse All Elements" >
+   <valueList flavour="Toon Boom Studio" value=")" />
+   <valueList flavour="Toon Boom Harmony" value="0" />
+   <valueList flavour="Adobe Flash" value="0" />
+  </shortcut>
+  <shortcut checkable="false" condition="essentials" id="TL_COLLAPSE_ALL" longDesc="This shortcut collapses all layers." responder="timelineView" slot="onActionCollapseAll()" text="Collapse All Layers" >
+   <valueList flavour="Toon Boom Studio" value=")" />
+   <valueList flavour="Toon Boom Harmony" value="0" />
+   <valueList flavour="Adobe Flash" value="0" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and not essentials" id="TL_EXPAND_ALL" longDesc="This shortcut expands all elements." responder="timelineView" slot="onActionExpandAll()" text="Expand All Elements" >
+   <valueList flavour="Toon Boom Studio" value="(" />
+   <valueList flavour="Toon Boom Harmony" value="9" />
+   <valueList flavour="Adobe Flash" value="9" />
+  </shortcut>
+  <shortcut checkable="false" condition="essentials" id="TL_EXPAND_ALL" longDesc="This shortcut expands all layers." responder="timelineView" slot="onActionExpandAll()" text="Expand All Layers" >
+   <valueList flavour="Toon Boom Studio" value="(" />
+   <valueList flavour="Toon Boom Harmony" value="9" />
+   <valueList flavour="Adobe Flash" value="9" />
+  </shortcut>
+  <shortcut checkable="false" id="TL_SHOW_HIDE_THUMB" longDesc="This shortcut show or hide thumbnails of a layer." responder="timelineView" slot="onActionShowHideThumbnails()" text="Show or Hide Thumbnails" value="T" />
+  <shortcut checkable="false" id="TL_SHOW_THUMB_ALL" longDesc="This shortcut show thumbnails of all layers." responder="timelineView" slot="onActionShowAllThumbnails()" text="Show All Thumbnails" value="" />
+  <shortcut checkable="false" id="TL_HIDE_THUMB_ALL" longDesc="This shortcut hide thumbnails of all layers." responder="timelineView" slot="onActionHideAllThumbnails()" text="Hide All Thumbnails" value="" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_SELECT_CHILDREN" longDesc="Select children." responder="timelineView" slot="onActionNaviSelectChilds()" text="Select Children" value="" />
+  <shortcut checkable="false" condition="full" id="TL_ENABLE" longDesc="This shortcut enables layers." responder="timelineView" slot="onActionShow()" text="Enable Layers" value="A" />
+  <shortcut checkable="false" condition="full" id="TL_DISABLE" longDesc="This shortcut disables layers." responder="timelineView" slot="onActionHide()" text="Disable Layers" value="D" />
+  <shortcut checkable="false" condition="full and not essentials and hasAnimatedTimelineView" id="TL_ENABLE_DISABLE" longDesc="This shortcut enables or disables elements." responder="timelineView" slot="onActionShowHide()" text="Enable or Disable Elements" value="" />
+  <shortcut condition="full and not essentials and hasAnimatedTimelineView" id="TL_ENABLE_ALL" longDesc="This shortcut enables all elements." responder="timelineView" slot="onActionShowAll()" text="Enable All Elements" value="" />
+  <shortcut condition="essentials" id="TL_ENABLE_ALL" longDesc="This shortcut enables all layers." responder="timelineView" slot="onActionShowAll()" text="Enable All Layers" value="" />
+  <shortcut condition="full and not essentials and hasAnimatedTimelineView" id="TL_DISABLE_ALL_OTHERS" longDesc="This shortcut disables all elements except the currently selected one." responder="timelineView" slot="onActionHideAll()" text="Disable All Other Elements" value="" />
+  <shortcut condition="essentials" id="TL_DISABLE_ALL_OTHERS" longDesc="This shortcut disables all layers except the currently selected one." responder="timelineView" slot="onActionHideAll()" text="Disable All Other Layers" value="" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_SHOW_HIDE_FUNCTIONS" longDesc="Show/Hide functions." responder="timelineView" slot="onActionShowFunctions()" text="Show/Hide Functions" value="Alt+F" />
+  <shortcut checkable="false" condition="full and not essentials and hasAnimatedTimelineView" id="TL_SHOW_DIALOG" longDesc="Show Layer Display Dialog." responder="timelineView" slot="onActionShowDialog()" text="Show Manager" value="" />
+  <shortcut checkable="true" condition="full and not essentials" id="TL_SHOW_SOUNDS" longDesc="Show sound colums." responder="timelineView" slot="onActionShowSoundLayers()" text="Show Sound Colums" value="" />
+  <shortcut checkable="true" condition="full and not essentials and hasAnimatedTimelineView" id="TL_SHOW_EFFECTS" longDesc="Show effect nodes." responder="timelineView" slot="onActionShowEffectLayers()" text="Show Effects" value="" />
+  <shortcut checkable="true" condition="full and not essentials and hasAnimatedTimelineView" id="TL_SHOW_GROUPS" longDesc="Show group nodes in the timeline." responder="timelineView" slot="onActionShowGroupLayers()" text="Show Group" value="" />
+  <shortcut checkable="true" condition="full and hasCompositeInTimeline" id="TL_SHOW_COMPOSITES" longDesc="Show composite nodes in the timeline." responder="timelineView" slot="onActionShowCompositeLayers()" text="Show Composite" value="" />
+  <shortcut checkable="false" condition="full" id="TL_CLEAR_EXPOSURE" longDesc="Clear exposure." responder="timelineView" slot="onActionClearExposure()" text="Clear Exposure" value="" />
+  <shortcut checkable="false" condition="full" id="TL_SET_EXPOSURE_1" itemParameter="1" longDesc="Set Exposure to 1" responder="timelineView" slot="onActionSetExposure(int)" text="Set Exposure to 1" >
+   <valueList flavour="Toon Boom Studio" value="Ctrl+1" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="TL_SET_EXPOSURE_2" itemParameter="2" longDesc="Set Exposure to 2" responder="timelineView" slot="onActionSetExposure(int)" text="Set Exposure to 2" >
+   <valueList flavour="Toon Boom Studio" value="Ctrl+2" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="TL_SET_EXPOSURE_3" itemParameter="3" longDesc="Set Exposure to 3" responder="timelineView" slot="onActionSetExposure(int)" text="Set Exposure to 3" >
+   <valueList flavour="Toon Boom Studio" value="Ctrl+3" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut condition="full" id="TL_EXTEND_EXPOSURE" longDesc="Extend Exposure" order="256" responder="timelineView" slot="onActionExtendExposure()" text="Extend Exposure" value="F5" />
+  <shortcut condition="full and not scan and hasAnimatedTimelineView" id="TL_ADD_KEY_FRAME" longDesc="This shortcut adds a Keyframe" responder="timelineView" slot="onActionSetKeyFrames()" text="Insert Keyframe" >
+   <valueList flavour="Adobe Flash" value="Ctrl+F6" />
+   <valueList flavour="Toon Boom Harmony" value="F6" />
+   <valueList flavour="Toon Boom Studio" value="F6" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="SP_CLEAR_KF_KEY" longDesc="The shortcut key to clear keyframes in the currently selected layers." responder="timelineView, xsheetView" slot="onActionClearKeyFrames()" text="Delete Keyframe" >
+   <valueList flavour="Adobe Flash" value="Shift+F6" />
+   <valueList flavour="Toon Boom Harmony" value="F7" />
+   <valueList flavour="Toon Boom Studio" value="F7" />
+  </shortcut>
+  <shortcut condition="full and not scan and hasAnimatedTimelineView" id="TL_ADD_KEY_FRAME_DUPLICATE" longDesc="This shortcut adds a Keyframe and Duplicate Drawings" responder="timelineView" slot="onActionSetKeyFramesDuplicate()" text="Insert Keyframe and Duplicate Drawings" >
+   <valueList flavour="Adobe Flash" value="F6" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_GOTO_PREV_KEYFRAME" longDesc="Go to Previous Keyframe" responder="timelineView" slot="onActionGoToPrevKeyFrame()" text="Go to Previous Keyframe" value=";" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_GOTO_NEXT_KEYFRAME" longDesc="Go to Next Keyframe" responder="timelineView" slot="onActionGoToNextKeyFrame()" text="Go to Next Keyframe" value="'" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_SET_CONSTANT_KEY_FRAME" longDesc="Set Constant Keyframe" responder="timelineView" slot="onActionSetConstantKeyframe()" text="Set Stop-Motion Keyframe" value="CTRL+L" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_SET_NON_CONSTANT_KEY_FRAME" longDesc="Set Non Constant Keyframe" responder="timelineView" slot="onActionSetNonConstantKeyframe()" text="Set Motion Keyframe" value="CTRL+K" />
+  <shortcut checkable="false" condition="full" id="TL_SET_EXPOSURE" itemParameter="-1" longDesc="Set Exposure" responder="timelineView" slot="onActionSetExposure(int)" text="Set Exposure" >
+   <valueList flavour="Toon Boom Studio" value="Ctrl+4" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut checkable="true" condition="full and hasAnimatedTimelineView" id="TIMELINE_CONST_SEG" longDesc="Use this shortcut to toggle turn on or off the Stop-Motion Keyframe creation mode." responder="sceneUI" slot="onActionSetConstantSegMode()" text="Stop-Motion Keyframe Mode" value=""/>
+  <shortcut checkable="false" condition="full and hasMorphing" id="TL_ADD_MORPHING" longDesc="Add Morphing" responder="timelineView" slot="onActionAddMorph()" text="Create Morphing" value="Alt+M" />
+  <shortcut checkable="false" condition="full and hasMorphing" id="TL_DELETE_MORPHING" longDesc="Delete Morphing" responder="timelineView" slot="onActionDeleteMorph()" text="Delete Morphing" value="" />
+  <shortcut checkable="false" condition="full and hasMorphing" id="TL_CONVERT_MORPH_TO_DRAWINGS" longDesc="Convert Morphing to Drawings" responder="timelineView" slot="onActionConvertMorphToDrawings()" text="Convert Morphing to Drawings" value="" />
+  <shortcut checkable="false" condition="full and not essentials and hasMorphing" id="TL_INSERT_MORPHING_KEY_FRAME" longDesc="Insert Morphing Key Frame" responder="timelineView" slot="onActionInsertMorphingKeyframe()" text="Insert Morphing Keyframe" value="" />
+  <shortcut checkable="false" condition="full" id="TL_FLIP_VERTICAL" longDesc="Vertical flip of the selected frames" responder="timelineView" slot="onActionTLFlipVertical()" text="Flip Vertical" value="" />
+  <shortcut checkable="false" condition="full" id="TL_FLIP_HORIZONTAL" longDesc="Horizontal flip of the selected frames" responder="timelineView" slot="onActionTLFlipHorizontal()" text="Flip Horizontal" value="" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_SET_EASE_SELECTED" longDesc="Adjust the velocity and curves to set the ease in and ease out on the selected keyframes." responder="timelineView" slot="onActionSetEaseSelectedKeyframes()" text="Set Ease on Selected Keyframes..." />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_QUICK_EASE" longDesc="Set the ease in and ease out of the selected keyframes to 33%." responder="timelineView" slot="onActionQuickEase()" text="Quick Ease" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_QUICK_EASE_IN" longDesc="Set the ease in of the selected keyframes to 33%." responder="timelineView" slot="onActionQuickEaseIn()" text="Quick Ease In" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_QUICK_EASE_OUT" longDesc="Set the ease out of the selected keyframes to 33%." responder="timelineView" slot="onActionQuickEaseOut()" text="Quick Ease Out" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_SET_EASE_MULTIPLE" longDesc="Create speed patterns between motion keyframes. You can create different acceleration/deceleration patterns for movements like ease in, slow in, fast out. " responder="timelineView" slot="onActionReshapeMultipleKeyframes()" text="Set Ease for Multiple Parameters..." />
+  <shortcut checkable="false" condition="full and not harmonySketch" id="TL_GOTO_PREV_GLOBAL_FRAME" longDesc="Go to previous frame in the top scene" responder="timelineView" slot="onActionGoToPrevGlobalFrame()" text="Go to Previous Global Frame" >
+   <valueList flavour="Toon Boom Studio" value="&lt;" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+X" />
+   <valueList flavour="Adobe Flash" value="Alt+," />
+  </shortcut>
+  <shortcut checkable="false" condition="full and not harmonySketch" id="TL_GOTO_NEXT_GLOBAL_FRAME" longDesc="Go to next frame in the top scene" responder="timelineView" slot="onActionGoToNextGlobalFrame()" text="Go to Next Global Frame" >
+   <valueList flavour="Toon Boom Studio" value="&gt;" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+C" />
+   <valueList flavour="Adobe Flash" value="Alt+." />
+  </shortcut>
+  <shortcut condition="not (paint ) and hasAnimatedTimelineView and not essentials" id="TL_PASTE_MODE_CYCLE_THROUGH_PRESETS" longDesc="Cycle through paste presets" slot="onActionCycleThroughPastePresets()" text="Paste mode: Cycle through presets" />
+  <shortcut condition="not (paint ) and hasAnimatedTimelineView and not essentials" id="TL_PASTE_MODE_SET_ALL" itemParameter="all" longDesc="Set paste preset mode to all" slot="onActionSetPastePreset(QString)" text="Paste mode: Set all" />
+  <shortcut condition="not (paint ) and hasAnimatedTimelineView and not essentials" id="TL_PASTE_MODE_SET_KEY_FRAME" itemParameter="key_frame" longDesc="Set paste preset mode to key frames only" slot="onActionSetPastePreset(QString)" text="Paste mode: Set key frames only" />
+  <shortcut condition="not (paint ) and hasAnimatedTimelineView and not essentials" id="TL_PASTE_MODE_SET_EXPOSURE" itemParameter="exposure" longDesc="Set paste preset mode to exposure only" slot="onActionSetPastePreset(QString)" text="Paste mode: Set exposures only" />
+  <shortcut condition="hasSceneMarkers" id="TL_MARK_CURRENT_FRAME" longDesc="Create a Scene Marker at the current frame." slot="onActionCreateTimelineNoteCurrentFrame()" text="Mark Current Frame" responder="timelineView"/>
+  <shortcut condition="hasSceneMarkers" id="TL_CREATE_SCENE_MARKER" longDesc="Create a Scene Marker at the current timeline ruler selection." slot="onActionCreateTimelineNote()" text="Create Scene Marker" responder="timelineView"/>
+  <shortcut condition="hasSceneMarkers" id="TL_EDIT_CURRENT_FRAME_MARKER" longDesc="Edit a Scene Marker at the current timeline ruler selection." slot="onActionEditTimelineNote()" text="Edit Scene Marker" responder="timelineView"/>
+  <shortcut condition="hasSceneMarkers" id="TL_DELETE_CURRENT_FRAME_MARKER" longDesc="Delete a Scene Marker at the current timeline ruler selection." slot="onActionDeleteTimelineNote()" text="Delete Scene Marker" responder="timelineView"/>
+  <shortcut checkable="false" condition="full" id="TL_TOGGLE_SOLO_MODE" longDesc="Toggle Solo Mode On and Off" responder="timelineView" slot="onActionToggleSoloMode()" text="Toggle Solo Mode" value="" />
+  <shortcut id="TL_MARK_FRAME_RED" longDesc="This is the shortcut to mark a frame red in the currently selected layers." responder="timelineView" slot="onActionTimelineMarkRed()" text="Mark Frame Red" />
+  <shortcut id="TL_MARK_FRAME_ORANGE" longDesc="This is the shortcut to mark a frame orange in the currently selected layers." responder="timelineView" slot="onActionTimelineMarkOrange()" text="Mark Frame Orange" />
+  <shortcut id="TL_MARK_FRAME_YELLOW" longDesc="This is the shortcut to mark a frame yellow in the currently selected layers." responder="timelineView" slot="onActionTimelineMarkYellow()" text="Mark Frame Yellow" />
+  <shortcut id="TL_MARK_FRAME_GREEN" longDesc="This is the shortcut to mark a frame green in the currently selected layers." responder="timelineView" slot="onActionTimelineMarkGreen()" text="Mark Frame Green" />
+  <shortcut id="TL_MARK_FRAME_CYAN" longDesc="This is the shortcut to mark a frame cyan in the currently selected layers." responder="timelineView" slot="onActionTimelineMarkCyan()" text="Mark Frame Cyan" />
+  <shortcut id="TL_MARK_FRAME_BLUE" longDesc="This is the shortcut to mark a frame blue in the currently selected layers." responder="timelineView" slot="onActionTimelineMarkBlue()" text="Mark Frame Blue" />
+  <shortcut id="TL_MARK_FRAME_PURPLE" longDesc="This is the shortcut to mark a frame purple in the currently selected layers." responder="timelineView" slot="onActionTimelineMarkPurple()" text="Mark Frame Purple" />
+  <shortcut id="TL_MARK_FRAME_PINK" longDesc="This is the shortcut to mark a frame pink in the currently selected layers." responder="timelineView" slot="onActionTimelineMarkPink()" text="Mark Frame Pink" />
+  <shortcut id="TL_MARK_FRAME_WHITE" longDesc="This is the shortcut to mark a frame white in the currently selected layers." responder="timelineView" slot="onActionTimelineMarkWhite()" text="Mark Frame White" />
+  <shortcut id="TL_MARK_FRAME_BLACK" longDesc="This is the shortcut to mark a frame black in the currently selected layers." responder="timelineView" slot="onActionTimelineMarkBlack()" text="Mark Frame Black" />
+  <shortcut id="TL_MARK_FRAME_REMOVE" longDesc="This is the shortcut to remove a frame marker from the currently selected layers." responder="timelineView" slot="onActionTimelineRemoveMarker()" text="Remove Frame Marker" />
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_PREVIOUS_FRAME_MARK" longDesc="Go to Previous Frame Mark" responder="timelineView" slot="onActionTimelinePrevMark()" text="Go to Previous Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_NEXT_FRAME_MARK" longDesc="Go to Next Frame Mark" responder="timelineView" slot="onActionTimelineNextMark()" text="Go to Next Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_PREVIOUS_FRAME_MARK_RED" longDesc="Go to Previous Red Frame Mark" responder="timelineView" slot="onActionTimelinePrevRedMark()" text="Go to Previous Red Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_NEXT_FRAME_MARK_RED" longDesc="Go to Next Red Frame Mark" responder="timelineView" slot="onActionTimelineNextRedMark()" text="Go to Next Red Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_PREVIOUS_FRAME_MARK_ORANGE" longDesc="Go to Previous Orange Frame Mark" responder="timelineView" slot="onActionTimelinePrevOrangeMark()" text="Go to Previous Orange Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_NEXT_FRAME_MARK_ORANGE" longDesc="Go to Next Orange Frame Mark" responder="timelineView" slot="onActionTimelineNextOrangeMark()" text="Go to Next Orange Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_PREVIOUS_FRAME_MARK_YELLOW" longDesc="Go to Previous Yellow Frame Mark" responder="timelineView" slot="onActionTimelinePrevYellowMark()" text="Go to Previous Yellow Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_NEXT_FRAME_MARK_YELLOW" longDesc="Go to Next Yellow Frame Mark" responder="timelineView" slot="onActionTimelineNextYellowMark()" text="Go to Next Yellow Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_PREVIOUS_FRAME_MARK_GREEN" longDesc="Go to Previous Green Frame Mark" responder="timelineView" slot="onActionTimelinePrevGreenMark()" text="Go to Previous Green Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_NEXT_FRAME_MARK_GREEN" longDesc="Go to Next Green Frame Mark" responder="timelineView" slot="onActionTimelineNextGreenMark()" text="Go to Next Green Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_PREVIOUS_FRAME_MARK_CYAN" longDesc="Go to Previous Cyan Frame Mark" responder="timelineView" slot="onActionTimelinePrevCyanMark()" text="Go to Previous Cyan Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_NEXT_FRAME_MARK_CYAN" longDesc="Go to Next Cyan Frame Mark" responder="timelineView" slot="onActionTimelineNextCyanMark()" text="Go to Next Cyan Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_PREVIOUS_FRAME_MARK_BLUE" longDesc="Go to Previous Blue Frame Mark" responder="timelineView" slot="onActionTimelinePrevBlueMark()" text="Go to Previous Blue Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_NEXT_FRAME_MARK_BLUE" longDesc="Go to Next Blue Frame Mark" responder="timelineView" slot="onActionTimelineNextBlueMark()" text="Go to Next Blue Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_PREVIOUS_FRAME_MARK_PURPLE" longDesc="Go to Previous Purple Frame Mark" responder="timelineView" slot="onActionTimelinePrevPurpleMark()" text="Go to Previous Purple Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_NEXT_FRAME_MARK_PURPLE" longDesc="Go to Next Purple Frame Mark" responder="timelineView" slot="onActionTimelineNextPurpleMark()" text="Go to Next Purple Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_PREVIOUS_FRAME_MARK_PINK" longDesc="Go to Previous Pink Frame Mark" responder="timelineView" slot="onActionTimelinePrevPinkMark()" text="Go to Previous Pink Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_NEXT_FRAME_MARK_PINK" longDesc="Go to Next Pink Frame Mark" responder="timelineView" slot="onActionTimelineNextPinkMark()" text="Go to Next Pink Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_PREVIOUS_FRAME_MARK_WHITE" longDesc="Go to Previous White Frame Mark" responder="timelineView" slot="onActionTimelinePrevWhiteMark()" text="Go to Previous White Frame Mark"/>
+  <shortcut checkable="false" condition="full and hasAnimatedTimelineView" id="TL_NEXT_FRAME_MARK_WHITE" longDesc="Go to Next White Frame Mark" responder="timelineView" slot="onActionTimelineNextWhiteMark()" text="Go to Next White Frame Mark"/>
+ </category>
+
+ // Network
+ <category condition="hasNetworkView and not paint" id="Node View" text="Node View" >
+  <shortcut checkable="false" condition="full" id="NV_ENABLE_MODULE_KEY" longDesc="This shortcut turns on selected nodes in the node network that have been disabled." slot="onActionSelEnable()" text="Enable Node" value="A" />
+  <shortcut checkable="false" condition="full" id="NV_DISABLE_MODULE_KEY" longDesc="This shortcut turns off selected nodes in the node network." slot="onActionSelDisable()" text="Disable Node" value="D" />
+  <shortcut checkable="false" condition="full" id="NV_TOGGLE_WORLD_VIEW_KEY" longDesc="Default show/hide value for the the World View in the Node View." slot="onActionShowHideWorldView()" text="Show/Hide Navigator" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+W" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+W" />
+  </shortcut>
+  <shortcut condition="full" id="NV_ENTER_GROUP_KEY" longDesc="This shortcut displays the contents of a Group Node." slot="onActionEnterGroup()" text="Enter Group" value="Ctrl+Return" />
+  <shortcut checkable="false" condition="full" id="NV_EXIT_GROUP_KEY" longDesc="This shortcut goes back to the previous level of the Group Node." slot="onActionUpToParent()" text="Exit Group" value="Ctrl+Shift+Return" />
+  <shortcut checkable="false" condition="full" id="NV_MOVE_TO_PARENT_KEY" longDesc="This shortcut moves the selected nodes in the Group Node to the parent level, maintaining all node connections." slot="onActionSelMoveToParentGroup()" text="Move To Parent" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+U" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+U" />
+  </shortcut>
+  <shortcut condition="full" id="NV_CREATE_COMPOSITE_KEY" longDesc="This shortcut adds a new composite node to the Node View." slot="onActionCreateComposite()" text="Create Composite" value="Ctrl+H" value_mac="Meta+H" />
+  <shortcut condition="full" id="NV_CREATE_CUTTER_KEY" longDesc="This shortcut adds a new cutter node to the Node View." slot="onActionCreateCutter()" text="Create Cutter" value=""/>
+  <shortcut condition="full" id="NV_CREATE_GROUP_KEY" longDesc="This shortcut adds a new Group Node to the Node View." slot="onActionCreateGroup()" text="Create Group" value="Alt+G" />
+  <shortcut checkable="false" condition="full" id="NV_SELECTED_CREATE_GROUP_KEY" longDesc="This shortcuts adds a new Group Node to the Node View, and moves the selected nodes into it." slot="onActionSelCreateGroup()" text="Group" value="Ctrl+G" />
+  <shortcut checkable="false" condition="full" id="NV_SELECTED_UNGROUP_KEY" longDesc="This shortcuts explode the group and moves all nodes within onto the selected level." slot="onActionSelMergeInto()" text="Ungroup" />
+  <shortcut checkable="false" condition="not essentials " id="NV_CREATE_GROUP_WITH_COMPOSITE" longDesc="This shortcuts adds a new Group Node to the Node View, and moves the selected nodes into it." slot="nActionSelCreateGroupWithComposite()" text="Group with Composite" value="Ctrl+Shift+G" />
+  <shortcut condition="full" id="NV_CREATE_PEG_KEY" longDesc="This shortcut adds a Peg Node to the Node View." slot="onActionCreatePeg()" text="Create Peg" value="Ctrl+P" />
+  <shortcut condition="full" id="NV_CREATE_PARENT_PEG_KEY" longDesc="This shortcut adds a Parent Peg Node to the Selected Nodes in the Node View." slot="onActionCreateParentPeg()" text="Create Parent Peg" value="Shift+Ctrl+P" />
+  <shortcut condition="full" id="NV_CREATE_DISPLAY_KEY" longDesc="This shortcut adds a Display Node to the Node View." slot="onActionCreateDisplay()" text="Create Display" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+Y" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Y" />
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Y" />
+  </shortcut>
+  <shortcut condition="full" id="NV_CENTRE_PARENT_NODE" longDesc="Centre node view to parent node of selected node or port." slot="onActionFocusOnParentNodeNV()" text="Centre to Parent Node" value="Ctrl+Up" />
+  <shortcut condition="full" id="NV_CENTRE_CHILD_NODE" longDesc="Centre node view to child node of selected node or port." slot="onActionFocusOnChildNodeNV()" text="Centre to Child Node" value="Ctrl+Down" />
+  <shortcut condition="full" id="NV_CREATE_READ_KEY" longDesc="This shortcut adds a Read Node to the Node View." slot="onActionCreateRead()" text="Create Read" value="Ctrl+R" />
+  <shortcut condition="full" id="FOCUS_ON_SELECTION_KEY" longDesc="Shortcut key to recentre the node view on the selected node." slot="onActionFocusOnSelectionNV()" text="Centre on Selection" value="O" />
+  <shortcut condition="full" id="NV_SHOW_SELECTED_THUMBNAILS" longDesc="This shortcut shows the thumbnails for selected nodes." slot="onActionToggleSelectedThumbNail()" text="Show/Hide Selected thumbnails" value="T" />
+  <shortcut checkable="false" condition="full" id="NV_HIDE_SELECTED_THUMBNAILS" longDesc="This shortcut hides the thumbnails for all nodes." slot="onActionHideAllThumbNails()" text="Hide All thumbnails" value="Alt+T" />
+  <shortcut condition="full" id="NV_MAGNIFIER_KEY" longDesc="This is the shortcut key to display a magnifier for the Node View." text="Magnifier" trapKeys="true" value="Z" />
+  <shortcut condition="full" id="SHOW_ALL_MODULES_KEY" longDesc="This is the shortcut key to show all nodes in the Node View." slot="onActionShowAllModules()" text="Show All Nodes" value="Shift+." />
+  <shortcut condition="full" id="COPY_QUALIFIED_NAME_KEY" longDesc="This is the shortcut key to copy the qualified name of the selected node or waypoint" slot="onActionCopyQualifiedName()" text="Copy Qualified Name" value="Ctrl+Q" />
+  <shortcut condition="full" id="NV_CREATE_BACKDROP" longDesc="This shortcut adds a new backdrop to the Node View." slot="onActionCreateBackdrop()" text="Create Backdrop" value="" value_mac="" /> 
+  <shortcut condition="full" id="CREATE_WAYPOINT_KEY" longDesc="This shortcut adds a new floating, unconnected waypoint in the current group." slot="onActionCreateWaypointFromShortcut()" text="Create Waypoint" value="" value_mac=""/>
+  <shortcut condition="full" id="RENAME_WAYPOINT_KEY" longDesc="This shortcut will show a dialog to rename selected waypoint." slot="onActionRenameWaypoint()" text="Rename Waypoint" value="" value_mac=""/>
+  <shortcut condition="full" id="NV_QUICK_ADD_SEARCH" longDesc="This shortcut opens a searchable list of nodes that can be inserted in the node graph." slot="onActionQuickSearchAddNode()" text="Find and Insert Node" value="return" />
+  <shortcut checkable="true" condition="full" id="TOGGLE_CABLE_CUTTER" longDesc="This shortcut toggles the cable cutting mode." slot="onActionToggleCableCutter()" text="Cable Cutter" value=""/>
+  <shortcut condition="full" id="CABLE_CUTTER_OVERRIDE" longDesc="This shortcut temporarily enables the cable cutter, while held." text="Cable Cutter Override" trapKeys="true" value=""/>
+ </category>
+
+ // Xsheet Sheet
+ <category condition="hasXsheetView and not paint" id="Exposure Sheet" text="Exposure Sheet" >
+  <shortcut condition="not paint" id="XSHEET_ADD_READ" longDesc="The shortcut key to add a drawing column in the Xsheet View." text="Add Drawing Column" value="Ctrl+R" />
+  <shortcut checkable="false" condition="not paint" id="XSHEET_COLUMNATE_KEY" longDesc="The shortcut key to display the Columnate dialog box in the Xsheet View." slot="onActionColumnateEditor()" text="Sequence Fill" value="Ctrl+M" />
+  <shortcut checkable="false" condition="not paint" id="XSHEET_FILL_KEY" longDesc="The shortcut key to display the Fill dialog in the Xsheet View." slot="onActionFillEditor()" text="Fill Selection" value="Ctrl+T" />
+  <shortcut condition="not paint and not essentials" id="XSHEET_RANDOM_KEY" longDesc="The shortcut key to display the Random Fill dialog in the Xsheet View." slot="onActionRandomEditor()" text="Fill Randomly" value="" />
+  <shortcut checkable="false" condition="(not paint) and hasAnimatedXsheetView" id="XSHEET_INSERT_KF_KEY" longDesc="The shortcut key to insert keyframes in the Xsheet View." slot="onActionSetKeyFrames()" text="Insert Keyframe" >
+   <valueList flavour="Adobe Flash" value="Ctrl+F6" />
+   <valueList flavour="Toon Boom Harmony" value="F6" />
+   <valueList flavour="Toon Boom Studio" value="F6" />
+  </shortcut>
+  <shortcut checkable="false" condition="scan or harmonySketch and hasAnimatedXsheetView" id="XSHEET_CLEAR_KF_KEY" longDesc="The shortcut key to clear keyframes in the current selection" responder="xsheetView" slot="onActionClearKeyFrames()" text="Delete Keyframe" >
+   <valueList flavour="Adobe Flash" value="Shift+F6" />
+   <valueList flavour="Toon Boom Harmony" value="F7" />
+   <valueList flavour="Toon Boom Studio" value="F7" />
+  </shortcut>
+  <shortcut checkable="false" condition="(not paint and not scan )" id="XSHEET_SET_HOLD_VALUE_1" itemParameter="1" longDesc="Set Hold 1 Cell" slot="onActionXsheetHoldValueMenu(int)" text="Set Hold 1 Cell" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+1" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="(not paint and not scan )" id="XSHEET_SET_HOLD_VALUE_2" itemParameter="2" longDesc="Set Hold 2 Cells" slot="onActionXsheetHoldValueMenu(int)" text="Set Hold 2 Cells" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+2" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="(not paint and not scan )" id="XSHEET_SET_HOLD_VALUE_3" itemParameter="3" longDesc="Set Hold 3 Cells" slot="onActionXsheetHoldValueMenu(int)" text="Set Hold 3 Cells" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+3" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="(not paint and not scan )" id="XSHEET_SET_HOLD_VALUE_4" itemParameter="4" longDesc="Set Hold 4 Cells" slot="onActionXsheetHoldValueMenu(int)" text="Set Hold 4 Cells" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+4" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="(not paint and not scan )" id="XSHEET_SET_HOLD_VALUE_CUSTOM" itemParameter="0" longDesc="Set Custom Hold Cell" slot="onActionXsheetHoldValueMenu(int)" text="Set Custom Hold Cell" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="not paint" id="XSHEET_ADD_COL_KEY" longDesc="The shortcut key to display the Add Column dialog box in the Xsheet View." slot="onActionAddColumnsEditor()" text="Add Columns" >
+   <valueList flavour="Toon Boom Studio" value="Shift+M" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+C" />
+   <valueList flavour="Adobe Flash" value="Shift+C" />
+  </shortcut>
+  <shortcut condition="not paint" id="XSHEET_CLONE_COL_KEY" longDesc="The shortcut key to clone the drawing columns in the current selection of the Xsheet View." slot="onActionCloneColumns_DrawingsOnly()" text="Clone Selected Columns: Drawings Only" value="" />
+  <shortcut checkable="false" condition="not paint" id="XSHEET_DUPLICATE_COL_KEY" longDesc="The shortcut key to duplicate the drawing columns in the current selection of the Xsheet View." slot="onActionDuplicateColumns()" text="Duplicate Selected Columns" >
+   <valueList flavour="Adobe Flash" value="Ctrl+D" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="not paint and not essentials" id="XSHEET_MERGE_COL_KEY" longDesc="The shortcut key to merge the drawing columns in the current selection of the Xsheet View." slot="onActionMergeElements()" text="Merge Selected Columns" />
+  <shortcut checkable="false" condition="not paint" id="XSHEET_HIDE_COL_KEY" longDesc="The shortcut key to hide selected columns in the Xsheet View." slot="onActionHideSelectedColumns()" text="Hide Selected Column" value="Alt+H" />
+  <shortcut checkable="false" condition="not paint" id="XSHEET_SHOW_COL_KEY" longDesc="The shortcut key to display the Show Column dialog box in the Xsheet View." slot="onActionShowUnhideObjectsEditor()" text="Show Hidden Columns" value="Alt+Shift+H" />
+  <shortcut checkable="false" condition="not paint and not scan and not harmonySketch" id="XSHEET_COLLAPSE_KEY" longDesc="The shortcut key to Collapse column groups in the Xsheet View." slot="onActionCollapseSel()" text="Collapse" value="" />
+  <shortcut checkable="false" condition="not paint and not scan and not harmonySketch" id="XSHEET_EXPAND_KEY" longDesc="The shortcut key used to Expand column groups in the Xsheet View." slot="onActionExpandSel()" text="Expand" value="" />
+  <shortcut checkable="false" condition="not paint and not scan and not harmonySketch" id="XSHEET_COLLAPSE_ALL_KEY" longDesc="The shortcut key to Collapse all column groups in the Xsheet View." slot="onActionCollapseAll()" text="Collapse All" >
+   <valueList flavour="Toon Boom Studio" value=")" />
+   <valueList flavour="Toon Boom Harmony" value="0" />
+   <valueList flavour="Adobe Flash" value="0" />
+  </shortcut>
+  <shortcut checkable="false" condition="not paint and not scan and not harmonySketch" id="XSHEET_EXPAND_ALL_KEY" longDesc="The shortcut key to Expand all column groups in the Xsheet View." slot="onActionExpandAll()" text="Expand All" >
+   <valueList flavour="Toon Boom Studio" value="(" />
+   <valueList flavour="Toon Boom Harmony" value="9" />
+   <valueList flavour="Adobe Flash" value="9" />
+  </shortcut>
+  <shortcut checkable="true" condition="full" id="XSHEET_TOGGLE_ENABLE_PLAYBACK_KEY" longDesc="This is the shortcut to turn on/off the highlight of the current frame during playback in the Xsheet View." slot="onActionTogglePlayback()" text="Enable/Disable Playback" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut condition="not paint" id="XSHEET_INSERT_MODE_KEY" longDesc="The shortcut key to switch between inserting and modifying cells in Drawings and Timing columns in the Xsheet View." slot="onActionToggleInsertMode()" text="Insert/Overwrite Mode" value="i" />
+  <shortcut condition="hasXsheetGesturalDrag" id="XSHEET_GESTURAL_DRAG_MODE" longDesc="The shortcut key to enable/disable gestural editing in the Xsheet View." slot="onActionToggleGesturalDrag()" text="Gestural Drag Mode" value="" />
+  <shortcut condition="not paint" id="XSHEET_INSERT_EMPTY_KEY" longDesc="The shortcut key to insert blank frames in insert mode in the Xsheet View." slot="onActionInsertEmpty()" text="Insert Blank Cell" >
+   <valueList flavour="Toon Boom Studio" value="Shift+R" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+J" />
+   <valueList flavour="Adobe Flash" value="X" />
+  </shortcut>
+  <shortcut condition="not paint" id="XSHEET_INSERT_CLEAR_KEY" longDesc="The shortcut key to clear the current frames in insert mode in the Xsheet View." slot="onActionRemoveBlankFrame()" text="Clear Exposure and Pull" value=""/>
+  <shortcut condition="not paint" id="XSHEET_CLEAR_KEY" longDesc="The shortcut key to clear the selected cell in the Xsheet View." slot="onActionXsheetClear()" text="Clear Selected Cells" value="" />
+  <shortcut checkable="false" condition="not paint and not scan and not essentials" id="XSHEET_PREVIEW_KEY" longDesc="The shortcut key to preview frames using Playback from the Xsheet View" slot="onActionPreview()" text="Preview" value="Alt+P" />
+  <shortcut checkable="false" condition="not paint and not scan" id="XSHEET_SHOW_COLUMNS_DLG_KEY" longDesc="The shortcut key to display the Show Columns dialog in the Xsheet View" slot="onActionDisplayShowDlg()" text="Show Column Types" value="" />
+  <shortcut checkable="false" condition="not paint" id="XSHEET_SHOW_THUMBNAILS_KEY" longDesc="The shortcut key to toggle the displaying of Thumbnails in the Xsheet View" slot="onActionToggleThumbnails()" text="Thumbnails" value="" />
+  <shortcut checkable="false" condition="scan or premium or harmonySketch" id="XSHEET_SET_EXPOSURE_1" itemParameter="1" longDesc="Set Exposure to 1" responder="xsheetView" slot="onActionSetExposure(int)" text="Set Exposure to 1" value=""/>
+  <shortcut checkable="false" condition="scan or premium or harmonySketch" id="XSHEET_SET_EXPOSURE_2" itemParameter="2" longDesc="Set Exposure to 2" responder="xsheetView" slot="onActionSetExposure(int)" text="Set Exposure to 2" value=""/>
+  <shortcut checkable="false" condition="scan or premium or harmonySketch" id="XSHEET_SET_EXPOSURE_3" itemParameter="3" longDesc="Set Exposure to 3" responder="xsheetView" slot="onActionSetExposure(int)" text="Set Exposure to 3" value=""/>
+  <shortcut checkable="false" condition="scan or premium or harmonySketch" id="XSHEET_SET_EXPOSURE_4" itemParameter="4" longDesc="Set Exposure to 4" responder="xsheetView" slot="onActionSetExposure(int)" text="Set Exposure to 4" value=""/>
+  <shortcut checkable="false" condition="scan or premium or harmonySketch" id="XSHEET_SET_EXPOSURE_5" itemParameter="5" longDesc="Set Exposure to 5" responder="xsheetView" slot="onActionSetExposure(int)" text="Set Exposure to 5" value=""/>
+  <shortcut checkable="false" condition="scan or premium or harmonySketch" id="XSHEET_SET_EXPOSURE_6" itemParameter="6" longDesc="Set Exposure to 6" responder="xsheetView" slot="onActionSetExposure(int)" text="Set Exposure to 6" value=""/>
+  <shortcut checkable="false" condition="scan or premium or harmonySketch" id="XSHEET_SET_EXPOSURE_7" itemParameter="7" longDesc="Set Exposure to 7" responder="xsheetView" slot="onActionSetExposure(int)" text="Set Exposure to 7" value=""/>
+  <shortcut checkable="false" condition="scan or premium or harmonySketch" id="XSHEET_SET_EXPOSURE_8" itemParameter="8" longDesc="Set Exposure to 8" responder="xsheetView" slot="onActionSetExposure(int)" text="Set Exposure to 8" value=""/>
+  <shortcut checkable="false" condition="scan or premium or harmonySketch" id="XSHEET_SET_EXPOSURE_9" itemParameter="9" longDesc="Set Exposure to 9" responder="xsheetView" slot="onActionSetExposure(int)" text="Set Exposure to 9" value=""/>
+  <shortcut checkable="false" condition="full" id="ZOOM_EXTENTS_KEY" longDesc="This is the shortcut key to set the zoom level to show all contents of the Xsheet View." slot="onActionZoomExtents()" text="Zoom Extents" value="" />
+  <shortcut checkable="false" condition="full" id="DELETE_DRAWING_KEY" longDesc="This is the shortcut key used to delete selected drawings." slot="onActionDeleteDrawings()" text="Delete Selected Drawings" value="" />
+  <shortcut checkable="false" condition="full" id="DELETE_COLUMNS_KEY" longDesc="This is the shortcut key used to delete selected columns." slot="onActionDeleteColumns()" text="Delete Selected Columns" value="" />
+  <shortcut checkable="false" condition="full" id="REMOVE_FRAMES_KEY" longDesc="This is the shortcut key used to remove selected frames." slot="onActionRemoveFrames()" text="Remove Frames" value="" />
+  <shortcut checkable="false" condition="hasMarkDrawingTools" id="XSHEET_MARK_AS_KEY" longDesc="Marks the selected drawings as key drawings." slot="onActionMarkAsKey()" text="Mark As Key" value="" />
+  <shortcut checkable="false" condition="hasMarkDrawingTools" id="XSHEET_MARK_AS_BREAKDOWN" longDesc="Marks the selected drawings as breakdown drawings." slot="onActionMarkAsBreakdown()" text="Mark As Breakdown" value="" />
+  <shortcut checkable="false" condition="hasMarkDrawingTools" id="XSHEET_MARK_AS_INBETWEEN" longDesc="Marks the selected drawings as in-between drawings." slot="onActionMarkAsInBetween()" text="Mark As In-between" value="" />
+  <shortcut checkable="false" condition="scan" id="XSHEET_SCAN_NEWDRAWINGS" longDesc="This the shortcut key to scan a drawing in the current selection of the Xsheet View." responder="xsheetView" slot="onActionScanNewDrawing()" text="Scan New drawing" value="S" />
+  <shortcut checkable="false" condition="scan" id="XSHEET_GOTO_PREV_KEYFRAME" longDesc="Go to Previous Keyframe" responder="xsheetView" slot="onActionGoToPrevKeyFrame()" text="Go to Previous Keyframe" value=";" />
+  <shortcut checkable="false" condition="scan" id="XSHEET_GOTO_NEXT_KEYFRAME" longDesc="Go to Next Keyframe" responder="xsheetView" slot="onActionGoToNextKeyFrame()" text="Go to Next Keyframe" value="'" />
+  <shortcut checkable="false" condition="scan" id="XSHEET_SET_CONSTANT_KEY_FRAME" longDesc="Set Constant Keyframe" responder="xsheetView" slot="onActionSetConstantKeyframe()" text="Set Stop-Motion Keyframe" value="CTRL+L" />
+  <shortcut checkable="false" condition="scan" id="XSHEET_SET_NON_CONSTANT_KEY_FRAME" longDesc="Set Non Constant Keyframe" responder="xsheetView" slot="onActionSetNonConstantKeyframe()" text="Set Motion Keyframe" value="CTRL+K" />
+ </category>
+
+ // Colour Management
+ <category condition="not (essentials or advanced)" id="Colour Management" text="Colour Management" >
+  <shortcut checkable="false"  id="COLOR_LOCK_ALL_KEY" longDesc="Shortcut key for the Get Rights to Modify All Palettes command." responder="paletteView" slot="onActionLockAllPalettes()" text="Get Rights To Modify All Palettes" value="Alt+L" />
+  <shortcut checkable="false" id="PALETTEVIEW_GOTO_NEXT_COLOR" longDesc="Shortcut to change the current colour to the next colour." responder="paletteView" slot="onActionGotoNextColor()" text="Palette Goto Next Color" value="" />
+  <shortcut checkable="false" id="PALETTEVIEW_GOTO_PREVIOUS_COLOR" longDesc="Shortcut to change the current colour to the previous colour." responder="paletteView" slot="onActionGotoPreviousColor()" text="Palette Goto Previous Color" value="" />
+  <shortcut checkable="false" condition="has MultiPalettes" id="PALETTEVIEW_PROTECT_COLOR" longDesc="Shortcut to toggle on/off Protect Colour on selected colour pots." responder="paletteView" slot="onActionToggleStickyPaint()" text="Proctect Colour Value" value="" />
+  <shortcut checkable="false" id="RECOLOR_DRAWINGS" longDesc="Shortcut to replace current colour in drawings" responder="colorOperationsResponder" slot="onActionRepaintColorInDrawing()" text="Recolour Drawings..." value="" />
+ </category>
+
+ // Drawing
+ <category id="Drawing Mode" text="Drawing Mode" >
+  <shortcut checkable="false" id="DRAWING_STABILIZER_MODE_TOGGLE" longDesc="Toggle the pen stabilizer on and off." responder="brushSettingsResponder" slot="onStabilizerModeToggled()" text="Toggle stabilizer on/off" /> 
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_PREVIEW_MODE_KEY" longDesc="Shortcut key to toggle Preview Mode on and off in the Drawing View. In Preview Mode, all layers of the drawing are visible; only the active layer (Line Art or Colour Art) is visible when Preview Mode is off." responder="artLayerResponder" slot="onActionPreviewModeToggle()" text="Preview Line and Colour Arts" >
+   <valueList flavour="Adobe Flash" value="Shift+P" />
+   <valueList flavour="Toon Boom Harmony" value="P" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_LINE_ART_MODE_KEY" longDesc="Shortcut key to toggle between Line Art and Colour Art in a drawing." responder="artLayerResponder" slot="onActionToggleLineColorArt()" text="Switch to Line Art/Colour Art" >
+   <valueList flavour="Toon Boom Studio" value="Shift+L" />
+   <valueList flavour="Toon Boom Harmony" value="L" />
+   <valueList flavour="Adobe Flash" value="L" />
+  </shortcut>
+  <shortcut checkable="false" condition="not essentials and hasOverlayUnderlayLayers" id="DRAWING_OVERLAY_UNDERLAY_MODE_TOGGLE_KEY" longDesc="Shortcut key to toggle between overlay and underlay layer in a drawing." responder="artLayerResponder" slot="onActionToggleOverlayUnderlayArt()" text="Switch To Overlay/Underlay Art" value=":" />
+  <shortcut checkable="true" id="DRAWING_SHOW_STROKES_KEY" longDesc="Shortcut key to the Show Strokes command." order="50" slot="onActionShowStrokes()" text="Show Strokes" >
+   <valueList flavour="Adobe Flash" value="D" />
+   <valueList flavour="Toon Boom Harmony" value="K" />
+   <valueList flavour="Toon Boom Studio" value="K" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_BACKLITE_KEY" longDesc="Shortcut key to turn the Backlight on and off in the Drawing View." responder="drawingView" slot="onActionBackLight()" text="Toggle Backlight" >
+   <valueList flavour="Toon Boom Harmony" value="Alt+Shift+B" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+C" />
+   <valueList flavour="Toon Boom Studio" value="Alt+Shift+B" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_PAINT_TOOL_KEY" longDesc="Activate the Paint Tool." order="256" overridable="true" slot="onActionChoosePaintToolInPaintMode()" text="Paint Tool" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+I" />
+   <valueList flavour="Toon Boom Studio" value="Alt+3" />
+  </shortcut>
+  <shortcut checkable="true" condition="hasRepaintTool" id="DRAWING_REPAINT_TOOL_KEY" longDesc="Activate the Paint Tool in Repaint Mode." order="256" overridable="true" slot="onActionChoosePaintToolInRepaintMode()" text="Repaint Tool" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+R" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="true" condition="hasUnpaintTool" id="DRAWING_UNPAINT_TOOL_KEY" longDesc="Activate the Paint Tool in Unpaint Mode." order="256" overridable="true" slot="onActionChoosePaintToolInUnpaintMode()" text="Unpaint Tool" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+U" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut checkable="true" condition="hasPaintUnpaintedTool" id="DRAWING_PAINT_UNPAINTED_TOOL_KEY" longDesc="Activate the Paint Tool in Paint Unpainted Mode." order="256" overridable="true" slot="onActionChoosePaintToolInPaintUnpaintedMode()" text="Paint Unpainted Tool" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+Y" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false"  id="DRAWING_PAINT_TOOL_KEY_NO_OVERRIDE" longDesc="Activate the Paint Tool without changing its mode." order="256" overridable="true" slot="onActionChoosePaintTool()" text="Paint Tool (General)" >
+   <valueList flavour="Adobe Flash" value="Alt+K" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="Alt+P" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_COLOR_DROPPER_TOOL_KEY" longDesc="Activate the Colour Eyedropper Tool." order="256" overridable="true" slot="onActionChooseDropperTool()" text="Colour Eyedropper Tool" >
+   <valueList flavour="Adobe Flash" value="Alt+I" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+D" />
+   <valueList flavour="Toon Boom Studio" value="Alt+8" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_TEXTURE_DROPPER_TOOL_KEY" longDesc="Activate the Pencil Texture Eyedropper Tool." order="256" overridable="true" slot="onActionChooseTextureDropperTool()" text="Pencil Texture Eyedropper Tool" >
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_ERASER_TOOL_KEY" longDesc="Activate the Eraser Tool." order="256" overridable="true" slot="onActionChooseEraserTool()" text="Eraser Tool" value_mac="Meta+E" >
+   <valueList flavour="Toon Boom Studio" value="Alt+4" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+E" />
+   <valueList flavour="Adobe Flash" value="Alt+E" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_CUTTER_TOOL_KEY" longDesc="Activate the Cutter Tool." order="256" overridable="true" slot="onActionChooseCutterTool()" text="Cutter Tool" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+T" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_BRUSH_TOOL_KEY" longDesc="Activate the Brush Tool in Brush Mode." order="256" overridable="true" slot="onActionChooseBrushToolInBrushMode()" text="Brush Tool" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+B" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_BRUSH_TOOL_KEY_NO_OVERRIDE" longDesc="Activate the Brush Tool." order="256" overridable="true" slot="onActionChooseBrushTool()" text="Brush Tool (General)" >
+   <valueList flavour="Toon Boom Studio" value="Alt+2" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="Alt+B" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_SELECT_TOOL_KEY" longDesc="Activate the Select Tool." order="256" overridable="true" slot="onActionChooseSelectTool()" text="Select Tool" >
+   <valueList flavour="Adobe Flash" value="Alt+V" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+S" />
+   <valueList flavour="Toon Boom Studio" value="Alt+1" />
+  </shortcut>
+  <shortcut condition="hasStampBrushes" checkable="true" id="DRAWING_STAMP_TOOL_KEY" longDesc="Activate the Stamp Tool." order="256" overridable="true" slot="onActionChooseStampTool()" text="Stamp Tool" />
+  <shortcut condition="hasShiftAndTraceTool" id="SHIFT_TRACE_TOGGLE_VIEW_KEY" longDesc="Toggle Shift and Trace Peg View. For the Desk's Shift and Trace Only" slot="onActionToggleShiftAndTracePegView()" text="Desk: Shift Trace Toggle View" />
+  <shortcut condition="hasShiftAndTraceTool" id="SHIFT_TRACE_TOGGLE_MANIPULATOR_KEY" longDesc="Toggle Shift and Trace Manipulator. For the Desk's Shift and Trace Only" slot="onActionToggleShiftAndTraceManipulator()" text="Desk: Shift Trace Toggle Manipulator" />
+  <shortcut condition="hasShiftAndTraceTool" id="SHIFT_TRACE_MOVE_TOOL_KEY" longDesc="Shift and Trace Move Override Tool. For the Desk's Shift and Trace Only" text="Desk: Shift Trace Move Tool" />
+  <shortcut condition="hasShiftAndTraceTool" id="SHIFT_TRACE_ROTATE_TOOL_KEY" longDesc="Shift and Trace Rotate Override. For the Desk's Shift and Trace Only" text="Desk: Shift Trace Rotate Tool" />
+  <shortcut condition="hasShiftAndTraceTool" id="SHIFT_TRACE_SCALE_TOOL_KEY" longDesc="Shift and Trace Scale Override. For the Desk's Shift and Trace Only" text="Desk: Shift Trace Scale Tool" />
+  <shortcut condition="hasShiftAndTraceTool" id="SHIFT_TRACE_DRAWING_RESET_POSITION_KEY" longDesc="Reset Shift and Trace Drawing Position. For the Desk's Shift and Trace Only" slot="onActionResetDrawingPosition()" text="Desk: Shift Trace Drawing Reset Position" />
+  <shortcut condition="hasShiftAndTraceTool" id="SHIFT_TRACE_DRAWING_OFF_PEG_TOGGLE_KEY" longDesc="Toggle Shift and Trace Drawing Peg State. For the Desk's Shift and Trace Only" slot="onActionToggleDrawingOnPeg()" text="Desk: Shift Trace Drawing Toggle Peg State" />
+  <shortcut condition="hasShiftAndTraceTool" id="SHIFT_TRACE_DRAWING_OS_HIDE_SHOW_KEY" longDesc="Toggle Shift and Trace Onion Skin Drawing Visibility. For the Desk's Shift and Trace Only" slot="onActionToggleDrawingVisibility()" text="Desk: Shift Trace Drawing Toggle Visibility" />
+  <shortcut condition="hasShiftAndTraceTool" id="SHIFT_TRACE_DRAWING_MOVE_UP_KEY" longDesc="Move Shift and Trace Drawing Up. For the Desk's Shift and Trace Only" slot="onActionMoveDrawingUp()" text="Desk: Shift Trace Drawing Move Up" />
+  <shortcut condition="hasShiftAndTraceTool" id="SHIFT_TRACE_DRAWING_MOVE_DOWN_KEY" longDesc="Move Shift and Trace Drawing Down. For the Desk's Shift and Trace Only" slot="onActionMoveDrawingDown()" text="Desk: Shift Trace Drawing Move Down" />
+  <shortcut checkable="false" condition="hasShiftAndTraceTool" id="REMOVE_DRAWING_FROM_LIST_KEY" longDesc="Removes the selected drawing from the thumbnails side panel." slot="onActionRemoveFromDrawingList()" text="Remove Selected Drawing" />
+  <shortcut checkable="true" id="DRAWING_PENCIL_TOOL_KEY" longDesc="Activate the Pencil Tool." order="256" overridable="true" slot="onActionChoosePencilTool()" text="Pencil Tool" >
+   <valueList flavour="Adobe Flash" value="Alt+Y" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+/" />
+   <valueList flavour="Toon Boom Studio" value="Alt+9" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_PENCIL_EDITOR_TOOL_KEY" longDesc="Activate Pencil Editor Tool temporarily or permanently if pressed with ALT." order="256" overridable="true" slot="onActionChoosePencilEditorTool()" text="Pencil Editor Tool" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="8" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_RECTANGLE_TOOL_KEY" longDesc="Activate the Rectangle Tool." order="256" overridable="true" slot="onActionChooseRectangleTool()" text="Rectangle Tool" >
+   <valueList flavour="Toon Boom Harmony" value="Alt+7" />
+   <valueList flavour="Adobe Flash" value="Alt+R" />
+   <valueList flavour="Toon Boom Studio" value="Alt+`" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_ELLIPSE_TOOL_KEY" longDesc="Activate the Ellipse Tool." order="256" overridable="true" slot="onActionChooseEllipseTool()" text="Ellipse Tool" >
+   <valueList flavour="Toon Boom Harmony" value="Alt+=" />
+   <valueList flavour="Adobe Flash" value="Alt+O" />
+   <valueList flavour="Toon Boom Studio" value="Alt+O" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_POLYLINE_TOOL_KEY" longDesc="Activate the Polyline Tool." order="256" overridable="true" slot="onActionChoosePolylineTool()" text="Polyline Tool" >
+   <valueList flavour="Toon Boom Harmony" value="Alt+_" />
+   <valueList flavour="Adobe Flash" value="Alt+P" />
+   <valueList flavour="Toon Boom Studio" value="Alt+-" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_LINE_TOOL_KEY" longDesc="Activate the Line Tool." order="256" overridable="true" slot="onActionChooseLineTool()" text="Line Tool" >
+   <valueList flavour="Toon Boom Harmony" value="Alt+\" />
+   <valueList flavour="Adobe Flash" value="Alt+N" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_CONTOUR_EDITOR_TOOL_KEY" longDesc="Activate the Contour Editor Tool." order="256" overridable="true" slot="onActionChooseContourEditorTool()" text="Contour Editor Tool" >
+   <valueList flavour="Adobe Flash" value="Alt+A" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+Q" />
+   <valueList flavour="Toon Boom Studio" value="Alt+6" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_CENTERLINE_EDITOR_TOOL_KEY" longDesc="Activate the Centerline Editor Tool." order="256" overridable="true" slot="onActionChooseCenterlineEditorTool()" text="Centerline Editor Tool" >
+   <valueList flavour="Toon Boom Harmony" value="Alt+W" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_TEXT_TOOL_KEY" longDesc="Activate the Text Tool." order="256" overridable="true" slot="onActionChooseTextTool()" text="Text Tool" >
+   <valueList flavour="Adobe Flash" value="Alt+T" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+9" />
+   <valueList flavour="Toon Boom Studio" value="Alt+T" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_SMOOTH_EDITOR_TOOL_KEY" longDesc="Activate the Smooth Editor Tool." order="256" overridable="true" slot="onActionChooseSpSmoothEditingTool()" text="Smooth Editor Tool" value="" />
+  <shortcut checkable="true" condition="premium" id="DRAWING_REPOSITION_ALL_DRAWING_TOOL_KEY" longDesc="Activate the Reposition All Drawings Tool." order="256" overridable="true" slot="onActionChooseRepositionAllDrawingsTool()" text="Reposition All Drawings Tool" value="" />
+  <shortcut checkable="true" id="CANVAS_HAND_TOOL_KEY" longDesc="Activate the Hand Tool." order="256" overridable="true" slot="onActionChooseGrabberTool()" text="Hand Tool" />
+  <shortcut checkable="true" id="CANVAS_ROTATE_TOOL_KEY" longDesc="Activate the Rotate View Tool." order="256" overridable="true" slot="onActionChooseRotateTool()" text="Rotate View Tool" />
+
+  <shortcut id="DRAWING_SELECT_WITH_CURRENT_COLOR_KEY" longDesc="This is the shortcut key to select all drawing objects in the active layer(s) of a drawing that are coloured with the current colour." slot="onActionSelectAllCurrentColor()" text="Select Strokes with Current Colour" >
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Alt+S" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+A" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+A" />
+  </shortcut>
+  <shortcut id="DRAWING_SELECT_WITH_CURRENT_PENCILTEXTURE_KEY" longDesc="This is the shortcut key to select all drawing objects in the active layer(s) of a drawing that used the current pencil texture." slot="onActionSelectAllCurrentPencilTexture()" text="Select Strokes with Current Pencil Texture" />
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_APPLY_TO_VISIBLE_ELEMENTS_TOGGLE_KEY" longDesc="Turn on and off the Apply to Visible Drawing Layers mode. When Apply to Visible Drawing Layers is on, some operations will apply to all visible drawing layers in the Camera View." slot="onActionToggleApplyToVisibleElements()" text="Apply Tool to Visible Drawing Layers" />
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_APPLY_TO_LINKED_ELEMENTS_TOGGLE_KEY" longDesc="Turn on and off the Apply to Synced Drawing Layers mode. When Apply to Synced Drawing Layers is on, some operations will apply to the current drawing layer and all layers synced with that layer in the Camera View." slot="onActionToggleApplyToLinkedElements()" text="Apply Tool to Synced Drawing Layers" />
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_APPLY_TO_ALL_FRAMES_TOGGLE_KEY" longDesc="Turn on and off the Apply to All Frames mode. When Apply to All Frames is on, some operations will apply to all frames on the selected drawing layers." slot="onActionToggleApplyToAllFrames()" text="Apply Tool to All Frames" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+A" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+A" />
+   <valueList flavour="Toon Boom Studio" value="Alt+A" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_APPLY_TO_ONION_SKIN_FRAMES_TOGGLE_KEY" longDesc="Turn on and off the Apply to Onion Skin Range mode. When Apply to Onion Skin Range is on, some operations will apply to all the drawings visible in the onion skin." slot="onActionToggleApplyToOnionSkinFrames()" text="Apply Tool to Onion Skin Range" />
+  
+  <shortcut checkable="true" condition="hasRespectStickyColor" id="DRAWING_RESPECT_STICKY_COLOR_TOGGLE_KEY" longDesc="Turn on and off the Respect Sticky Colours option. When Respect Sticky Colours is on, you cannot change the colour of objects painted with sticky colours." slot="onActionRespectStickyColor()" text="Toggle Protect Colours" >
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Alt+Shift+P" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+S" />
+   <valueList flavour="Adobe Flash" value="Shift+S" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_LINE_BUILDING_MODE_TOGGLE_KEY" longDesc="Turn on and off the Pencil Tool Line Building Mode.  This mode allows to append new pencil strokes to existing one when drawing with the Pencil Tool and Line Tool." slot="onActionToggleLineBuildingMode()" text="Toggle Line Building Mode" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_MERGE_PENCIL_LINES" longDesc="Shortcut to merge selected pencil lines into a single pencil line." slot="onActionMergeLineStyle()" text="Merge Pencil Lines" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_CLOSE_GAP_TOOL_KEY" longDesc="Activate the Close Gap Tool." order="256" overridable="true" slot="onActionChooseCloseGapTool()" text="Close Gap Tool" value="Alt+C" />
+  <shortcut checkable="true" id="DRAWING_STROKE_TOOL_KEY" longDesc="Activate the Stroke Tool." order="256" overridable="true" slot="onActionChooseStrokeTool()" text="Stroke Tool" >
+   <valueList flavour="Adobe Flash" value="Alt+/" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+V" />
+   <valueList flavour="Toon Boom Studio" value="Alt+V" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_REPAINT_BRUSH_TOOL_KEY" longDesc="Activate the Brush Tool in Repaint Mode." order="256" overridable="true" slot="onActionChooseBrushToolInRepaintBrushMode()" text="Repaint Brush Tool" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+X" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut checkable="true" condition="hasInkTool" id="DRAWING_INK_TOOL_KEY" longDesc="Activate the Ink Tool." order="256" overridable="true" slot="onActionChooseInkTool()" text="Ink Tool" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_ZOOM_TOOL_KEY" longDesc="Activate Zoom Tool temporarily or permanently if pressed with ALT." order="256" overridable="true" slot="onActionChooseZoomTool()" text="Zoom Tool" >
+   <valueList flavour="Toon Boom Studio" value="Alt+5" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+Z" />
+   <valueList flavour="Adobe Flash" value="Alt+Z" />
+  </shortcut>
+  <shortcut checkable="true" condition="not harmonySketch and not essentials and not advanced" id="DRAWING_MAGNIFY_OVERRIDE_KEY" longDesc="Activate Magnifier temporarily or toggle it permanently if pressed with ALT." order="256" overridable="true" slot="onActionToggleMagnifier" text="Activate Magnifier" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut condition="full and not (essentials or advanced or harmonySketch)" id="Return to Normal Mode" longDesc="Close the Desk in the Drawing View" overridable="true" slot="onActionReturnToNormalMode()" text="Close Desk" value="Alt+J" />
+  <shortcut condition="not (essentials or advanced or harmonySketch)" id="DRAWING_SHOW_SCAN_INFO" longDesc="Show/hide the panel that display the scan info for the selected drawing in the drawing view." text="Show Scan Info Panel" value="" />
+  <shortcut checkable="true" id="DRAWING_SHOW_GRID_KEY" longDesc="Show/hide the Drawing View grid by default." slot="onActionShowGrid()" text="Show Grid" >
+   <valueList flavour="Toon Boom Studio" value="G" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+'" />
+   <valueList flavour="Adobe Flash" value="Ctrl+'" />
+  </shortcut>
+  <shortcut checkable="true" condition="not paint and hasPivotTool" id="TOGGLE_SHOW_SYMBOL_PIVOT" longDesc="Show/hide the Current Symbol Pivot." slot="onActionToggleShowSymbolPivot()" text="Show Symbol Pivot" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut condition="not essentials" id="DRAWING_SHOW_GRID_OUTLINE_KEY" longDesc="Toggle between the display of the drawing view grid in outline or full field chart mode." slot="onActionFieldGridBox()" text="Show Grid Outline Only" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+G" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_OS_TOGGLE_KEY" longDesc="Toggles on and off the onion skin." responder="onionSkinResponder" slot="onActionOnionSkinToggle()" text="Show/Hide Onion Skin" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+O" />
+   <valueList flavour="Toon Boom Harmony" value="Alt+O" />
+   <valueList flavour="Toon Boom Studio" value="Alt+=" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_OS_PREV_0_KEY" longDesc="The shortcut key that activates the No Previous Drawings command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkinNoPrevDrawings()" text="Onion Skin: No Previous" >
+   <valueList flavour="Toon Boom Studio" value="Shift+Q" />
+   <valueList flavour="Toon Boom Harmony" value="~" />
+   <valueList flavour="Adobe Flash" value="~" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_OS_PREV_1_KEY" longDesc="The shortcut key that activates the Previous Drawing command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkin1PrevDrawing()" text="Onion Skin: 1 Previous" >
+   <valueList flavour="Toon Boom Studio" value="Q" />
+   <valueList flavour="Toon Boom Harmony" value="!" />
+   <valueList flavour="Adobe Flash" value="!" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_OS_PREV_2_KEY" longDesc="The shortcut key that activates the Previous Two Drawings command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkin2PrevDrawings()" text="Onion Skin: 2 Previous" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="@" />
+   <valueList flavour="Adobe Flash" value="@" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_OS_PREV_3_KEY" longDesc="The shortcut key that activates the Previous Three Drawings command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkin3PrevDrawings()" text="Onion Skin: 3 Previous" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="#" />
+   <valueList flavour="Adobe Flash" value="#" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_OS_NEXT_0_KEY" longDesc="The shortcut key that activates the No Next Drawings command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkinNoNextDrawings()" text="Onion Skin: No Next" value_mac="Meta+`" >
+   <valueList flavour="Toon Boom Studio" value="Shift+W" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+`" />
+   <valueList flavour="Adobe Flash" value="Ctrl+`" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_OS_NEXT_1_KEY" longDesc="The shortcut key that activates the Next Drawing command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkin1NextDrawing()" text="Onion Skin: 1 Next" >
+   <valueList flavour="Toon Boom Studio" value="W" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+1" />
+   <valueList flavour="Adobe Flash" value="Ctrl+1" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_OS_NEXT_2_KEY" longDesc="The shortcut key that activates the Next Two Drawings command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkin2NextDrawings()" text="Onion Skin: 2 Next" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+2" />
+   <valueList flavour="Adobe Flash" value="Ctrl+2" />
+  </shortcut>
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_OS_NEXT_3_KEY" longDesc="The shortcut key that activates the Next Three Drawings command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkin3NextDrawings()" text="Onion Skin: 3 Next" >
+   <valueList flavour="Toon Boom Studio" value="" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+3" />
+   <valueList flavour="Adobe Flash" value="Ctrl+3" />
+  </shortcut>
+  <shortcut id="DRAWING_OS_REDUCE_PREV_KEY" longDesc="The shortcut key that activates the Reduce One Previous Drawing command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkinReducePrevDrawing()" text="Onion Skin: Reduce 1 Previous" />
+  <shortcut id="DRAWING_OS_ADD_PREV_KEY" longDesc="The shortcut key that activates the Add One Previous Drawing command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkinAddPrevDrawing()" text="Onion Skin: Add 1 Previous" />
+  <shortcut id="DRAWING_OS_REDUCE_NEXT_KEY" longDesc="The shortcut key that activates the Reduce One Next Drawing command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkinReduceNextDrawing()" text="Onion Skin: Reduce 1 Next" />
+  <shortcut id="DRAWING_OS_ADD_NEXT_KEY" longDesc="The shortcut key that activates the Add One Next Drawing command for the onion skin." responder="onionSkinResponder" slot="onActionOnionSkinAddNextDrawing()" text="Onion Skin: Add 1 next" />
+  <shortcut checkable="true" id="DRAWING_AUTO_LIGHT_TABLE_KEY" longDesc="The shortcut key that activates the Auto Light Table command." slot="onActionAutoLightTable()" text="Light Table" >
+   <valueList flavour="Toon Boom Studio" value="L" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+L" />
+   <valueList flavour="Adobe Flash" value="Shift+L" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_PERSPECTIVE_TOOL_KEY" longDesc="This is the shortcut for the drawing perspective tool." order="256" overridable="true" slot="onActionChoosePerspectiveTool()" text="Perspective Tool" value="Alt+0" />
+  <shortcut checkable="true" condition="hasPivotTool" id="DRAWING_PIVOT_TOOL_KEY" longDesc="This is the shortcut for the pivot tool." order="256" overridable="true" slot="onActionChoosePivotTool()" text="Drawing Pivot Tool" >
+   <valueList flavour="Toon Boom Harmony" value="Shift+P" />
+   <valueList flavour="Adobe Flash" value="" />
+  </shortcut>
+  <shortcut condition="full and hasMorphing" id="DRAWING_SHOW_OTHER_DRAWING_THUMBNAIL_KEY" longDesc="Shortcut to toggle the display of other drawing of a morphing sequence in a thumbnail" slot="onActionShowOtherDrawingThumbnail()" text="Show Other Morphing Key Drawing" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+M" />
+   <valueList flavour="Adobe Flash" value="=" />
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Alt+Shift+M" />
+  </shortcut>
+  <shortcut id="DT_CONTOUR_EDITOR_TOGGLE_ROTATION_AND_SCALE_VISIBILITY" longDesc="Show/Hide Rotation and Scale Controls" slot="onActionContourEditorShowAllControls()" text="Show/Hide Contour Editor Controls" >
+   <valueList flavour="Toon Boom Harmony" value="Alt+F5" />
+   <valueList flavour="Adobe Flash" value="Alt+F5" />
+  </shortcut>
+  <shortcut id="RESIZE_PEN_STYLE_TOOL_KEY" longDesc="This is the shortcut for the tool to resize pencil." text="Resize Pencil Style Tool" value="O" />
+  <shortcut condition="not essentials" id="DRAWING_DRAW_TOP_LAYER_KEY" longDesc="This shortcut cycles through the different drawing modes: Normal, Flatten Latest and Auto Flatten." slot="onActionDrawTopLayerCycle()" text="Cycle Through Flatten Drawing Modes" value="" />
+  <shortcut condition="not essentials" id="DRAWING_FLATTEN_AND_REMOVE_EXTRA_STROKES" longDesc="Shortcut to flatten and remove the extra strokes" slot="onActionFlattenAndRemoveInvisibleLines()" text="Flatten and Remove Extra Strokes" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+F" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+F" />
+  </shortcut>
+  <shortcut checkable="false" condition="hasAdvancedArtMode and not essentials" id="DRAWING_COLOR_ART_ON_BRUSH" longDesc="Shortcut to toggle the Create Colour Art on Brush switch" slot="onActionToggleCreateColorArtOnBrush()" text="Auto-Create Colour Art from Brush" value="Shift+F2" />
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_TOOL_TO_ALL_LAYERS" longDesc="Turn on and off the Apply to Line and Colour Art mode. When Apply to Line and Colour Art is on, some operations will apply to all art layers of the drawing." slot="onActionToggleApplyToolToAllLayers()" text="Apply Tool to Line and Colour Art" >
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Shift+C" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+Q" />
+   <valueList flavour="Adobe Flash" value="Shift+Q" />
+  </shortcut>
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_REMOVE_DIRT" longDesc="Shortcut to call the remove dirt function" slot="onActionRemoveDirt()" text="Remove Dirt" value="Shift+D" />
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_DELETE_SELECTION_KEY" longDesc="Removes art inside selection on current drawing" slot="onActionDeleteSelection()" text="Removes art inside selection" value="" />
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_DELETE_SELECTION_ALL_DRAWINGS_KEY" longDesc="Removes art inside selection on all drawings" slot="onActionDeleteSelectionAllDrawings()" text="Removes art inside selection on all drawings" value="" />
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_DELETE_NON_SELECTION_KEY" longDesc="Removes art outside selection on current drawing" slot="onActionDeleteNonSelection()" text="Removes art outside selection" value="" />
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_DELETE_NON_SELECTION_ALL_DRAWINGS_KEY" longDesc="Removes art outside selection on all drawings" slot="onActionDeleteNonSelectionAllDrawings()" text="Removes art outside selection on all drawings" value="" />
+  <shortcut checkable="true" condition="not essentials" id="DRAWING_PAINT_OVER_TEXTURE" longDesc="Shortcut to toggle the Paint Over Texture switch" slot="onActionTogglePaintOverTexture()" text="Paint and Remove Texture" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+F6" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+F6" />
+   <valueList flavour="Toon Boom Studio" value="Shift+F6" />
+  </shortcut>
+  <shortcut checkable="true" id="DRAWING_EDIT_TEXTURE" longDesc="Activate the Edit Texture/Gradient Tool" order="256" slot="onActionChooseEditTransformTool()" text="Edit Texture/Gradient Tool" >
+   <valueList flavour="Adobe Flash" value="Shift+F" />
+   <valueList flavour="Toon Boom Harmony" value="Shift+F3" />
+   <valueList flavour="Toon Boom Studio" value="Shift+F3" />
+  </shortcut>
+  <shortcut condition="not essentials" id="DRAWING_CLOSE_GAP_DIALOG" longDesc="Pops up a dialog to adjust the size of gaps to be closed all at once." slot="onActionCloseGap()" text="Close Gap Interactive Tool" value="Shift+F10" value_mac="" />
+  <shortcut condition="not essentials and not harmonySketch" id="DRAWING_REMOVE_HAIR" longDesc="Pops a dialog to adjust the length of hair to be removed." slot="onActionRemoveHair()" text="Remove Hair" value="" value_mac="" />
+  <shortcut condition="not essentials" id="DRAWING_STROKE_TO_PENCIL" longDesc="Convert selected (invisible) strokes to pencil lines." slot="onActionStrokeToPencil()" text="Convert Strokes to Pencil Lines" value="Shift+F12" value_mac="" />
+  <shortcut checkable="true" condition="full and hasMorphing" id="DRAWING_MORPHING_TOOL" longDesc="This is the shortcut for the drawing morphing tool." order="256" slot="onActionChooseMorphTool()" text="Morphing Tool" value="F3" />
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_FIRST_FRAME" longDesc="First Frame" slot="onActionMorphFirstFrame()" text="First Frame" value="" value_mac="" />
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_SHOW_TOGGLE_DRAWING" longDesc="Show/Toggle Drawing" slot="onActionMorphSwitchKeyDrawing()" text="Toggle Morphing Key Drawings" value="F4" />
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_PREVIOUS_FRAME" longDesc="Go to Previous Morphing Frame" slot="onActionMorphPreviousFrame()" text="Go to Previous Morphing Frame" value="" />
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_NEXT_FRAME" longDesc="Go to Next Morphing Frame" slot="onActionMorphNextFrame()" text="Go to Next Morphing Frame" value="" />
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_DELETE_ALL_HINTS" longDesc="Delete All Morphing Hints" slot="onActionDeleteAllHints()" text="Delete All Morphing Hints" value="Shift+Delete" />
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_DELETE_HINT_MODE" longDesc="Select Delete Morphing Hint Mode" slot="onActionDeleteSelectedHint()" text="Select Delete Morphing Hint Mode" value="Delete" />
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_CREATE_ZONE_HINT_MODE" longDesc="Zone Hint Mode" slot="onActionZoneHintMode()" text="Select Morphing Zone Hint Mode" value="" />
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_CREATE_PARAMETER_HINT_MODE" longDesc="Contour Hint Mode" slot="onActionContourHintMode()" text="Select Morphing Contour Hint Mode" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+H" />
+   <valueList flavour="Toon Boom Harmony" value="F7" />
+   <valueList flavour="Toon Boom Studio" value="F7" />
+  </shortcut>
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_CREATE_PENCIL_HINT_MODE" longDesc="Pencil Hint Mode" slot="onActionPencilHintMode()" text="Enable Morphing Pencil Hint Mode" value="" />
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_SUGGEST_HINTS" longDesc="Suggest Hints" slot="onActionMorphSuggestHints()" text="Suggest Morphing Hints" value="" />
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_CREATE_APPEARING_HINT_MODE" longDesc="Appearing Point Mode" slot="onActionAppearingPointHintMode()" text="Select Morphing Appearing Point Mode" value="" value_mac="" />
+  <shortcut condition="full and hasMorphing" id="DT_MORPH_CREATE_VANISHING_HINT_MODE" longDesc="Vanishing Point Mode" slot="onActionVanishingPointHintMode()" text="Select Morphing Vanishing Point Mode" value="F10" value_mac="" />
+  <shortcut checkable="false" id="DRAWING_BRING_TO_FRONT_KEY" longDesc="Bring the selected drawing element to the front." slot="onActionBringToFront()" text="Bring To Front" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+Up" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+PgUp" />
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Up" />
+  </shortcut>
+  <shortcut checkable="false" id="DRAWING_BRING_FORWARD_KEY" longDesc="Bring the selected drawing element one step forward." slot="onActionBringForward()" text="Bring Forward" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+PgUp" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Up" />
+   <valueList flavour="Toon Boom Studio" value="Shift+Up" />
+  </shortcut>
+  <shortcut checkable="false" id="DRAWING_SEND_BACKWARD_KEY" longDesc="Send the selected drawing element one step backward." slot="onActionSendBackward()" text="Send Backward" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+PgDown" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Down" />
+   <valueList flavour="Toon Boom Studio" value="Shift+Down" />
+  </shortcut>
+  <shortcut checkable="false" id="DRAWING_SEND_TO_BACK_KEY" longDesc="Send the selected drawing element to the back." slot="onActionSendToBack()" text="Send To Back" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+Down" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+PgDown" />
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Down" />
+  </shortcut>
+  <shortcut checkable="false" id="DRAWING_BRUSH_TO_PENCIL" longDesc="Convert Brush to Pencil." slot="onActionExtractCenterLine()" text="Convert Brush Strokes to Pencil Lines" >
+   <valueList flavour="Toon Boom Studio" value="Alt+^" />
+   <valueList flavour="Toon Boom Harmony" value="^" />
+   <valueList flavour="Adobe Flash" value="^" />
+  </shortcut>
+  <shortcut id="DRAWING_PENCIL_TO_BRUSH" longDesc="Convert Pencil Lines to Brush." slot="onActionPencilToBrush()" text="Convert Pencil Lines to Brush Strokes" >
+   <valueList flavour="Toon Boom Studio" value="Alt+&amp;" />
+   <valueList flavour="Toon Boom Harmony" value="&amp;" />
+   <valueList flavour="Adobe Flash" value="&amp;" />
+  </shortcut>
+  <shortcut checkable="false" condition="hasAdvancedArtMode" id="DRAWING_LINE_ART_TO_COLOR_ART" longDesc="Line Art To Colour Art." slot="onActionLineArtToColorArt()" text="Create Colour Art from Line Art" value="*" />
+  <shortcut checkable="false" condition="(advanced or premium)" id="DRAWING_CREATE_BREAKING_TRIANGLES" longDesc="Create Breaking Triangles." slot="onActionCreateBreakingTriangles()" text="Create Breaking Triangles" value="" />
+  <shortcut checkable="false" id="DRAWING_SMOOTH" longDesc="Smooth." slot="onActionSmooth()" text="Smooth" value="Alt+Shift+S" />
+  <shortcut checkable="false" id="DRAWING_FLATTEN" longDesc="Flatten." slot="onActionFlatten()" text="Flatten" value="Alt+Shift+F" />
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_CROP_BRUSH_TEXTURE" longDesc="Crop and optimize the brush textures." slot="onActionOptimizeTextures()" text="Crop Brush Textures" />
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_REDUCE_TEXTURE_RESOLUTION" longDesc="Reduce drawing texture resolution." slot="onActionReduceTextures()" text="Reduce Drawing Texture Resolution" />
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_AUTO_MATTE" longDesc="Generate Auto-Matte." slot="onActionGenerateAutoMatte()" text="Auto-Matte" value="" />
+  <shortcut condition="not essentials" id="CONVERT_TO_VECTOR_LAYER_KEY" value="" text="Convert to Vector Drawing..." longDesc="Vectorize the selected bitmap drawing(s) to generate a corresponding vector drawing(s)" slot="onActionConvertToVectorLayer()"/>
+  <shortcut id="CONVERT_TO_BITMAP_LAYER_KEY" value="" text="Convert to Bitmap Drawing" longDesc="Render the selected vector drawing(s) to generate a corresponding bitmap drawing(s)" slot="onActionConvertToBitmapLayer()"/>
+  <shortcut id="CHANGE_VECTOR_LAYER_RESOLUTION_KEY" value="" text="Change Vector Drawing Brush Resolution" longDesc="Change the brush resolution for the selected vector drawing(s)" slot="onActionChangeVectorLayerResolution()"/>
+  <shortcut id="CHANGE_BITMAP_LAYER_RESOLUTION_KEY" value="" text="Change Bitmap Drawing Resolution" longDesc="Change the resolution for the selected bitmap drawing(s)" slot="onActionChangeBitmapLayerResolution()"/>
+  <shortcut checkable="false" condition="full" id="DRAWING_GROUP_KEY" longDesc="This is the shortcut key to group drawing objects in Drawing mode" slot="onActionGroup()" text="Group" value="Ctrl+G" />
+  <shortcut checkable="false" condition="full" id="DRAWING_UNGROUP_KEY" longDesc="This is the shortcut key to ungroup drawing objects in Drawing mode" slot="onActionUngroup()" text="Ungroup" >
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+G" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+G" />
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Shift+G" />
+  </shortcut>
+  <shortcut checkable="false" condition="full" id="DRAWING_FLIP_HORIZONTAL_KEY" longDesc="This is the shortcut key to flip horizontally drawing objects in Drawing mode." slot="onActionDrawingFlipHorizontal()" text="Flip Horizontal" value="" />
+  <shortcut checkable="false" condition="full" id="DRAWING_FLIP_VERTICAL_KEY" longDesc="This is the shortcut key to flip vertically drawing objects in Drawing mode." slot="onActionDrawingFlipVertical()" text="Flip Vertical" value="" />
+  <shortcut checkable="false" id="DRAWING_ROTATE_90CW" longDesc="Rotate the drawing 90 degrees clockwise." slot="onActionRotate90CW()" text="Rotate 90 CW" >
+   <valueList flavour="Adobe Flash" value="Ctrl+9" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+9" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="DRAWING_ROTATE_90CCW" longDesc="Rotate the drawing 90 degrees counterclockwise." slot="onActionRotate90CCW()" text="Rotate 90 CCW" >
+   <valueList flavour="Adobe Flash" value="Ctrl+7" />
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+7" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="DRAWING_ROTATE_180" longDesc="Rotate the drawing 180 degrees." slot="onActionRotate180()" text="Rotate 180" />
+  
+  <shortcut checkable="false" id="DRAWING_SNAP_ENABLED" longDesc="Turn on tool snapping to help with precise positioning or drawing." slot="onActionToggleSnapEnabled()" text="Snapping" value="" />  
+  <shortcut checkable="false" id="DRAWING_SNAP_TO_CONTOUR" longDesc="Snap to contour of drawings." slot="onActionToggleSnapToContour()" text="Snap to Contour" value="Ctrl+Alt+;" />
+  <shortcut checkable="false" id="DRAWING_SNAP_TO_BOUNDING_BOX" longDesc="Snap to edges and centre of drawings." slot="onActionToggleSnapToBoundingBoxes()" text="Snap and Align" value="Ctrl+Alt+," />
+  <shortcut checkable="false" id="DRAWING_SNAP_TO_ALIGNMENT_GUIDES" longDesc="Snap the selection or tool to the alignement guides in the view." slot="onActionToggleSnapToAlignmentGuides()" text="Snap to Alignment Guides" value="" />
+  <shortcut checkable="false" id="DRAWING_SNAP_TO_GRID" longDesc="Snap to the selected drawing grid." slot="onActionToggleSnapToGrid()" text="Snap to Grid" value="Ctrl+Alt+'" />
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_OPTIMIZE" longDesc="Combine the selected drawing's strokes." slot="onActionOptimize()" text="Optimize" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Alt+Shift+C" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Alt+Shift+C" />
+  </shortcut>
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_PERMANENT_SELECTION" longDesc="Selects drawings in the specified area for all frames in the scene." slot="onActionTogglePermanentSelection()" text="Permanent Selection" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+P" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+P" />
+  </shortcut>
+  <shortcut checkable="false" id="DRAWING_AUTO_FILL_INSIDE_REGIONS" longDesc="Automatically fill drawing shapes." slot="onActionAutoFillInsideRegions()" text="Automatically Fill Inside Regions" >
+   <valueList flavour="Toon Boom Harmony" value="Ctrl+Shift+R" />
+   <valueList flavour="Adobe Flash" value="Ctrl+Shift+R" />
+  </shortcut>
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_JOIN_PENCIL_LINE" longDesc="Join Pencil Lines." slot="onActionJoinPencilLine()" text="Join Pencil Lines" value="Alt+Shift+J" />
+  <shortcut checkable="false" condition="not essentials" id="DRAWING_SPLIT_PENCIL_LINE" longDesc="Split Pencil Line." slot="onActionSplitPencilLine()" text="Split Pencil Line" value="Alt+Shift+K" />
+  <shortcut checkable="false" id="DRAWING_INCREMENT_BRUSH_SIZE" longDesc="Increment Brush Size." slot="onActionIncrementBrushSize()" text="Increment Brush Size" value="" />
+  <shortcut checkable="false" id="DRAWING_DECREMENT_BRUSH_SIZE" longDesc="Decrement Brush Size." slot="onActionDecrementBrushSize()" text="Decrement Brush Size" value="" />
+  <shortcut checkable="true"   id="DRAWING_BRUSH_DRAW_BEHIND_MODE" longDesc="Toggle the Draw Behind mode for the current tool" slot="onActionToggleDrawBehindMode()" text="Draw Behind" value="" />
+ </category>
+
+ // Function Editor
+ <category condition="not scan and not paint and not harmonySketch" id="Function Editor" text="Function Editor" >
+  <shortcut condition="not paint" id="FNC_EDITOR_LOCK" longDesc="In Function Editors, this shortcut key locks control points to a frame number or unlocks a key frame." slot="onActionLockPoint()" text="Lock/Unlock Point" value="" />
+  <shortcut condition="not paint" id="FE_ZOOM_IN_X" longDesc="In Function Editors, the shortcut key to zoom in the X axis." slot="onActionZoomInX()" text="Zoom In X" value="4" />
+  <shortcut condition="not paint" id="FE_ZOOM_IN_Y" longDesc="In Function Editors, the shortcut key to zoom in the Y axis." slot="onActionZoomInY()" text="Zoom In Y" value="6" />
+  <shortcut condition="not paint" id="FE_ZOOM_OUT_X" longDesc="In Function Editors, the shortcut key to zoom out in the X axis." slot="onActionZoomOutX()" text="Zoom Out X" value="3" />
+  <shortcut condition="not paint" id="FE_ZOOM_OUT_Y" longDesc="In Function Editors, the shortcut key to zoom out the Y axis." slot="onActionZoomOutY()" text="Zoom Out Y" value="5" />
+  <shortcut condition="not paint" id="FE_TOGGLE_GRID" longDesc="In Function Editors, the shortcut key to display grid." slot="onActionToggleGrid()" text="Toggle Grid" value="G" />
+  <shortcut condition="not paint" id="FE_INSERT_POINT" longDesc="In Function Editors, the shortcut key to insert a point." slot="onActionInsertPoint()" text="Insert Point" value="i" />
+  <shortcut condition="not paint" id="FE_SELECT_NEXT" longDesc="This is the shortcut to select the next keyframe." slot="onActionSelectNext()" text="Select Next KeyFrame" value="'" />
+  <shortcut condition="not paint" id="FE_SELECT_PREV" longDesc="This is the shortcut to select the previous keyframe." slot="onActionSelectPrev()" text="Select Prev KeyFrame" value=";" />
+  <shortcut condition="not paint" id="FE_SELECT_LEFT_HANDLE_KEY" longDesc="This is the shortcut to select the left handle of a selected keyframe." slot="onActionSelectLeftHandle()" text="Select Left Handle" value="[" />
+  <shortcut condition="not paint" id="FE_SELECT_RIGHT_HANDLE_KEY" longDesc="This is the shortcut to select the right handle of a selected keyframe." slot="onActionSelectRightHandle()" text="Select Right Handle" value="]" />
+  <shortcut condition="not paint and not scan" id="TOGGLE_CONST_SEG_KEY" longDesc="Shortcut key to toggle the Constant Segment attribute of a function keypoint.  In a 3D path, to hold on a position for a while, then jump to another position, set the corresponding segment constant in its velocity curve." slot="onActionToggleSegment()" text="Toggle Stop-Motion Segment" >
+   <valueList flavour="Toon Boom Studio" value="Ctrl+Alt+K" />
+   <valueList flavour="Toon Boom Harmony" value="S" />
+   <valueList flavour="Adobe Flash" value="S" />
+  </shortcut>
+ </category>
+
+ // Library
+ <category condition="not scan and not paint and not harmonySketch" id="Library" text="Library" >
+  <shortcut condition="full" id="LIBRARY_REFRESH" longDesc="Shortcut key that reloads the list of contents in the Library." slot="onActionFolderRefresh()" text="Refresh" value="F5" />
+  <shortcut condition="full" id="LIBRARY_RENAME" longDesc="Shortcut key that renames a library folder or template." slot="onActionRenameFolder()" text="Rename" value="" />
+  <shortcut condition="full" id="LB_LISTVIEW" longDesc="Shortcut key to turn on the list view." slot="onActionListView()" text="List" value="" />
+  <shortcut condition="full" id="LB_THUMBVIEW" longDesc="Shortcut key to turn on the thumbnail view." slot="onActionThumbView()" text="Thumbnails" value="" />
+  <shortcut condition="full" id="LB_DETAILVIEW" longDesc="Shortcut key to turn on the detail view" slot="onActionDetailView()" text="Details" value="" />
+ </category>
+
+ // Timeline Tagging
+ <category condition="not scan and not paint and hasTagging" id="Tagging" text="Tagging" >
+  <shortcut checkable="false" id="TAG_SELECTION" longDesc="This is the shortcut key to tag the selection." responder="timelineView, xsheetView" slot="onActionTag()" text="Tag Selection" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="UNTAG_SELECTION" longDesc="This is the shortcut key to untag the selection." responder="timelineView, xsheetView" slot="onActionUntag()" text="Untag Selection" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="UNTAG_ALL" longDesc="This is the shortcut key to untag all nodes." responder="timelineView, xsheetView" slot="onActionUntagAll()" text="Untag All" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="UNTAG_ALL_OTHERS" longDesc="This is the shortcut key to untag all nodes except the selection." responder="timelineView, xsheetView" slot="onActionUntagAllOthers()" text="Untag All Others" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+ </category>
+
+ // Tool Presets
+ <category condition="hasBrushPresetToolbar" id="Tool Presets" text="Tool Presets" >
+  <shortcut checkable="false" id="TOOL_PRESET_SHORTCUT_0" itemParameter="0" longDesc="Tool Preset Shortcut 1." responder="toolPresetView" slot="onActionActivatePreset(int)" text="Tool Preset Shortcut #01" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="TOOL_PRESET_SHORTCUT_1" itemParameter="1" longDesc="Tool Preset Shortcut 2." responder="toolPresetView" slot="onActionActivatePreset(int)" text="Tool Preset Shortcut #02" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="TOOL_PRESET_SHORTCUT_2" itemParameter="2" longDesc="Tool Preset Shortcut 3." responder="toolPresetView" slot="onActionActivatePreset(int)" text="Tool Preset Shortcut #03" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="TOOL_PRESET_SHORTCUT_3" itemParameter="3" longDesc="Tool Preset Shortcut 4." responder="toolPresetView" slot="onActionActivatePreset(int)" text="Tool Preset Shortcut #04" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="TOOL_PRESET_SHORTCUT_4" itemParameter="4" longDesc="Tool Preset Shortcut 5." responder="toolPresetView" slot="onActionActivatePreset(int)" text="Tool Preset Shortcut #05" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="TOOL_PRESET_SHORTCUT_5" itemParameter="5" longDesc="Tool Preset Shortcut 6." responder="toolPresetView" slot="onActionActivatePreset(int)" text="Tool Preset Shortcut #06" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="TOOL_PRESET_SHORTCUT_6" itemParameter="6" longDesc="Tool Preset Shortcut 7." responder="toolPresetView" slot="onActionActivatePreset(int)" text="Tool Preset Shortcut #07" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="TOOL_PRESET_SHORTCUT_7" itemParameter="7" longDesc="Tool Preset Shortcut 8." responder="toolPresetView" slot="onActionActivatePreset(int)" text="Tool Preset Shortcut #08" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="TOOL_PRESET_SHORTCUT_8" itemParameter="8" longDesc="Tool Preset Shortcut 9." responder="toolPresetView" slot="onActionActivatePreset(int)" text="Tool Preset Shortcut #09" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  <shortcut checkable="false" id="TOOL_PRESET_SHORTCUT_9" itemParameter="9" longDesc="Tool Preset Shortcut 10." responder="toolPresetView" slot="onActionActivatePreset(int)" text="Tool Preset Shortcut #10" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+ </category>
+ 
+ // 3D Graph View
+ <category condition="has3dSupport and hasSubnodeAnimation" id="3D Graph" text="3D Graph">
+  <shortcut id="3D_GRAPH_COLLAPSE_ALL" 
+    longDesc="Collapse all branches." 
+    order="256" 
+    responder="graphView" 
+    slot="onActionCollapseAll()" 
+    text="Collapse All Elements" >
+    <valueList flavour="Adobe Flash" value="0" />
+    <valueList flavour="Toon Boom Harmony" value="0" />
+    <valueList flavour="Toon Boom Studio" value="0" />
+  </shortcut>
+  
+  <shortcut id="3D_GRAPH_EXPAND_ALL" 
+    longDesc="Expand all branches." 
+    order="256" 
+    responder="graphView" 
+    slot="onActionExpandAll()" 
+    text="Expand All Elements" >
+    <valueList flavour="Adobe Flash" value="9" />
+    <valueList flavour="Toon Boom Harmony" value="9" />
+    <valueList flavour="Toon Boom Studio" value="9" />
+  </shortcut>
+   
+   <shortcut id="3D_GRAPH_COLLAPSE_SELECTION"
+     longDesc="Collapse selected branches."
+     order="256" 
+     responder="graphView"
+     slot="onActionCollapseSelection()"
+     text="Collapse Selection" >
+     <valueList flavour="Adobe Flash" value="" />
+     <valueList flavour="Toon Boom Harmony" value="" />
+     <valueList flavour="Toon Boom Studio" value="" />
+   </shortcut>
+
+   <shortcut id="3D_GRAPH_EXPAND_SELECTION"
+     longDesc="Expand selected branches."
+     order="256"
+     responder="graphView"
+     slot="onActionExpandSelection()"
+     text="Expand Selection" >
+     <valueList flavour="Adobe Flash" value="" />
+     <valueList flavour="Toon Boom Harmony" value="" />
+     <valueList flavour="Toon Boom Studio" value="" />
+   </shortcut>
+  
+  <shortcut id="3D_GRAPH_ENABLE_SUB_NODE" 
+    longDesc="Enables the visibility of a selection of node(s)." 
+    order="256" 
+    responder="graph3dresponder" 
+    slot="onActionEnableSubnode()" 
+    text="Enable Subnode" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  
+  <shortcut id="3D_GRAPH_DISABLE_SUB_NODE" 
+    longDesc="Disables the visibility of a selection of node(s)." 
+    order="256" 
+    responder="graph3dresponder" 
+    slot="onActionDisableSubnode()" 
+    text="Disable Subnode" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  
+  <shortcut id="3D_GRAPH_MAKE_PROPERTIE_AVAILABLE" 
+    longDesc="Create transformation attributes for a subnode that didn't have any transformation before. 
+It automatically creates a corresponding subnode layer under the selected node layer in the timeline."
+    order="256" 
+    responder="graph3dresponder" 
+    slot="onActionCreateSubNodeTransformation()" 
+    text="Make Properties Available" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+     
+  <shortcut id="3D_GRAPH_ADD_3D_KINEMATIC_OUTPUT" 
+    longDesc="Add a 3D Kinematic Output under the selected node and set its filter to the selected subnode key.
+The name added 3D Kinematic Output will be the name of the selected subnode plus &quot;-Output&quot; appended to it."
+    order="256" 
+    responder="graph3dresponder" 
+    slot="onActionAddSubTransformationFilter()" 
+    text="Add 3D Kinematic Output" >
+   <valueList flavour="Adobe Flash" value="" />
+   <valueList flavour="Toon Boom Harmony" value="" />
+   <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  
+  <shortcut id="3D_GRAPH_SELECT_PARENT" 
+    longDesc="The current selection will move to its subnode parent." 
+    order="256" 
+    responder="graph3dresponder" 
+    slot="onActionSelectParent()" 
+    text="Select Parent Subnode" >
+    <valueList flavour="Adobe Flash" value="" />
+    <valueList flavour="Toon Boom Harmony" value="" />
+    <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  
+  <shortcut id="3D_GRAPH_SELECT_CHILD" 
+    longDesc="The current selection will move to its first subnode child." 
+    order="256" 
+    responder="graph3dresponder" 
+    slot="onActionSelectChild()" 
+    text="Select Child Subnodes" >
+    <valueList flavour="Adobe Flash" value="" />
+    <valueList flavour="Toon Boom Harmony" value="" />
+    <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  
+  <shortcut id="3D_GRAPH_SELECT_NEXT_SIBLING" 
+    longDesc="The current selection will go to the next sibling subnode on the same level and under the same parent subnode." 
+    order="256" 
+    responder="graph3dresponder" 
+    slot="onActionSelectNextSibling()" 
+    text="Select Next Sibling Subnode" >
+    <valueList flavour="Adobe Flash" value="" />
+    <valueList flavour="Toon Boom Harmony" value="" />
+    <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+  
+  <shortcut id="3D_GRAPH_SELECT_PREVIOUS_SIBLING"
+    longDesc="The current selection will go to the previous sibling subnode on the same level and under the same parent subnode."
+    order="256"
+    responder="graph3dresponder"
+    slot="onActionSelectPreviousSibling()"
+    text="Select Previous Sibling Subnode" >
+    <valueList flavour="Adobe Flash" value="" />
+    <valueList flavour="Toon Boom Harmony" value="" />
+    <valueList flavour="Toon Boom Studio" value="" />
+  </shortcut>
+ </category>
+ 
+ <category condition="not essentials and hasShiftAndTraceTool" id="Shift and Trace" text="Shift and Trace">
+  <shortcut    
+    longDesc="Use the Shift and Trace Tool to change the position of drawings in the Camera View when Shift and Trace is enabled. If you assign 'Alt + a shortcut key', you can temporarily override the current tool by using only the shortcut key without the Alt modifier. Using Alt + key will activate the Shift and Trace tool." 
+    order="256" 
+    id="SHIFT_AND_TRACE_TOOL" 
+    responder="ShiftAndTraceToolResponder" 
+    slot="onActionSelectShiftAndTraceTool()" 
+    text="Shift and Trace Tool"
+    value="" />
+ </category>
+ 
+//SCRIPTS
+<category condition="not scan and not paint and hasTagging" id="Tween_Scripts" text="Scripts" >
+	<shortcut checkable="false" id="TWEEN_10"  itemParameter="tween_10 in AL_AddInBetween.js"  responder="scriptResponder" slot="onActionExecuteScript(QString)" text="TWEEN_10"  value="-"/>
+	<shortcut checkable="false" id="TWEEN_20"  itemParameter="tween_20 in AL_AddInBetween.js"  responder="scriptResponder" slot="onActionExecuteScript(QString)" text="TWEEN_20"  value="è"/>
+	<shortcut checkable="false" id="TWEEN_30"  itemParameter="tween_30 in AL_AddInBetween.js"  responder="scriptResponder" slot="onActionExecuteScript(QString)" text="TWEEN_30"  value="_"/>
+	<shortcut checkable="false" id="TWEEN_50"  itemParameter="tween_50 in AL_AddInBetween.js"  responder="scriptResponder" slot="onActionExecuteScript(QString)" text="TWEEN_50"  value="ç"/>
+	<shortcut checkable="false" id="TWEEN_70"  itemParameter="tween_70 in AL_AddInBetween.js"  responder="scriptResponder" slot="onActionExecuteScript(QString)" text="TWEEN_70"  value="à"/>
+	<shortcut checkable="false" id="TWEEN_80"  itemParameter="tween_80 in AL_AddInBetween.js"  responder="scriptResponder" slot="onActionExecuteScript(QString)" text="TWEEN_80"  value=")"/>
+	<shortcut checkable="false" id="TWEEN_90"  itemParameter="tween_90 in AL_AddInBetween.js"  responder="scriptResponder" slot="onActionExecuteScript(QString)" text="TWEEN_90"  value=")"/>
+	<shortcut checkable="false" id="TWEEN_120"  itemParameter="tween_120 in AL_AddInBetween.js"  responder="scriptResponder" slot="onActionExecuteScript(QString)" text="TWEEN_120"  value="="/>
+	<shortcut checkable="false" id="TWEEN_-30"  itemParameter="tween_minus30 in AL_AddInBetween.js"  responder="scriptResponder" slot="onActionExecuteScript(QString)" text="TWEEN_-30"  value="4"/>
+</category>
+ 
+</shortcuts>
