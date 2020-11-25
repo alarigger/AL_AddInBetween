@@ -56,6 +56,12 @@ function AL_AddInBetween(){
 
 /* FOR SEPARATED BUTTONS : */
 
+function tween_10(){
+	AddInBetween_process(10);
+}
+
+
+
 function tween_20(){
 	AddInBetween_process(20);
 }
@@ -140,8 +146,7 @@ function AddInBetween_process(POURCENTAGE){
 				node_list.push(Timeline.selToNode(i));
 			}
 		}
-		
-		MessageLog.trace(unique_array(node_list))
+
 		return unique_array(node_list);
 		
 	}
