@@ -7,6 +7,7 @@
 	Compatible : ToonBoom 20 
 	version : 1.1
 	Creation Date : 25_11_2020
+	Licence : Mozilla Public License Version 2.0
 
 
 	Adds a key between two keyframes with  interpolation factor. 
