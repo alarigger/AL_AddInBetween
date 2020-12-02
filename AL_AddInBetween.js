@@ -5,8 +5,8 @@
 
 	Author : Alexandre Cormier 
 	Compatible : ToonBoom 20 
-	version : 1.1
-	Creation Date : 25_11_2020
+	version : 1.2
+	Creation Date : 01_12_2020
 	Licence : Mozilla Public License Version 2.0
 
 
@@ -117,7 +117,7 @@ function AddInBetween_process(POURCENTAGE){
 
 	
 	nodes_to_treat = selected_layers_to_nodes();
-	nodes_to_treat = filter_nodes_by_type(nodes_to_treat,["PEG","CurveModule","OffsetModule","BendyBoneModule"])
+	nodes_to_treat = filter_nodes_by_type(nodes_to_treat,["PEG","CurveModule","OffsetModule","BendyBoneModule","FreeFormDeformation"])
 	columns_to_treat = fetch_colummns(nodes_to_treat)
 	columns_to_treat = filter_columns_by_type(columns_to_treat,["3DPATH","BEZIER","EASE","QUATERNIONPATH"]) // not supported : "QUATERNIONPATH"
 
@@ -518,6 +518,10 @@ function AddInBetween_process(POURCENTAGE){
 			
 			var attribute_name = attrList[i]
 			
+			MessageLog.trace("*****"+attribute_name);
+			
+
+			
 			var linked_column = node.linkedColumn(_node,attribute_name)
 			
 			if( linked_column !=""){
@@ -537,6 +541,8 @@ function AddInBetween_process(POURCENTAGE){
 
 	function getAttributesNameList (snode){
 		
+		MessageLog.trace(arguments.callee.name)
+		
 		var attrList = node.getAttrList(snode, frame.current(),"");
 		var name_list= Array();
 		
@@ -550,12 +556,14 @@ function AddInBetween_process(POURCENTAGE){
 			if(sub_attr.length > 0){
 				for (var j=0; j<sub_attr.length; j++){	
 					attrList.push(sub_attr[j]);
-					var sub_attr_name = a_name+"."+sub_attr[j].keyword()
+					var sub_attr_name = sub_attr[j].fullKeyword()
 					name_list.push(sub_attr_name);
 				}
 			}
-		
+			
 		}
+		
+		MessageLog.trace(name_list)
 		
 		return name_list;
 		
