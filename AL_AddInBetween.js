@@ -6,7 +6,7 @@
 	Author : Alexandre Cormier 
 	Compatible : ToonBoom 20 
 	version : 1.2
-	Creation Date : 25_11_2020
+	Creation Date : 14_11_2020
 	Licence : Mozilla Public License Version 2.0
 
 
