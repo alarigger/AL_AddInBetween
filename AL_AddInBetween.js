@@ -6,7 +6,7 @@
 	Author : Alexandre Cormier 
 	Compatible : ToonBoom 20 
 	version : 1.2
-	Creation Date : 01_12_2020
+	Creation Date : 25_11_2020
 	Licence : Mozilla Public License Version 2.0
 
 
@@ -18,7 +18,7 @@
 
 function AL_AddInBetween(){
 
-	MessageLog.trace(arguments.callee.name)
+	//MessageLog.trace(arguments.callee.name)
 
 	scene.beginUndoRedoAccum("AL_PurgePalettesFiles");
 	
@@ -28,7 +28,7 @@ function AL_AddInBetween(){
 	
 	function InputDialog (){
 		
-		MessageLog.trace(arguments.callee.name)
+		//MessageLog.trace(arguments.callee.name)
 	    var d = new Dialog
 	    d.title = "AL_AddInBetween";
 	    d.width = 100;
@@ -103,7 +103,7 @@ function tween_minus30(){
 
 function AddInBetween_process(POURCENTAGE){
 	
-	MessageLog.trace(arguments.callee.name)
+	//MessageLog.trace(arguments.callee.name)
 	
 	var selected_nodes = selection.selectedNodes(0);
 	var CURRENT_FRAME = frame.current();
@@ -135,7 +135,7 @@ function AddInBetween_process(POURCENTAGE){
 	
 	function selected_layers_to_nodes(){
 		
-		MessageLog.trace(arguments.callee.name)
+		//MessageLog.trace(arguments.callee.name)
 		
 		node_list = Array();
 		
@@ -154,10 +154,10 @@ function AddInBetween_process(POURCENTAGE){
 
 	function filter_nodes_by_type(nodes_list,relevant_types){
 		
-		MessageLog.trace(arguments.callee.name)
+		//MessageLog.trace(arguments.callee.name)
 		
-		MessageLog.trace(nodes_list);
-		MessageLog.trace(relevant_types);
+		//MessageLog.trace(nodes_list);
+		//MessageLog.trace(relevant_types);
 		var relevant_nodes = Array();
 
 		for(var n = 0 ; n < nodes_list.length; n++){ 
@@ -190,7 +190,7 @@ function AddInBetween_process(POURCENTAGE){
 	
 	function filter_columns_by_type (column_list,relevant_types){
 		
-		MessageLog.trace(arguments.callee.name)
+		//MessageLog.trace(arguments.callee.name)
 		
 		var filtered_list = Array();
 		
@@ -200,7 +200,7 @@ function AddInBetween_process(POURCENTAGE){
 					
 					filtered_list.push(column_list[i])
 					
-					MessageLog.trace(column.type(column_list[i]));
+					//MessageLog.trace(column.type(column_list[i]));
 					
 				}
 		}
@@ -211,7 +211,7 @@ function AddInBetween_process(POURCENTAGE){
 
 	function fetch_colummns(nodes_list){
 		
-		MessageLog.trace(arguments.callee.name)
+		//MessageLog.trace(arguments.callee.name)
 		
 		var columns_list = Array();
 		
@@ -239,8 +239,8 @@ function AddInBetween_process(POURCENTAGE){
 	
 	function treat_columns(_frame,column_list,factor){
 		
-		MessageLog.trace(arguments.callee.name)
-		MessageLog.trace(column_list)
+		//MessageLog.trace(arguments.callee.name)
+		//MessageLog.trace(column_list)
 		
 		for(var c = 0 ;c < column_list.length; c++){ 
 			
@@ -256,7 +256,7 @@ function AddInBetween_process(POURCENTAGE){
 	
 	function get_next_bezierkey(_column,_frame){
 		
-		MessageLog.trace(arguments.callee.name)
+		//MessageLog.trace(arguments.callee.name)
 
 		var key = false;
 		var s = 0;
@@ -264,7 +264,7 @@ function AddInBetween_process(POURCENTAGE){
 		for (var f = _frame ; f<=frame.numberOf();f++){
 				if(column.isKeyFrame(_column,s,f)){
 					
-					MessageLog.trace(f);
+					//MessageLog.trace(f);
 					key = column.getEntry(_column,s,f)
 					return key;
 					
@@ -281,7 +281,7 @@ function AddInBetween_process(POURCENTAGE){
 	
 	function get_previous_bezierkey(_column,_frame){
 		
-		MessageLog.trace(arguments.callee.name)
+		//MessageLog.trace(arguments.callee.name)
 
 		var key = false;
 		var s = 0;
@@ -290,7 +290,7 @@ function AddInBetween_process(POURCENTAGE){
 			
 				if(column.isKeyFrame(_column,s,f)){
 					
-					MessageLog.trace(f);
+					//MessageLog.trace(f);
 					key = column.getEntry(_column,s,f)
 					return key;
 					
@@ -308,7 +308,7 @@ function AddInBetween_process(POURCENTAGE){
 	
 	function get_next_3Dkey(_column,_frame){
 		
-		MessageLog.trace(arguments.callee.name)
+		//MessageLog.trace(arguments.callee.name)
 
 		sub_column = 4;
 		key = Array();
@@ -339,7 +339,7 @@ function AddInBetween_process(POURCENTAGE){
 	
 	function get_previous_3Dkey(_column,_frame){
 		
-		MessageLog.trace(arguments.callee.name)
+		//MessageLog.trace(arguments.callee.name)
 
 		sub_column = 4;
 		key = Array();
@@ -381,7 +381,7 @@ function AddInBetween_process(POURCENTAGE){
 			result = "-"+result;
 		}
 		
-		MessageLog.trace(" from "+tbv+"  to   "+result)
+		//MessageLog.trace(" from "+tbv+"  to   "+result)
 		
 		return parseFloat(result)
 		
@@ -397,7 +397,7 @@ function AddInBetween_process(POURCENTAGE){
 			
 			if(column.type(_column) =="3DPATH"){
 				
-				MessageLog.trace("3DPATH")
+				//MessageLog.trace("3DPATH")
 				
 				next_key = get_next_3Dkey(_column,CURRENT_FRAME)
 				previous_key = get_previous_3Dkey(_column,CURRENT_FRAME)
@@ -416,14 +416,14 @@ function AddInBetween_process(POURCENTAGE){
 				
 			}else{
 				
-				MessageLog.trace("BEZIER")
+				//MessageLog.trace("BEZIER")
 				
 				next_key = get_next_bezierkey(_column,CURRENT_FRAME)
 				previous_key = get_previous_bezierkey(_column,CURRENT_FRAME)
 				
 				if(next_key !== false && previous_key !==false){
 				
-					MessageLog.trace("ENTRY")
+					//MessageLog.trace("ENTRY")
 					new_key = interpolate_bezier(previous_key,next_key,_ratio)
 					column.setEntry(_column,0,CURRENT_FRAME,new_key);
 					//column.setEntry(_column,1,CURRENT_FRAME,new_key);
@@ -436,10 +436,10 @@ function AddInBetween_process(POURCENTAGE){
 			
 			column.setKeyFrame(_column,CURRENT_FRAME);
 			
-			MessageLog.trace(column.getDisplayName(_column))
-			MessageLog.trace("previous "+previous_key)
-			MessageLog.trace("next "+next_key)
-			MessageLog.trace("interpo "+new_key)
+			//MessageLog.trace(column.getDisplayName(_column))
+			//MessageLog.trace("previous "+previous_key)
+			//MessageLog.trace("next "+next_key)
+			//MessageLog.trace("interpo "+new_key)
 			
 			return new_key;
 			
@@ -479,7 +479,7 @@ function AddInBetween_process(POURCENTAGE){
 		result.push(p3.y);
 		result.push(p3.z);
 			
-		MessageLog.trace("new 3dpoint  "+result);
+		//MessageLog.trace("new 3dpoint  "+result);
 			
 		return result;
 		
@@ -502,7 +502,7 @@ function AddInBetween_process(POURCENTAGE){
 		
 		result = parseFloat(result)
 		
-		MessageLog.trace(" from "+tbv+"  to   "+result)
+		//MessageLog.trace(" from "+tbv+"  to   "+result)
 
 		return result
 		
@@ -518,7 +518,7 @@ function AddInBetween_process(POURCENTAGE){
 			
 			var attribute_name = attrList[i]
 			
-			MessageLog.trace("*****"+attribute_name);
+			//MessageLog.trace("*****"+attribute_name);
 			
 
 			
@@ -526,7 +526,7 @@ function AddInBetween_process(POURCENTAGE){
 			
 			if( linked_column !=""){
 				
-				MessageLog.trace(attribute_name);
+				//MessageLog.trace(attribute_name);
 
 				node_columns.push(linked_column);
 			}
@@ -541,7 +541,7 @@ function AddInBetween_process(POURCENTAGE){
 
 	function getAttributesNameList (snode){
 		
-		MessageLog.trace(arguments.callee.name)
+		//MessageLog.trace(arguments.callee.name)
 		
 		var attrList = node.getAttrList(snode, frame.current(),"");
 		var name_list= Array();
@@ -563,7 +563,7 @@ function AddInBetween_process(POURCENTAGE){
 			
 		}
 		
-		MessageLog.trace(name_list)
+		//MessageLog.trace(name_list)
 		
 		return name_list;
 		
